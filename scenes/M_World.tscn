@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-[gd_scene load_steps=48 format=3 uid="uid://cgjnst4kokuk3"]
-=======
-[gd_scene load_steps=50 format=3 uid="uid://cgjnst4kokuk3"]
->>>>>>> 7a65ccdcd00cf264618285c26df1c6f039c4fe74
+[gd_scene load_steps=47 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
-[ext_resource type="Shader" path="res://Shader/glow.gdshader" id="2_88s0x"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_myxg5"]
 [ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="3_sj4rk"]
@@ -45,11 +40,6 @@
 [ext_resource type="Texture2D" uid="uid://cbuf0cudanqxc" path="res://art/animations/character_idle_animation/CharIdle0030.png" id="32_63fby"]
 [ext_resource type="Texture2D" uid="uid://c4thh8t32egyi" path="res://art/animations/character_idle_animation/CharIdle0031.png" id="33_xid7m"]
 [ext_resource type="Texture2D" uid="uid://1abdq6ivd1lh" path="res://art/animations/character_idle_animation/CharIdle0032.png" id="34_pv7a2"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://ct7ieihxni57a" path="res://scenes/bubble.tscn" id="41_skvl3"]
-=======
-[ext_resource type="Script" path="res://Scripts/player_sprite_animation.gd" id="36_vlg0y"]
->>>>>>> 7a65ccdcd00cf264618285c26df1c6f039c4fe74
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
 radius = 70.0
@@ -66,11 +56,6 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvre4"]
-shader = ExtResource("2_88s0x")
-shader_parameter/intensity = 0.4
-shader_parameter/edge_fade = 0.5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3bme"]
 animations = [{
@@ -203,12 +188,6 @@ turbulence_influence_max = 0.03
 a = Vector2(-12, -224)
 b = Vector2(0, 220)
 
-[sub_resource type="Environment" id="Environment_vhewh"]
-background_mode = 3
-glow_enabled = true
-glow_intensity = 2.0
-glow_bloom = 0.2
-
 [node name="Node2D" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
@@ -252,10 +231,8 @@ text = "Press \"E\" to enter"
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
-material = SubResource("ShaderMaterial_mvre4")
 sprite_frames = SubResource("SpriteFrames_c3bme")
 autoplay = "default"
-script = ExtResource("36_vlg0y")
 
 [node name="Transportion2" type="Area2D" parent="."]
 script = ExtResource("6_gq65e")
@@ -322,59 +299,6 @@ shape = SubResource("SegmentShape2D_rgrqg")
 position = Vector2(0, -157)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ue00l")
-
-[node name="Bubble2" type="Sprite2D" parent="."]
-position = Vector2(-1025, -697)
-scale = Vector2(0.695322, 0.695322)
-texture = ExtResource("3_sj4rk")
-script = ExtResource("3_uj7nj")
-
-<<<<<<< HEAD
-[node name="Ground-main" type="Sprite2D" parent="Bubble2"]
-visible = false
-position = Vector2(0, 200)
-texture = ExtResource("4_1spml")
-
-[node name="Ground_Collider" type="StaticBody2D" parent="Bubble2"]
-visible = false
-position = Vector2(-3.5, 213)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble2/Ground_Collider"]
-polygon = PackedVector2Array(-400.5, -213, -355.5, -209, -313.5, -194, -289.5, -171, -273.5, -144, -242.5, -123, -190.5, -120, -112.5, -136, -31.5, -153, 32.5, -157, 116.5, -140, 204.5, -122, 251.5, -129, 299.5, -159, 359.5, -212, 370.5, -214, 407.5, -214, 402.5, -147, 383.5, -82, 365.5, -38, -350.5, -23, -373.5, -72, -392.5, -133)
-
-[node name="Wall" type="CollisionShape2D" parent="Bubble2/Ground_Collider"]
-position = Vector2(-395.5, -252)
-shape = SubResource("SegmentShape2D_rgrqg")
-
-[node name="Wall2" type="CollisionShape2D" parent="Bubble2/Ground_Collider"]
-position = Vector2(411.5, -252)
-shape = SubResource("SegmentShape2D_rgrqg")
-
-=======
->>>>>>> 7a65ccdcd00cf264618285c26df1c6f039c4fe74
-[node name="Bubble4" type="Sprite2D" parent="."]
-position = Vector2(1007, -682)
-scale = Vector2(0.50531, 0.50531)
-texture = ExtResource("3_sj4rk")
-script = ExtResource("3_uj7nj")
-
-[node name="Bubble3" type="Sprite2D" parent="."]
-position = Vector2(1349.16, 461.158)
-scale = Vector2(0.694368, 0.694368)
-texture = ExtResource("3_sj4rk")
-script = ExtResource("3_uj7nj")
-
-[node name="Bubble5" type="Sprite2D" parent="."]
-position = Vector2(-1566, 203)
-scale = Vector2(0.50531, 0.50531)
-texture = ExtResource("3_sj4rk")
-script = ExtResource("3_uj7nj")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vhewh")
-
-[node name="bubble" parent="." instance=ExtResource("41_skvl3")]
-position = Vector2(13, -911)
 
 [connection signal="body_shape_entered" from="Transportion2" to="Transportion2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Transportion" to="Transportion" method="_on_body_shape_entered"]
