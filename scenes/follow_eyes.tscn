@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://502rlnoqluae"]
+[gd_scene load_steps=69 format=3 uid="uid://c0cu0b07dpvfj"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_2ntde"]
 [ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="1_m706a"]
@@ -60,6 +60,7 @@
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_ofpyc"]
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="56_o2p6w"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_du6yh"]
+[ext_resource type="AudioStream" uid="uid://dqkxs1cfxm0w7" path="res://art/sounds/eye_death.ogg" id="61_f4uob"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhvk0"]
 radius = 70.0
@@ -304,6 +305,10 @@ volume_db = -3.0
 [node name="BubbleTransportSound" type="AudioStreamPlayer2D" parent="player"]
 stream = ExtResource("57_du6yh")
 volume_db = -12.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("61_f4uob")
+volume_db = -6.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v2562")
