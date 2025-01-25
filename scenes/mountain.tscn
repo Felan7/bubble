@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=65 format=3 uid="uid://cqfamqvpxfrb7"]
 
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_d7p4g"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://de4elqj346fwj" path="res://art/sprites/BG_1.png" id="56_ns3fu"]
 [ext_resource type="Texture2D" uid="uid://iqhxotib50f7" path="res://art/sprites/Felsen_2.png" id="56_rvmqm"]
 [ext_resource type="Texture2D" uid="uid://ca0vk4ts77gnc" path="res://art/sprites/GGJ_Baum_2.png" id="57_1uytw"]
+[ext_resource type="Texture2D" uid="uid://qb5a6jxl0vsn" path="res://art/sprites/background_mountain.png" id="57_d3chd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4r8c"]
 radius = 79.0
@@ -247,6 +248,22 @@ corner_radius_bottom_left = 16
 
 [node name="mountain" type="Node2D"]
 
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="BackgroundMountain" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-640, -357)
+texture = ExtResource("57_d3chd")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(-6, -533)
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+
+[node name="Bg1" type="Sprite2D" parent="Parallax2D2"]
+texture = ExtResource("56_ns3fu")
+
 [node name="World_background2" type="Node2D" parent="."]
 
 [node name="Baum" type="Sprite2D" parent="World_background2"]
@@ -307,15 +324,6 @@ horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_m7jm3")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(2, 2)
-
-[node name="Bg1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(0, -373)
-texture = ExtResource("56_ns3fu")
 
 [node name="World_background" type="Node2D" parent="."]
 

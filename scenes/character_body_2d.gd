@@ -59,7 +59,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
-	print(Global.scene_completion_state)
 	move_and_slide()
 	if not in_transportation_mode and direction_x != 0 :
 		#is moving
