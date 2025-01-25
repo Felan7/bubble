@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iqhxotib50f7"
-path="res://.godot/imported/Felsen_2.png-c72a3f993b65c2a4ccca07985867328b.ctex"
+uid="uid://ca0vk4ts77gnc"
+path="res://.godot/imported/GGJ_Baum_2.png-0a1ae03a9195010aeed3850f8db4cd81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/Felsen_2.png"
-dest_files=["res://.godot/imported/Felsen_2.png-c72a3f993b65c2a4ccca07985867328b.ctex"]
+source_file="res://art/sprites/GGJ_Baum_2.png"
+dest_files=["res://.godot/imported/GGJ_Baum_2.png-0a1ae03a9195010aeed3850f8db4cd81.ctex"]
 
 [params]
 

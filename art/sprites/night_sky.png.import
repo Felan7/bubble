@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iqhxotib50f7"
-path="res://.godot/imported/Felsen_2.png-c72a3f993b65c2a4ccca07985867328b.ctex"
+uid="uid://b6sthxpniaoba"
+path="res://.godot/imported/night_sky.png-6fa661f980e9b0493f9aa078e06aed8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/Felsen_2.png"
-dest_files=["res://.godot/imported/Felsen_2.png-c72a3f993b65c2a4ccca07985867328b.ctex"]
+source_file="res://art/sprites/night_sky.png"
+dest_files=["res://.godot/imported/night_sky.png-6fa661f980e9b0493f9aa078e06aed8b.ctex"]
 
 [params]
 
