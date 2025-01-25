@@ -1,3 +1,45 @@
+<<<<<<<< HEAD:scenes/bubble_eyes.tscn
+[gd_scene load_steps=43 format=3 uid="uid://cssy8xplvc01o"]
+
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_niw1m"]
+[ext_resource type="PackedScene" uid="uid://clsytesf6iobh" path="res://scenes/eye_object.tscn" id="2_vkjck"]
+[ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="3_522bi"]
+[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="4_4g2q7"]
+[ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="5_r8vnk"]
+[ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="6_hwfln"]
+[ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="7_pvo6n"]
+[ext_resource type="Texture2D" uid="uid://bo1j4oxa42jse" path="res://art/animations/character_idle_animation/CharIdle0003.png" id="8_2e3n2"]
+[ext_resource type="Texture2D" uid="uid://wtl0hukbop5p" path="res://art/animations/character_idle_animation/CharIdle0004.png" id="9_fb212"]
+[ext_resource type="Texture2D" uid="uid://dhknkhwgw8vwn" path="res://art/animations/character_idle_animation/CharIdle0005.png" id="10_xa5sw"]
+[ext_resource type="Texture2D" uid="uid://c8idm0otcwad3" path="res://art/animations/character_idle_animation/CharIdle0006.png" id="11_hn3c2"]
+[ext_resource type="Texture2D" uid="uid://cq82tds2frdoo" path="res://art/animations/character_idle_animation/CharIdle0007.png" id="12_fehhj"]
+[ext_resource type="Texture2D" uid="uid://dhcgelnorhfbe" path="res://art/animations/character_idle_animation/CharIdle0008.png" id="13_bx7xd"]
+[ext_resource type="Texture2D" uid="uid://bpynbnumtftey" path="res://art/animations/character_idle_animation/CharIdle0009.png" id="14_3fsdy"]
+[ext_resource type="Texture2D" uid="uid://d5ulpti0dnf8" path="res://art/animations/character_idle_animation/CharIdle0010.png" id="15_axap7"]
+[ext_resource type="Texture2D" uid="uid://bkqag1xypvet3" path="res://art/animations/character_idle_animation/CharIdle0011.png" id="16_ute8e"]
+[ext_resource type="Texture2D" uid="uid://b5fbtem7b0eux" path="res://art/animations/character_idle_animation/CharIdle0012.png" id="17_8awx6"]
+[ext_resource type="Texture2D" uid="uid://7vsbyoinfioi" path="res://art/animations/character_idle_animation/CharIdle0013.png" id="18_ylkrn"]
+[ext_resource type="Texture2D" uid="uid://uc6gka55oit4" path="res://art/animations/character_idle_animation/CharIdle0014.png" id="19_i4dr4"]
+[ext_resource type="Texture2D" uid="uid://cmthxgpqy45l1" path="res://art/animations/character_idle_animation/CharIdle0015.png" id="20_lyhvb"]
+[ext_resource type="Texture2D" uid="uid://b4si11bcufqs7" path="res://art/animations/character_idle_animation/CharIdle0016.png" id="21_h12ym"]
+[ext_resource type="Texture2D" uid="uid://cph7fe3rbj4vj" path="res://art/animations/character_idle_animation/CharIdle0017.png" id="22_jx4ft"]
+[ext_resource type="Texture2D" uid="uid://lu3gyjq8bnmw" path="res://art/animations/character_idle_animation/CharIdle0018.png" id="23_fn7f4"]
+[ext_resource type="Texture2D" uid="uid://desn1phtrocoe" path="res://art/animations/character_idle_animation/CharIdle0019.png" id="24_4sxff"]
+[ext_resource type="Texture2D" uid="uid://cuadn4kju5h84" path="res://art/animations/character_idle_animation/CharIdle0020.png" id="25_jdrqr"]
+[ext_resource type="Texture2D" uid="uid://dxxsibq02npxp" path="res://art/animations/character_idle_animation/CharIdle0021.png" id="26_mlbhe"]
+[ext_resource type="Texture2D" uid="uid://ch4w0526omel7" path="res://art/animations/character_idle_animation/CharIdle0022.png" id="27_sccgt"]
+[ext_resource type="Texture2D" uid="uid://bsft0u6gsk1v1" path="res://art/animations/character_idle_animation/CharIdle0023.png" id="28_jnmq1"]
+[ext_resource type="Texture2D" uid="uid://euit8vq0a4o2" path="res://art/animations/character_idle_animation/CharIdle0024.png" id="29_7rcdh"]
+[ext_resource type="Texture2D" uid="uid://cob52jafjhpwg" path="res://art/animations/character_idle_animation/CharIdle0025.png" id="30_3upaf"]
+[ext_resource type="Texture2D" uid="uid://c87bjf0bv4vku" path="res://art/animations/character_idle_animation/CharIdle0026.png" id="31_0repa"]
+[ext_resource type="Texture2D" uid="uid://dqtsphgat0ws8" path="res://art/animations/character_idle_animation/CharIdle0027.png" id="32_gyqjg"]
+[ext_resource type="Texture2D" uid="uid://baqgu7sdvbgar" path="res://art/animations/character_idle_animation/CharIdle0028.png" id="33_nhy3b"]
+[ext_resource type="Texture2D" uid="uid://dyhcrgvq0xacw" path="res://art/animations/character_idle_animation/CharIdle0029.png" id="34_w8kel"]
+[ext_resource type="Texture2D" uid="uid://cbuf0cudanqxc" path="res://art/animations/character_idle_animation/CharIdle0030.png" id="35_qi7c7"]
+[ext_resource type="Texture2D" uid="uid://c4thh8t32egyi" path="res://art/animations/character_idle_animation/CharIdle0031.png" id="36_ud3lk"]
+[ext_resource type="Texture2D" uid="uid://1abdq6ivd1lh" path="res://art/animations/character_idle_animation/CharIdle0032.png" id="37_tmiu0"]
+[ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="38_62b6b"]
+========
 [gd_scene load_steps=43 format=3 uid="uid://lijfyh6cycrq"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_htia3"]
@@ -38,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://c4thh8t32egyi" path="res://art/animations/character_idle_animation/CharIdle0031.png" id="36_vcio7"]
 [ext_resource type="Texture2D" uid="uid://1abdq6ivd1lh" path="res://art/animations/character_idle_animation/CharIdle0032.png" id="37_a6yd5"]
 [ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="38_gv04w"]
+>>>>>>>> 4675c3191ff34394cccbfc3fd99af6ad7d91de2d:scenes/eyes.tscn
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kvxx"]
 radius = 37.5
@@ -52,6 +95,105 @@ shader_parameter/edge_fade = 0.6
 animations = [{
 "frames": [{
 "duration": 1.0,
+<<<<<<<< HEAD:scenes/bubble_eyes.tscn
+"texture": ExtResource("5_r8vnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hwfln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvo6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2e3n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fb212")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xa5sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hn3c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fehhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bx7xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3fsdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_axap7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ute8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8awx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ylkrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_i4dr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_lyhvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_h12ym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jx4ft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fn7f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4sxff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_jdrqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_mlbhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_sccgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_jnmq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_7rcdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_3upaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_0repa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_gyqjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_nhy3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_w8kel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_qi7c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ud3lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_tmiu0")
+========
 "texture": ExtResource("5_4ymob")
 }, {
 "duration": 1.0,
@@ -149,6 +291,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("37_a6yd5")
+>>>>>>>> 4675c3191ff34394cccbfc3fd99af6ad7d91de2d:scenes/eyes.tscn
 }],
 "loop": true,
 "name": &"default",
@@ -161,18 +304,30 @@ glow_enabled = true
 glow_intensity = 2.0
 glow_bloom = 0.2
 
+<<<<<<<< HEAD:scenes/bubble_eyes.tscn
+[node name="Bubble_Eyes" type="Node2D"]
+script = ExtResource("1_niw1m")
+object_scene = ExtResource("2_vkjck")
+spawn_interval = 3.0
+spawn_area_size = Vector2(3000, 3000)
+========
 [node name="Eyes" type="Node2D"]
 script = ExtResource("1_htia3")
 object_scene = ExtResource("2_p7j58")
 spawn_area_size = Vector2(2000, 2000)
+>>>>>>>> 4675c3191ff34394cccbfc3fd99af6ad7d91de2d:scenes/eyes.tscn
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
-position = Vector2(0, -225)
+position = Vector2(0, -200)
 scale = Vector2(0.4, 0.4)
 floor_stop_on_slope = false
 floor_max_angle = 1.5708
+<<<<<<<< HEAD:scenes/bubble_eyes.tscn
+script = ExtResource("3_522bi")
+========
 script = ExtResource("3_tsh4m")
+>>>>>>>> 4675c3191ff34394cccbfc3fd99af6ad7d91de2d:scenes/eyes.tscn
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 shape = SubResource("CapsuleShape2D_2kvxx")
@@ -187,7 +342,11 @@ autoplay = "default"
 
 [node name="Bubble" type="Sprite2D" parent="."]
 scale = Vector2(4.45614, 4.45614)
+<<<<<<<< HEAD:scenes/bubble_eyes.tscn
+texture = ExtResource("38_62b6b")
+========
 texture = ExtResource("38_gv04w")
+>>>>>>>> 4675c3191ff34394cccbfc3fd99af6ad7d91de2d:scenes/eyes.tscn
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8lcvb")

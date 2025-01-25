@@ -1,22 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://clsytesf6iobh"]
+[gd_scene load_steps=6 format=3 uid="uid://clsytesf6iobh"]
 
-[ext_resource type="Script" path="res://Scripts/obj_follow_player.gd" id="1_ckliw"]
+[ext_resource type="Script" path="res://scripts/obj_follow_player.gd" id="1_p5lhj"]
+[ext_resource type="Script" path="res://scripts/spawner_root_player_ref.gd" id="1_wwc5c"]
 [ext_resource type="Texture2D" uid="uid://cnof47k6vg4wl" path="res://art/sprites/eye.png" id="2_0dgyu"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uwcxm"]
-radius = 113.0
-height = 300.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sc6rb"]
+radius = 106.667
+height = 316.667
 
-[node name="Spawner" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7gei"]
+radius = 81.6667
+height = 276.667
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Eye" type="Node2D"]
+script = ExtResource("1_wwc5c")
+
+[node name="eye" type="CharacterBody2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.6, 0.6)
-script = ExtResource("1_ckliw")
+script = ExtResource("1_p5lhj")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="OverlapCollider" type="Area2D" parent="eye"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eye/OverlapCollider"]
+shape = SubResource("CapsuleShape2D_sc6rb")
+
+[node name="Sprite2D" type="Sprite2D" parent="eye"]
 rotation = -1.5708
 texture = ExtResource("2_0dgyu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_uwcxm")
+[node name="BlockColliderSmaller" type="CollisionShape2D" parent="eye"]
+shape = SubResource("CapsuleShape2D_r7gei")
+
+[connection signal="body_entered" from="eye/OverlapCollider" to="eye" method="_on_overlap_collider_body_entered"]
