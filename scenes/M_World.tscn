@@ -301,6 +301,7 @@ position = Vector2(0, -7.5)
 shape = SubResource("CapsuleShape2D_ern3x")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2(0, 100)
 zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
