@@ -106,10 +106,10 @@ const BUBBLES = [
 		"y" : -1000
 	},
 	{
-		"name" : "bubble_youth_stargazing",
-		"target" : "",
-		"x" : 1000,
-		"y" : -1000
+		"name" : "stargazing",
+		"target" : "Stargazing",
+		"x" : -1000,
+		"y" : 0
 	},
 	{
 		"name" : "bubble_youth_gratitude",
