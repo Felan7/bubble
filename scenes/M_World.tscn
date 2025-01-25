@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=48 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
@@ -40,10 +40,23 @@
 [ext_resource type="Texture2D" uid="uid://cbuf0cudanqxc" path="res://art/animations/character_idle_animation/CharIdle0030.png" id="32_63fby"]
 [ext_resource type="Texture2D" uid="uid://c4thh8t32egyi" path="res://art/animations/character_idle_animation/CharIdle0031.png" id="33_xid7m"]
 [ext_resource type="Texture2D" uid="uid://1abdq6ivd1lh" path="res://art/animations/character_idle_animation/CharIdle0032.png" id="34_pv7a2"]
+[ext_resource type="PackedScene" uid="uid://ct7ieihxni57a" path="res://scenes/bubble.tscn" id="41_skvl3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
-radius = 37.5
-height = 165.0
+radius = 70.0
+height = 265.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmjwx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3bme"]
 animations = [{
@@ -150,6 +163,11 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 24.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yiq7"]
@@ -182,10 +200,36 @@ floor_max_angle = 1.5708
 script = ExtResource("1_aki4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(0, -7.5)
 shape = SubResource("CapsuleShape2D_ern3x")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(0.75, 0.75)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
+visible = false
+
+[node name="Panel" type="Panel" parent="player/Camera2D/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmjwx")
+
+[node name="Label" type="Label" parent="player/Camera2D/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press \"E\" to enter"
+horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_c3bme")
@@ -264,10 +308,12 @@ texture = ExtResource("3_sj4rk")
 script = ExtResource("3_uj7nj")
 
 [node name="Ground-main" type="Sprite2D" parent="Bubble2"]
+visible = false
 position = Vector2(0, 200)
 texture = ExtResource("4_1spml")
 
 [node name="Ground_Collider" type="StaticBody2D" parent="Bubble2"]
+visible = false
 position = Vector2(-3.5, 213)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble2/Ground_Collider"]
@@ -352,6 +398,9 @@ shape = SubResource("SegmentShape2D_rgrqg")
 [node name="Wall2" type="CollisionShape2D" parent="Bubble5/Ground_Collider"]
 position = Vector2(411.5, -252)
 shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="bubble" parent="." instance=ExtResource("41_skvl3")]
+position = Vector2(13, -911)
 
 [connection signal="body_shape_entered" from="Transportion2" to="Transportion2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Transportion" to="Transportion" method="_on_body_shape_entered"]

@@ -32,3 +32,32 @@ func _physics_process(delta: float) -> void:
 		
 
 	move_and_slide()
+
+const packed_bubble_scene = preload("res://scenes/bubble.tscn")
+const BUBBLES = [
+	{
+		"name" : "bubble1",
+		"x" : 1000,
+		"y" : 1000
+	}
+	
+]
+
+func _ready() -> void:
+	for i in range(BUBBLES.size()):
+		var new_bubble = packed_bubble_scene.instantiate()
+		new_bubble.name = BUBBLES[i]["name"]
+		new_bubble.set_position(Vector2(BUBBLES[i]["x"],BUBBLES[i]["y"]))
+		new_bubble.bubble_enter.connect(_on_bubble_enter)
+		new_bubble.bubble_leave.connect(_on_bubble_leave)
+		get_tree().root.add_child.call_deferred(new_bubble)
+	
+
+var scene_instance
+@onready var UI_node = $Camera2D/CanvasLayer
+func _on_bubble_leave():
+	UI_node.visible = false
+
+func _on_bubble_enter(bubble_name):
+	UI_node.visible = true
+	scene_instance = load("res://scenes/" + bubble_name + ".tscn")
