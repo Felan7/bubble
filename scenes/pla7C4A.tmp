@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://coky8oqh4n4y0"]
+[gd_scene load_steps=77 format=3 uid="uid://coky8oqh4n4y0"]
 
 [ext_resource type="Texture2D" uid="uid://p70asht8w8bi" path="res://art/sprites/Zimmer_1_BG.png" id="1_qqrk7"]
 [ext_resource type="Texture2D" uid="uid://cn8aneu7mpqrn" path="res://art/sprites/Baer.png" id="2_0igpn"]
@@ -65,14 +65,13 @@
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="56_vjfj7"]
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="57_usblm"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="58_32bvf"]
-[ext_resource type="Script" path="res://scenes/play_block.gd" id="66_p5qmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4wne"]
 size = Vector2(3399.88, 174.24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jorwc"]
 radius = 16.3406
-height = 58.7959
+height = 77.2959
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hglmc"]
 radius = 79.0
@@ -271,6 +270,10 @@ random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("57_usblm")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkstq"]
+radius = 40.611
+height = 84.1874
+
 [sub_resource type="Environment" id="Environment_8ki3j"]
 background_mode = 3
 glow_enabled = true
@@ -278,11 +281,8 @@ glow_intensity = 0.4
 glow_bloom = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkchy"]
-radius = 15.8732
-height = 39.2708
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2lxfv"]
-radius = 45.5864
+radius = 60.7167
+height = 121.433
 
 [node name="Playroom" type="Node2D"]
 position = Vector2(-93, -96)
@@ -326,31 +326,27 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_p4wne")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(1313.77, 432.987)
+position = Vector2(1361.69, 453.896)
 rotation = -3.42957
-mass = 0.2
+mass = 0.01
 
 [node name="Block1" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("3_3vai5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-1.01956, 18.779)
+position = Vector2(-0.871201, 9.58322)
 shape = SubResource("CapsuleShape2D_jorwc")
 
 [node name="Block2" type="Sprite2D" parent="."]
-position = Vector2(555.699, 903.069)
+position = Vector2(867, 903.069)
 texture = ExtResource("4_rf4ha")
 
 [node name="Block3" type="Sprite2D" parent="."]
-position = Vector2(526.199, 838.296)
+position = Vector2(837.5, 840.038)
 texture = ExtResource("5_tv8oq")
 
-[node name="Block4" type="Sprite2D" parent="."]
-position = Vector2(518.365, 601.455)
-texture = ExtResource("6_a6oi4")
-
 [node name="Block5" type="Sprite2D" parent="."]
-position = Vector2(538.699, 733.811)
+position = Vector2(850, 730)
 texture = ExtResource("7_6hgqd")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -408,42 +404,34 @@ volume_db = -3.0
 stream = ExtResource("58_32bvf")
 volume_db = -12.0
 
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(547.115, 261.36)
+rotation = -0.401426
+mass = 0.01
+
+[node name="Block4" type="Sprite2D" parent="RigidBody2D2"]
+texture = ExtResource("6_a6oi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("CapsuleShape2D_kkstq")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8ki3j")
 
-[node name="Block_Little" type="RigidBody2D" parent="."]
-position = Vector2(1021.92, 256.133)
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(1124.72, 349.352)
 rotation = 0.200713
-mass = 0.2
+mass = 0.01
 
-[node name="Block" type="Sprite2D" parent="Block_Little"]
+[node name="Block6" type="Sprite2D" parent="RigidBody2D3"]
 texture = ExtResource("8_ixixk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_Little"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
 shape = SubResource("CapsuleShape2D_bkchy")
 
-[node name="Area2D" type="Area2D" parent="Block_Little"]
+[node name="Area2D" type="Area2D" parent="RigidBody2D3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_Little/Area2D"]
-shape = SubResource("CircleShape2D_2lxfv")
-
-[node name="Block_Little2" type="RigidBody2D" parent="."]
-position = Vector2(276.171, 423.404)
-rotation = -0.200713
-mass = 0.2
-
-[node name="Block" type="Sprite2D" parent="Block_Little2"]
-texture = ExtResource("8_ixixk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_Little2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3/Area2D"]
 shape = SubResource("CapsuleShape2D_bkchy")
 
-[node name="Area2D" type="Area2D" parent="Block_Little2"]
-script = ExtResource("66_p5qmg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_Little2/Area2D"]
-shape = SubResource("CircleShape2D_2lxfv")
-
-[connection signal="body_entered" from="Block_Little/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Block_Little2/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Block_Little2/Area2D" to="Block_Little2/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="RigidBody2D3/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
