@@ -66,7 +66,7 @@ func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
 			sprite.animation = "idle"
 
 func _draw() -> void:
-	draw_polyline($Path2D.curve.get_baked_points(), Color.YELLOW, 5, true)
+	draw_polyline($Path2D.curve.get_baked_points(), Color("e9dac8"), 5, true)
 
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=82 format=3 uid="uid://cqfamqvpxfrb7"]
 
 [ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_63m1h"]
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="5_kfy5w"]
 [ext_resource type="Texture2D" uid="uid://bo1j4oxa42jse" path="res://art/animations/character_idle_animation/CharIdle0003.png" id="6_v184k"]
 [ext_resource type="Texture2D" uid="uid://wtl0hukbop5p" path="res://art/animations/character_idle_animation/CharIdle0004.png" id="7_e3gi8"]
+[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="7_kwoih"]
 [ext_resource type="Texture2D" uid="uid://dhknkhwgw8vwn" path="res://art/animations/character_idle_animation/CharIdle0005.png" id="8_uqwx6"]
 [ext_resource type="Texture2D" uid="uid://c8idm0otcwad3" path="res://art/animations/character_idle_animation/CharIdle0006.png" id="9_oigx0"]
 [ext_resource type="Texture2D" uid="uid://cq82tds2frdoo" path="res://art/animations/character_idle_animation/CharIdle0007.png" id="10_qe2rh"]
@@ -87,6 +88,11 @@ gradient = SubResource("Gradient_pokqx")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4r8c"]
 radius = 79.0
 height = 290.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iicr"]
+shader = ExtResource("7_kwoih")
+shader_parameter/intensity = 0.104
+shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fw15v"]
 animations = [{
@@ -266,9 +272,9 @@ stream_0/stream = ExtResource("60_0iloc")
 
 [sub_resource type="Curve2D" id="Curve2D_eqjig"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 834, -394, 0, 0, 0, 0, 798, -409, 0, 0, 0, 0, 738, -416, 0, 0, 0, 0, 728, -441, 0, 0, 0, 0, 713, -471, 0, 0, 0, 0, 669, -473, 0, 0, 0, 0, 581, -463, 0, 0, 0, 0, 531, -485, 0, 0, 0, 0, 489, -510, 0, 0, 0, 0, 499, -564, 0, 0, 0, 0, 549, -593, 0, 0, 0, 0, 657, -611, 0, 0, 0, 0, 780, -584, 0, 0, 0, 0, 921, -579, 0, 0, 0, 0, 963, -624, 0, 0, 0, 0, 909, -682, 0, 0, 0, 0, 817, -707, 0, 0, 0, 0, 797, -734, 0, 0, 0, 0, 817, -772, 0, 0, 0, 0, 832, -804)
+"points": PackedVector2Array(0, 0, 0, 0, 861, -379, 0, 0, 0, 0, 793, -393, 0, 0, 0, 0, 747, -414, 0, 0, 0, 0, 760, -431, 0, 0, 0, 0, 739, -449, 0, 0, 0, 0, 688, -457, 0, 0, 0, 0, 591, -464, 0, 0, 0, 0, 531, -485, 0, 0, 0, 0, 525, -499, 0, 0, 0, 0, 596, -500, 0, 0, 0, 0, 655, -535, 0, 0, 0, 0, 561, -573, 0, 0, 0, 0, 638, -612, 0, 0, 0, 0, 780, -584, 0, 0, 0, 0, 819, -556, 0, 0, 0, 0, 879, -576, 0, 0, 0, 0, 935, -617, 0, 0, 0, 0, 904, -672, 0, 0, 0, 0, 842, -673, 0, 0, 0, 0, 727, -700, 0, 0, 0, 0, 835, -740, 0, 0, 0, 0, 787, -777, 0, 0, 0, 0, 816, -788, 0, 0, 0, 0, 834, -825)
 }
-point_count = 20
+point_count = 24
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m7jm3"]
 
@@ -319,16 +325,26 @@ texture = ExtResource("56_ns3fu")
 [node name="World_background2" type="Node2D" parent="."]
 
 [node name="Baum" type="Sprite2D" parent="World_background2"]
-position = Vector2(1264, -315)
+position = Vector2(1183, -229)
 texture = ExtResource("53_xruf1")
-
-[node name="Felsen1" type="Sprite2D" parent="World_background2"]
-position = Vector2(-1034, -139)
-texture = ExtResource("55_5q3bo")
 
 [node name="GgjBaum2" type="Sprite2D" parent="World_background2"]
 position = Vector2(1602, -387)
 texture = ExtResource("57_1uytw")
+
+[node name="Baum2" type="Sprite2D" parent="World_background2"]
+position = Vector2(-844, -338)
+scale = Vector2(1.10504, 1.11353)
+texture = ExtResource("53_xruf1")
+
+[node name="Felsen1" type="Sprite2D" parent="World_background2"]
+position = Vector2(-709, -64)
+texture = ExtResource("55_5q3bo")
+
+[node name="Baum3" type="Sprite2D" parent="World_background2"]
+position = Vector2(-1056, -329)
+scale = Vector2(1.22112, 1.23996)
+texture = ExtResource("53_xruf1")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_index = 1
@@ -339,6 +355,7 @@ script = ExtResource("1_tnl51")
 shape = SubResource("CapsuleShape2D_r4r8c")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+material = SubResource("ShaderMaterial_6iicr")
 sprite_frames = SubResource("SpriteFrames_fw15v")
 animation = &"walking"
 autoplay = "idle"
@@ -369,7 +386,7 @@ texture = ExtResource("62_snga6")
 curve = SubResource("Curve2D_eqjig")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CharacterBody2D/Path2D"]
-position = Vector2(834, -394)
+position = Vector2(861, -379)
 rotation = -2.7468
 rotates = false
 loop = false
@@ -389,11 +406,11 @@ shape = SubResource("WorldBoundaryShape2D_m7jm3")
 z_index = 1
 
 [node name="Busch1" type="Sprite2D" parent="World_foreground"]
-position = Vector2(328, 39)
+position = Vector2(308, 94)
 texture = ExtResource("54_dmh3y")
 
 [node name="Felsen2" type="Sprite2D" parent="World_foreground"]
-position = Vector2(-327, -88)
+position = Vector2(1467, 159)
 texture = ExtResource("56_rvmqm")
 
 [node name="Star" type="Sprite2D" parent="World_foreground"]
