@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://tna6ujoqwk6a"]
+
+[ext_resource type="PackedScene" uid="uid://dw4ce7gmxag0n" path="res://wolke.tscn" id="1_sc81t"]
+[ext_resource type="Texture2D" uid="uid://dak6sn1llt08l" path="res://art/sprites/wolke3.png" id="2_bu8p7"]
+
+[node name="wolke3" instance=ExtResource("1_sc81t")]
+texture = ExtResource("2_bu8p7")
