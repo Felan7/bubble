@@ -6,6 +6,16 @@ const JUMP_VELOCITY = -200.0
 var in_transportation_mode = false
 @onready var sprite = $Sprite
 
+enum MOVEMENT_STATE {
+	IDLE,
+	MOVING
+}
+
+func change_movement_state(new_state: MOVEMENT_STATE) -> void:
+	if new_state == MOVEMENT_STATE.IDLE:
+		sprite.animation = "idle"
+	elif new_state == MOVEMENT_STATE.MOVING:
+		sprite.animation = "walking"
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -35,9 +45,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not in_transportation_mode and direction_x != 0 :
 		#is moving
-		sprite.animation = "walking"
+		change_movement_state(MOVEMENT_STATE.MOVING)
 	else:
-		sprite.animation = "idle"
+		change_movement_state(MOVEMENT_STATE.IDLE)
 		
 	if direction_x > 0:
 		sprite.flip_h = true
