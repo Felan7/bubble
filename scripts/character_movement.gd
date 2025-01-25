@@ -110,15 +110,13 @@ const packed_bubble_scene = preload("res://scenes/bubble.tscn")
 const BUBBLES = [
 	{
 		"name" : "Drawing",
-		"pretty_name" : "Drawing",
 		"target" : "",
 		"x" : 1000,
 		"y" : 1000
 	},
 	{
-		"name" : "bubble_childhood_mountains",
-		"pretty_name" : "Drawing",
-		"target" : "",
+		"name" : "Mountains",
+		"target" : "mountain",
 		"x" : -1000,
 		"y" : 1000
 	},

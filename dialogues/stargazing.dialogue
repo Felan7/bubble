@@ -16,12 +16,16 @@ I: Aren't the stars beautiful?
 	- Yes.
 		Them: Okay, which other one do you know?
 		- Ursula Minor.
+			Them: Wow.
 		- Cassiopeia
+			% Them: Cool!
+			% Them: Interesting.
 		- Okay, you got me
 			I: I just knew that one. Wanted to sound smart.
-		Them: I knew it!
+			Them: I knew it!
 - Do you know anything about star constellations?
 	Them: No
+We fall silent for a moment.
 I: But what should I do?
 Them: About tomorrow?
 I: Not just tomorrow.
