@@ -12,6 +12,8 @@ var movement_variant = MOVEMENT_VARIANT.WALKING
 @onready var jump_sound = $JumpSound
 @onready var bubble_transport_sound = $BubbleTransportSound
 
+var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
+
 var summit_x = 0
 
 enum MOVEMENT_STATE {
@@ -110,4 +112,9 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	follower.progress_ratio = position.x / summit_x
+	if position.x > summit_x:
+		#todo should be carried down by parent
+		print("End of mountain scene")
+		Global.scene_completion_state["mountain"] = true
+		get_tree().change_scene_to_packed(hub_scene)
 	

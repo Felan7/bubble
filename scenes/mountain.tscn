@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bo1j4oxa42jse" path="res://art/animations/character_idle_animation/CharIdle0003.png" id="6_v184k"]
 [ext_resource type="Texture2D" uid="uid://wtl0hukbop5p" path="res://art/animations/character_idle_animation/CharIdle0004.png" id="7_e3gi8"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="7_kwoih"]
-[ext_resource type="PackedScene" uid="uid://dw4ce7gmxag0n" path="res://wolke.tscn" id="8_dlxec"]
+[ext_resource type="PackedScene" path="res://wolke.tscn" id="8_dlxec"]
 [ext_resource type="Texture2D" uid="uid://dhknkhwgw8vwn" path="res://art/animations/character_idle_animation/CharIdle0005.png" id="8_uqwx6"]
-[ext_resource type="PackedScene" uid="uid://dhq84q4k2kh0k" path="res://wolke_2.tscn" id="9_6ask8"]
+[ext_resource type="PackedScene" path="res://wolke_2.tscn" id="9_6ask8"]
 [ext_resource type="Texture2D" uid="uid://c8idm0otcwad3" path="res://art/animations/character_idle_animation/CharIdle0006.png" id="9_oigx0"]
 [ext_resource type="Texture2D" uid="uid://cq82tds2frdoo" path="res://art/animations/character_idle_animation/CharIdle0007.png" id="10_qe2rh"]
 [ext_resource type="Texture2D" uid="uid://dhcgelnorhfbe" path="res://art/animations/character_idle_animation/CharIdle0008.png" id="11_rmhcv"]
@@ -65,15 +65,15 @@
 [ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="57_vhr5y"]
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="58_bhhga"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="59_dbcno"]
-[ext_resource type="AudioStream" uid="uid://dwh3ctm84fmi" path="res://art/music/Bubbles of Thoughts 3 - Berg.wav" id="59_io68g"]
+[ext_resource type="AudioStream" uid="uid://n06mx7b1jhx7" path="res://art/music/Bubbles of Thoughts 3 - Berg.wav" id="59_io68g"]
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="60_0iloc"]
 [ext_resource type="AudioStream" uid="uid://3d7bwsvu7ghe" path="res://art/sounds/mountain.ogg" id="60_xcghb"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="61_qykmn"]
 [ext_resource type="Texture2D" uid="uid://clol4nw111jbu" path="res://art/sprites/Berg_Gesamt.png" id="62_snga6"]
 [ext_resource type="Texture2D" uid="uid://crlbj2rdske7v" path="res://art/sprites/location_marker.png" id="63_r6ou1"]
-[ext_resource type="Texture2D" uid="uid://c2x4iv2mh6v80" path="res://art/sprites/star.png" id="67_581fd"]
-[ext_resource type="PackedScene" uid="uid://tna6ujoqwk6a" path="res://wolke_3.tscn" id="73_qfys3"]
-[ext_resource type="PackedScene" uid="uid://cmei3fudlpeds" path="res://wolke_4.tscn" id="74_xlock"]
+[ext_resource type="Texture2D" uid="uid://cmia8m8jp4qj7" path="res://art/sprites/Gipfelkreuz_ohne_Gipfelkreuzbox_schade_aber_felix_meinte_passt_schon.png" id="72_1and6"]
+[ext_resource type="PackedScene" path="res://wolke_3.tscn" id="73_qfys3"]
+[ext_resource type="PackedScene" path="res://wolke_4.tscn" id="74_xlock"]
 
 [sub_resource type="Gradient" id="Gradient_l57y3"]
 offsets = PackedFloat32Array(0.00277008, 1)
@@ -650,6 +650,12 @@ position = Vector2(7844.93, 297.25)
 scale = Vector2(1.79143, 1.79143)
 texture = ExtResource("54_dmh3y")
 
+[node name="Star" type="Sprite2D" parent="World_background2"]
+z_index = -1
+z_as_relative = false
+position = Vector2(17010, -259)
+texture = ExtResource("72_1and6")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_index = 1
 position = Vector2(0, -192)
@@ -767,11 +773,6 @@ texture = ExtResource("56_rvmqm")
 z_index = 6
 position = Vector2(7369, 202.5)
 texture = ExtResource("56_rvmqm")
-
-[node name="Star" type="Sprite2D" parent="World_foreground"]
-z_index = 6
-position = Vector2(17000, 0)
-texture = ExtResource("67_581fd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_r0oma")
