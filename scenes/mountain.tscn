@@ -62,7 +62,7 @@
 [ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="57_vhr5y"]
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="58_bhhga"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="59_dbcno"]
-[ext_resource type="AudioStream" uid="uid://7f5i7dxrdo52" path="res://art/music/Bubbles of Thoughts - Berg.wav" id="59_io68g"]
+[ext_resource type="AudioStream" path="res://art/music/Bubbles of Thoughts - Berg.wav" id="59_io68g"]
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="60_0iloc"]
 [ext_resource type="AudioStream" uid="uid://3d7bwsvu7ghe" path="res://art/sounds/mountain.ogg" id="60_xcghb"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="61_qykmn"]
