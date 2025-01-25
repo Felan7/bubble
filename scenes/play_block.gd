@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,10 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body)
-	var block = body.get_node("scenes/Playroom/Block_Little2/Block")
-	print(block)
 	if body.name == "player":
-		block.position = Vector2(850, 730)
-		
+		set_position(Vector2(540, 300))

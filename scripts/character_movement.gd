@@ -109,16 +109,8 @@ func _physics_process(delta: float) -> void:
 const packed_bubble_scene = preload("res://scenes/bubble.tscn")
 const BUBBLES = [
 	{
-		"name" : "Drawing",
-		"pretty_name" : "Drawing",
-		"target" : "",
-		"x" : 1000,
-		"y" : 1000
-	},
-	{
 		"name" : "bubble_childhood_mountains",
-		"pretty_name" : "Drawing",
-		"target" : "",
+		"target" : "mountain",
 		"x" : -1000,
 		"y" : 1000
 	},
@@ -130,7 +122,7 @@ const BUBBLES = [
 	},
 	{
 		"name" : "bubble_youth_concert",
-		"target" : "",
+		"target" : "concert",
 		"x" : 1000,
 		"y" : -1000
 	},
