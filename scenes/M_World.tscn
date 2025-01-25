@@ -302,7 +302,7 @@ horizontal_alignment = 1
 sprite_frames = SubResource("SpriteFrames_c3bme")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.958917
+frame_progress = 0.141537
 
 [node name="Transportion2" type="Area2D" parent="."]
 script = ExtResource("6_gq65e")
