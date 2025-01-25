@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://c0cu0b07dpvfj"]
+[gd_scene load_steps=73 format=3 uid="uid://502rlnoqluae"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_2ntde"]
 [ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="1_m706a"]
@@ -62,6 +62,9 @@
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_du6yh"]
 [ext_resource type="AudioStream" uid="uid://dqkxs1cfxm0w7" path="res://art/sounds/eye_death.ogg" id="61_f4uob"]
 [ext_resource type="AudioStream" uid="uid://db173fdrj7oxe" path="res://art/music/Augen.wav" id="61_of1si"]
+[ext_resource type="Texture2D" uid="uid://bkqi26vadl3y6" path="res://art/sprites/busch_1.png" id="63_x1wvw"]
+[ext_resource type="Texture2D" uid="uid://616ehfaskacy" path="res://art/sprites/Felsen_1.png" id="64_1efd3"]
+[ext_resource type="Texture2D" uid="uid://iqhxotib50f7" path="res://art/sprites/Felsen_2.png" id="65_rsnsy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhvk0"]
 radius = 70.0
@@ -69,7 +72,7 @@ height = 265.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fcpod"]
 shader = ExtResource("2_6yl0l")
-shader_parameter/intensity = 0.4
+shader_parameter/intensity = 0.32
 shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mpwh"]
@@ -252,7 +255,8 @@ stream_0/stream = ExtResource("56_o2p6w")
 background_mode = 3
 glow_enabled = true
 glow_intensity = 2.0
-glow_bloom = 0.3
+glow_bloom = 0.2
+glow_hdr_threshold = 1.3
 adjustment_enabled = true
 adjustment_saturation = 0.5
 
@@ -298,7 +302,6 @@ autoplay = "idle"
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="player"]
 stream = SubResource("AudioStreamRandomizer_j1plb")
 volume_db = -6.0
-bus = &"Delay"
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="player"]
 stream = SubResource("AudioStreamRandomizer_54rcg")
@@ -315,7 +318,6 @@ autoplay = true
 [node name="DeathSound" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource("61_f4uob")
 volume_db = -6.0
-bus = &"Delay"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v2562")
@@ -339,3 +341,112 @@ shape = SubResource("RectangleShape2D_lyiog")
 position = Vector2(-3000, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_lyiog")
+
+[node name="Busch1" type="Sprite2D" parent="."]
+position = Vector2(-591, 116)
+scale = Vector2(0.525714, 0.525714)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch2" type="Sprite2D" parent="."]
+position = Vector2(646, -517)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch3" type="Sprite2D" parent="."]
+position = Vector2(530, 398)
+scale = Vector2(0.582857, 0.582857)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch4" type="Sprite2D" parent="."]
+position = Vector2(-1112, -1267)
+scale = Vector2(0.582857, 0.582857)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch5" type="Sprite2D" parent="."]
+position = Vector2(2238, -956)
+scale = Vector2(0.525714, 0.525714)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch6" type="Sprite2D" parent="."]
+position = Vector2(-1712, 1276)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("63_x1wvw")
+
+[node name="Felsen1" type="Sprite2D" parent="."]
+position = Vector2(2449.33, 2639.75)
+scale = Vector2(0.837912, 0.837912)
+texture = ExtResource("64_1efd3")
+
+[node name="Felsen2" type="Sprite2D" parent="."]
+position = Vector2(-712, -348)
+scale = Vector2(0.64011, 0.64011)
+texture = ExtResource("64_1efd3")
+
+[node name="Felsen3" type="Sprite2D" parent="."]
+position = Vector2(1431.14, -1996)
+scale = Vector2(0.872253, 0.872253)
+texture = ExtResource("64_1efd3")
+
+[node name="Felsen4" type="Sprite2D" parent="."]
+position = Vector2(-1986.32, 430.25)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Felsen5" type="Sprite2D" parent="."]
+position = Vector2(-2414, -1123)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Felsen6" type="Sprite2D" parent="."]
+position = Vector2(-1023, -2355)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Felsen7" type="Sprite2D" parent="."]
+position = Vector2(1891.06, -2164.25)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Felsen8" type="Sprite2D" parent="."]
+position = Vector2(-2570, 2549)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Felsen9" type="Sprite2D" parent="."]
+position = Vector2(-496, 2190)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Busch7" type="Sprite2D" parent="."]
+position = Vector2(1106, 1831)
+scale = Vector2(0.525714, 0.525714)
+texture = ExtResource("63_x1wvw")
+
+[node name="Felsen10" type="Sprite2D" parent="."]
+position = Vector2(2590, 1003)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Felsen11" type="Sprite2D" parent="."]
+position = Vector2(2622.33, 2412.75)
+scale = Vector2(0.667582, 0.667582)
+texture = ExtResource("65_rsnsy")
+
+[node name="Busch8" type="Sprite2D" parent="."]
+position = Vector2(2696.43, -2721.5)
+scale = Vector2(0.748572, 0.748572)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch9" type="Sprite2D" parent="."]
+position = Vector2(-2701, -2749)
+scale = Vector2(0.748572, 0.748572)
+texture = ExtResource("63_x1wvw")
+
+[node name="Busch10" type="Sprite2D" parent="."]
+position = Vector2(-2258, 2693)
+scale = Vector2(0.748572, 0.748572)
+texture = ExtResource("63_x1wvw")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.0313726, 0.188235, 0.32549, 1)
+energy = 0.3

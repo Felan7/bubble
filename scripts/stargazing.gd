@@ -1,6 +1,7 @@
 extends Node2D
 var scene_id = "stargazing"
 var resource = load("res://dialogues/" + scene_id + ".dialogue")
+var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 @onready var dialogue = $ExampleBalloon
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_dialouge_ended():
+func _on_dialouge_ended(resource):
 	# end of scene
-	pass
+	print("End of stargazing scene")
+	Global.scene_completion_state["mountain"] = true
+	get_tree().change_scene_to_packed(hub_scene)
