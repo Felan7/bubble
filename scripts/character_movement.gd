@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-	if direction_x != 0 :
+	if direction_x != 0 or direction_y != 0:
 		#is moving
 		change_movement_state(MOVEMENT_STATE.MOVING)
 	else:
