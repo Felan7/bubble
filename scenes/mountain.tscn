@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=64 format=3 uid="uid://cqfamqvpxfrb7"]
 
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_d7p4g"]
@@ -52,6 +52,12 @@
 [ext_resource type="Texture2D" uid="uid://rydmvd0ulxa0" path="res://art/animations/CharacterWalkingAnimation/CharWalking0069.png" id="50_ufe0k"]
 [ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="51_tji2e"]
 [ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="52_ffhx7"]
+[ext_resource type="Texture2D" uid="uid://dm82s34u68gbw" path="res://art/sprites/baum.png" id="53_xruf1"]
+[ext_resource type="Texture2D" uid="uid://bkqi26vadl3y6" path="res://art/sprites/busch_1.png" id="54_dmh3y"]
+[ext_resource type="Texture2D" uid="uid://616ehfaskacy" path="res://art/sprites/Felsen_1.png" id="55_5q3bo"]
+[ext_resource type="Texture2D" uid="uid://de4elqj346fwj" path="res://art/sprites/BG_1.png" id="56_ns3fu"]
+[ext_resource type="Texture2D" uid="uid://iqhxotib50f7" path="res://art/sprites/Felsen_2.png" id="56_rvmqm"]
+[ext_resource type="Texture2D" uid="uid://ca0vk4ts77gnc" path="res://art/sprites/GGJ_Baum_2.png" id="57_1uytw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4r8c"]
 radius = 79.0
@@ -241,7 +247,22 @@ corner_radius_bottom_left = 16
 
 [node name="mountain" type="Node2D"]
 
+[node name="World_background2" type="Node2D" parent="."]
+
+[node name="Baum" type="Sprite2D" parent="World_background2"]
+position = Vector2(1264, -315)
+texture = ExtResource("53_xruf1")
+
+[node name="Felsen1" type="Sprite2D" parent="World_background2"]
+position = Vector2(-1034, -139)
+texture = ExtResource("55_5q3bo")
+
+[node name="GgjBaum2" type="Sprite2D" parent="World_background2"]
+position = Vector2(1602, -387)
+texture = ExtResource("57_1uytw")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, -192)
 script = ExtResource("1_tnl51")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -283,7 +304,25 @@ text = "Press \"E\" to enter"
 horizontal_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 1042)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_m7jm3")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+
+[node name="Bg1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -373)
+texture = ExtResource("56_ns3fu")
+
+[node name="World_background" type="Node2D" parent="."]
+
+[node name="Busch1" type="Sprite2D" parent="World_background"]
+position = Vector2(799, -82)
+texture = ExtResource("54_dmh3y")
+
+[node name="Felsen2" type="Sprite2D" parent="World_background"]
+position = Vector2(-327, -88)
+texture = ExtResource("56_rvmqm")

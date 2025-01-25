@@ -62,7 +62,7 @@
 [ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="53_wrhd3"]
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="54_mh7l5"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_2ut6l"]
-[ext_resource type="AudioStream" uid="uid://bxrtaf58wo0ee" path="res://art/sounds/transport_loop.ogg" id="57_2uj5k"]
+[ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_2uj5k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
 radius = 70.0
