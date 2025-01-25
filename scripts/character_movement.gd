@@ -135,8 +135,8 @@ const BUBBLES = [
 		"y" : -1000
 	},
 	{
-		"name" : "stargazing",
-		"target" : "Stargazing",
+		"name" : "Stargazing",
+		"target" : "stargazing",
 		"x" : -1000,
 		"y" : 0
 	},
@@ -154,7 +154,7 @@ func _ready() -> void:
 		var new_bubble = packed_bubble_scene.instantiate()
 		new_bubble.name = BUBBLES[i]["name"]
 		new_bubble.bubble_name = BUBBLES[i]["name"]
-		new_bubble.scene_target_path = "res://Scenes/" + BUBBLES[i]["target"] + ".tscn"
+		new_bubble.scene_target_path = "res://scenes/" + BUBBLES[i]["target"] + ".tscn"
 		new_bubble.set_position(Vector2(BUBBLES[i]["x"],BUBBLES[i]["y"]))
 		new_bubble.bubble_enter.connect(_on_bubble_enter)
 		new_bubble.bubble_leave.connect(_on_bubble_leave)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://copib7gnfp3pk"]
 
-[ext_resource type="Script" path="res://scenes/stargazing.gd" id="1_m3lr1"]
+[ext_resource type="Script" path="res://scripts/stargazing.gd" id="1_m3lr1"]
 [ext_resource type="Texture2D" uid="uid://b6sthxpniaoba" path="res://art/sprites/night_sky.png" id="1_xti5g"]
 [ext_resource type="Texture2D" uid="uid://c2x4iv2mh6v80" path="res://art/sprites/star.png" id="2_6jdj0"]
 [ext_resource type="PackedScene" uid="uid://d31px7xwr52dp" path="res://dialogues/balloon.tscn" id="4_rlo2f"]
