@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://coky8oqh4n4y0"]
+[gd_scene load_steps=73 format=3 uid="uid://b3ex7e31mporm"]
 
 [ext_resource type="Texture2D" uid="uid://p70asht8w8bi" path="res://art/sprites/Zimmer_1_BG.png" id="1_qqrk7"]
 [ext_resource type="Texture2D" uid="uid://cn8aneu7mpqrn" path="res://art/sprites/Baer.png" id="2_0igpn"]
@@ -60,6 +60,11 @@
 [ext_resource type="Texture2D" uid="uid://rydmvd0ulxa0" path="res://art/animations/CharacterWalkingAnimation/CharWalking0069.png" id="50_cp6dx"]
 [ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="51_rib7m"]
 [ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="52_f3jbs"]
+[ext_resource type="AudioStream" uid="uid://cmloe0ngxd7mf" path="res://art/sounds/step_board1.ogg" id="59_qtlh0"]
+[ext_resource type="AudioStream" uid="uid://cscdda7081usg" path="res://art/sounds/step_board2.ogg" id="60_qlona"]
+[ext_resource type="AudioStream" uid="uid://dburmhv4ptmjo" path="res://art/sounds/step_board3.ogg" id="61_urkms"]
+[ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="62_7osp6"]
+[ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="63_f33yq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4wne"]
 size = Vector2(3399.88, 174.24)
@@ -248,6 +253,20 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x7det"]
+random_pitch = 1.01
+random_volume_offset_db = 1.54
+streams_count = 3
+stream_0/stream = ExtResource("59_qtlh0")
+stream_1/stream = ExtResource("60_qlona")
+stream_2/stream = ExtResource("61_urkms")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a3kr6"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("62_7osp6")
+
 [node name="Playroom" type="Node2D"]
 position = Vector2(-93, -96)
 scale = Vector2(1.14784, 1.14784)
@@ -258,12 +277,10 @@ texture = ExtResource("1_qqrk7")
 
 [node name="Zimmer1Bg2" type="Sprite2D" parent="."]
 position = Vector2(2874.09, 496.44)
-scale = Vector2(1, 1)
 texture = ExtResource("1_qqrk7")
 
 [node name="Zimmer1Bg3" type="Sprite2D" parent="."]
 position = Vector2(-945.254, 496.585)
-scale = Vector2(1, 1)
 texture = ExtResource("1_qqrk7")
 
 [node name="Baer" type="Sprite2D" parent="."]
@@ -274,39 +291,32 @@ texture = ExtResource("2_0igpn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(818.059, 1072.45)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p4wne")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2005.51, 506.168)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p4wne")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-74.052, 520.979)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p4wne")
 
 [node name="Block1" type="Sprite2D" parent="."]
 position = Vector2(1343, 892.111)
-scale = Vector2(1, 1)
 texture = ExtResource("3_3vai5")
 
 [node name="Block2" type="Sprite2D" parent="."]
 position = Vector2(867, 903.069)
-scale = Vector2(1, 1)
 texture = ExtResource("4_rf4ha")
 
 [node name="Block3" type="Sprite2D" parent="."]
 position = Vector2(837.5, 840.038)
-scale = Vector2(1, 1)
 texture = ExtResource("5_tv8oq")
 
 [node name="Block5" type="Sprite2D" parent="."]
 position = Vector2(852.035, 731.81)
-scale = Vector2(1, 1)
 texture = ExtResource("7_6hgqd")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -347,14 +357,23 @@ grow_vertical = 2
 text = "Press \"E\" to enter"
 horizontal_alignment = 1
 
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = SubResource("AudioStreamRandomizer_x7det")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = SubResource("AudioStreamRandomizer_a3kr6")
+volume_db = -3.0
+
+[node name="BubbleTransportSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("63_f33yq")
+volume_db = -12.0
+
 [node name="Block4" type="Sprite2D" parent="."]
 position = Vector2(526.206, 942.641)
-scale = Vector2(1, 1)
 texture = ExtResource("6_a6oi4")
 
 [node name="Block6" type="Sprite2D" parent="."]
 position = Vector2(1163.93, 970.519)
-scale = Vector2(1, 1)
 texture = ExtResource("8_ixixk")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
