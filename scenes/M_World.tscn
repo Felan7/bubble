@@ -1,7 +1,8 @@
-[gd_scene load_steps=67 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=76 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
+[ext_resource type="Script" path="res://scenes/m_world.gd" id="1_rcm25"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_myxg5"]
 [ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="3_sj4rk"]
@@ -58,6 +59,14 @@
 [ext_resource type="Texture2D" uid="uid://rydmvd0ulxa0" path="res://art/animations/CharacterWalkingAnimation/CharWalking0069.png" id="49_y0e8f"]
 [ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="50_aen07"]
 [ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="51_4qv0i"]
+[ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="53_s12c6"]
+[ext_resource type="Script" path="res://scripts/player_sprite_animation.gd" id="53_vsmp5"]
+[ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="53_wrhd3"]
+[ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="54_mh7l5"]
+[ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_2ut6l"]
+[ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_2uj5k"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q3iyt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
 radius = 70.0
@@ -243,6 +252,19 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cyspg"]
+random_volume_offset_db = 0.4
+streams_count = 3
+stream_0/stream = ExtResource("53_wrhd3")
+stream_1/stream = ExtResource("54_mh7l5")
+stream_2/stream = ExtResource("55_2ut6l")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ngbu"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("53_s12c6")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yiq7"]
 radius = 61.0082
 
@@ -269,6 +291,12 @@ glow_intensity = 2.0
 glow_bloom = 0.2
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_rcm25")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamSynchronized_q3iyt")
+volume_db = 6.0
+attenuation = 2.82843
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
@@ -283,6 +311,7 @@ position = Vector2(0, -7.5)
 shape = SubResource("CapsuleShape2D_ern3x")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2(0, 100)
 zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
@@ -316,6 +345,19 @@ sprite_frames = SubResource("SpriteFrames_c3bme")
 animation = &"walking"
 autoplay = "idle"
 frame_progress = 0.141537
+script = ExtResource("53_vsmp5")
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="player"]
+stream = SubResource("AudioStreamRandomizer_cyspg")
+volume_db = -6.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="player"]
+stream = SubResource("AudioStreamRandomizer_6ngbu")
+volume_db = -3.0
+
+[node name="BubbleTransportSound" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("57_2uj5k")
+volume_db = -12.0
 
 [node name="Transportion2" type="Area2D" parent="."]
 script = ExtResource("6_gq65e")

@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://copib7gnfp3pk"]
+[gd_scene load_steps=7 format=3 uid="uid://copib7gnfp3pk"]
+
+[ext_resource type="Script" path="res://scripts/stargazing.gd" id="1_m3lr1"]
+[ext_resource type="Texture2D" uid="uid://b6sthxpniaoba" path="res://art/sprites/night_sky.png" id="1_xti5g"]
+[ext_resource type="Texture2D" uid="uid://c2x4iv2mh6v80" path="res://art/sprites/star.png" id="2_6jdj0"]
+[ext_resource type="PackedScene" uid="uid://d31px7xwr52dp" path="res://dialogues/balloon.tscn" id="4_rlo2f"]
+[ext_resource type="AudioStream" uid="uid://duh4urhytkg3p" path="res://art/sounds/crickets.ogg" id="5_elna4"]
+
+[sub_resource type="Environment" id="Environment_uf382"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.2
 
 [node name="stargazing" type="Node2D"]
+script = ExtResource("1_m3lr1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xti5g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uf382")
+
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(-556, -289)
+texture = ExtResource("2_6jdj0")
+
+[node name="ExampleBalloon" parent="." instance=ExtResource("4_rlo2f")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_elna4")
+autoplay = true

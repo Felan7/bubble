@@ -17,7 +17,7 @@ func _process(delta):
 
 func is_position_valid(new_position: Vector2) -> bool:
 	for existing_position in spawned_positions:
-		var player := %player
+		var player := $player
 		if player:
 			if existing_position.distance_to(new_position) < min_distance && existing_position != player.global_position:
 				return false
@@ -43,6 +43,9 @@ func spawn_object():
 		if valid_spawn_pos:
 			# Instanziere die Scene und setze die Position
 			var instance = object_scene.instantiate()
+			instance.number_test = 10014
+			var player_ref := $player
+			instance.player = player_ref
 			instance.position = new_position
 			get_tree().current_scene.add_child(instance)
 

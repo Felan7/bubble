@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/wind_loop.ogg-78edd806c726f28221d69f938bbd84d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

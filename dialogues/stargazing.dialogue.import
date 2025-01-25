@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bn8mks1aqpyed"
+path="res://.godot/imported/stargazing.dialogue-28c98adc50fd1f24888082af4c4700b4.tres"
+
+[deps]
+
+source_file="res://dialogues/stargazing.dialogue"
+dest_files=["res://.godot/imported/stargazing.dialogue-28c98adc50fd1f24888082af4c4700b4.tres"]
+
+[params]
+
+defaults=true
