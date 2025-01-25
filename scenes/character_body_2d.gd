@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -200.0
 var in_transportation_mode = false
 var movement_state = MOVEMENT_STATE.IDLE
 var movement_variant = MOVEMENT_VARIANT.WALKING
+
+const SUMMIT_X = 17000
 @onready var sprite = $Sprite
 @onready var walking_sound = $WalkingSound
 @onready var jump_sound = $JumpSound
@@ -63,6 +65,10 @@ func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
 		elif new_variant == MOVEMENT_VARIANT.BUBBLE:
 			sprite.animation = "idle"
 
+func _draw() -> void:
+	draw_polyline($Path2D.curve.get_baked_points(), Color.YELLOW, 5, true)
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() && not in_transportation_mode:
@@ -99,4 +105,8 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 	elif direction_x < 0:
 		sprite.flip_h = false
+@onready var follower = $Path2D/PathFollow2D
+
+func _process(delta: float) -> void:
+	follower.progress_ratio = position.x / SUMMIT_X
 	
