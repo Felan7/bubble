@@ -1,8 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=51 format=3 uid="uid://cnghvw4y57fxy"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
+[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_myxg5"]
+[ext_resource type="Script" path="res://scripts/player_sprite_animation.gd" id="3_phc48"]
 [ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="3_sj4rk"]
 [ext_resource type="Script" path="res://scripts/basic_bubble.gd" id="3_uj7nj"]
 [ext_resource type="Texture2D" uid="uid://da034r04nbxas" path="res://art/sprites/ground-main.svg" id="4_1spml"]
@@ -56,6 +58,11 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u4rn6"]
+shader = ExtResource("1_ie0cb")
+shader_parameter/intensity = 0.4
+shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3bme"]
 animations = [{
@@ -188,6 +195,12 @@ turbulence_influence_max = 0.03
 a = Vector2(-12, -224)
 b = Vector2(0, 220)
 
+[sub_resource type="Environment" id="Environment_rhyln"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.2
+
 [node name="Node2D" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
@@ -231,8 +244,10 @@ text = "Press \"E\" to enter"
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+material = SubResource("ShaderMaterial_u4rn6")
 sprite_frames = SubResource("SpriteFrames_c3bme")
 autoplay = "default"
+script = ExtResource("3_phc48")
 
 [node name="Transportion2" type="Area2D" parent="."]
 script = ExtResource("6_gq65e")
@@ -299,6 +314,9 @@ shape = SubResource("SegmentShape2D_rgrqg")
 position = Vector2(0, -157)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ue00l")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rhyln")
 
 [connection signal="body_shape_entered" from="Transportion2" to="Transportion2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Transportion" to="Transportion" method="_on_body_shape_entered"]

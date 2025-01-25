@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://clsytesf6iobh"]
+
+[ext_resource type="Script" path="res://Scripts/obj_follow_player.gd" id="1_ckliw"]
+[ext_resource type="Texture2D" uid="uid://cnof47k6vg4wl" path="res://art/sprites/eye.png" id="2_0dgyu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uwcxm"]
+radius = 113.0
+height = 300.0
+
+[node name="Spawner" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ckliw")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = -1.5708
+texture = ExtResource("2_0dgyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_uwcxm")
