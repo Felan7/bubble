@@ -1,0 +1,223 @@
+[gd_scene load_steps=15 format=3 uid="uid://bl88u8s36b6il"]
+
+[ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_aki4v"]
+[ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://Assets/bubble.svg" id="3_sj4rk"]
+[ext_resource type="Script" path="res://Scripts/basic_bubble.gd" id="3_uj7nj"]
+[ext_resource type="Texture2D" uid="uid://da034r04nbxas" path="res://Assets/ground-main.svg" id="4_1spml"]
+[ext_resource type="Script" path="res://Scripts/transport_bubble.gd" id="4_4vov7"]
+[ext_resource type="Texture2D" uid="uid://cg65a476wfpxa" path="res://Assets/telephone.png" id="5_ue00l"]
+[ext_resource type="Script" path="res://Scripts/transport_trigger.gd" id="6_gq65e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2eq2h"]
+
+[sub_resource type="Gradient" id="Gradient_xbeyp"]
+offsets = PackedFloat32Array(0.168831, 0.714286)
+colors = PackedColorArray(0.119835, 0.119835, 0.119835, 1, 0.717237, 0.717237, 0.717237, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mfj3n"]
+gradient = SubResource("Gradient_xbeyp")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
+radius = 37.5
+height = 165.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rgrqg"]
+a = Vector2(-12, -224)
+b = Vector2(0, 220)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bvuql"]
+particle_flag_disable_z = true
+radial_velocity_min = -219.75
+radial_velocity_max = 126.76
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 8.0
+scale_over_velocity_max = 20.0
+turbulence_enabled = true
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.03
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yiq7"]
+radius = 61.0082
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(0, -225)
+scale = Vector2(0.4, 0.4)
+floor_stop_on_slope = false
+floor_max_angle = 1.5708
+script = ExtResource("1_aki4v")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="player"]
+scale = Vector2(90, 90)
+mesh = SubResource("CapsuleMesh_2eq2h")
+texture = SubResource("GradientTexture2D_mfj3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource("CapsuleShape2D_ern3x")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+scale = Vector2(2.5, 2.5)
+zoom = Vector2(0.36, 0.36)
+
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(0, 48)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("3_uj7nj")
+
+[node name="Ground-main" type="Sprite2D" parent="Bubble"]
+position = Vector2(0, 200)
+texture = ExtResource("4_1spml")
+
+[node name="Ground_Collider" type="StaticBody2D" parent="Bubble"]
+position = Vector2(-3.5, 213)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble/Ground_Collider"]
+polygon = PackedVector2Array(-400.5, -213, -355.5, -209, -313.5, -194, -289.5, -171, -273.5, -144, -242.5, -123, -190.5, -120, -112.5, -136, -31.5, -153, 32.5, -157, 116.5, -140, 204.5, -122, 251.5, -129, 299.5, -159, 359.5, -212, 370.5, -214, 407.5, -214, 402.5, -147, 383.5, -82, 365.5, -38, -350.5, -23, -373.5, -72, -392.5, -133)
+
+[node name="Wall" type="CollisionShape2D" parent="Bubble/Ground_Collider"]
+position = Vector2(-395.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Wall2" type="CollisionShape2D" parent="Bubble/Ground_Collider"]
+position = Vector2(411.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Telephone" type="Sprite2D" parent="Bubble"]
+position = Vector2(0, -157)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_ue00l")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Bubble"]
+position = Vector2(-378, -52)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_bvuql")
+script = ExtResource("3_uj7nj")
+
+[node name="Area2D" type="Area2D" parent="Bubble/GPUParticles2D"]
+position = Vector2(378, 4)
+script = ExtResource("6_gq65e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/GPUParticles2D/Area2D"]
+position = Vector2(-378, 0)
+shape = SubResource("CircleShape2D_1yiq7")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Bubble"]
+position = Vector2(381, -52)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_bvuql")
+script = ExtResource("3_uj7nj")
+
+[node name="Bubble2" type="Sprite2D" parent="."]
+position = Vector2(-1025, -697)
+scale = Vector2(0.695322, 0.695322)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("3_uj7nj")
+
+[node name="Ground-main" type="Sprite2D" parent="Bubble2"]
+position = Vector2(0, 200)
+texture = ExtResource("4_1spml")
+
+[node name="Ground_Collider" type="StaticBody2D" parent="Bubble2"]
+position = Vector2(-3.5, 213)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble2/Ground_Collider"]
+polygon = PackedVector2Array(-400.5, -213, -355.5, -209, -313.5, -194, -289.5, -171, -273.5, -144, -242.5, -123, -190.5, -120, -112.5, -136, -31.5, -153, 32.5, -157, 116.5, -140, 204.5, -122, 251.5, -129, 299.5, -159, 359.5, -212, 370.5, -214, 407.5, -214, 402.5, -147, 383.5, -82, 365.5, -38, -350.5, -23, -373.5, -72, -392.5, -133)
+
+[node name="Wall" type="CollisionShape2D" parent="Bubble2/Ground_Collider"]
+position = Vector2(-395.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Wall2" type="CollisionShape2D" parent="Bubble2/Ground_Collider"]
+position = Vector2(411.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Bubble4" type="Sprite2D" parent="."]
+position = Vector2(1007, -682)
+scale = Vector2(0.50531, 0.50531)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("3_uj7nj")
+
+[node name="Ground-main" type="Sprite2D" parent="Bubble4"]
+position = Vector2(0, 200)
+texture = ExtResource("4_1spml")
+
+[node name="Ground_Collider" type="StaticBody2D" parent="Bubble4"]
+position = Vector2(-3.5, 213)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble4/Ground_Collider"]
+polygon = PackedVector2Array(-400.5, -213, -355.5, -209, -313.5, -194, -289.5, -171, -273.5, -144, -242.5, -123, -190.5, -120, -112.5, -136, -31.5, -153, 32.5, -157, 116.5, -140, 204.5, -122, 251.5, -129, 299.5, -159, 359.5, -212, 370.5, -214, 407.5, -214, 402.5, -147, 383.5, -82, 365.5, -38, -350.5, -23, -373.5, -72, -392.5, -133)
+
+[node name="Wall" type="CollisionShape2D" parent="Bubble4/Ground_Collider"]
+position = Vector2(-395.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Wall2" type="CollisionShape2D" parent="Bubble4/Ground_Collider"]
+position = Vector2(411.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Bubble3" type="Sprite2D" parent="."]
+position = Vector2(1349.16, 461.158)
+scale = Vector2(0.694368, 0.694368)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("3_uj7nj")
+
+[node name="Ground-main" type="Sprite2D" parent="Bubble3"]
+position = Vector2(0, 200)
+texture = ExtResource("4_1spml")
+
+[node name="Ground_Collider" type="StaticBody2D" parent="Bubble3"]
+position = Vector2(-3.5, 213)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble3/Ground_Collider"]
+polygon = PackedVector2Array(-400.5, -213, -355.5, -209, -313.5, -194, -289.5, -171, -273.5, -144, -242.5, -123, -190.5, -120, -112.5, -136, -31.5, -153, 32.5, -157, 116.5, -140, 204.5, -122, 251.5, -129, 299.5, -159, 359.5, -212, 370.5, -214, 407.5, -214, 402.5, -147, 383.5, -82, 365.5, -38, -350.5, -23, -373.5, -72, -392.5, -133)
+
+[node name="Wall" type="CollisionShape2D" parent="Bubble3/Ground_Collider"]
+position = Vector2(-395.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Wall2" type="CollisionShape2D" parent="Bubble3/Ground_Collider"]
+position = Vector2(411.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Bubble5" type="Sprite2D" parent="."]
+position = Vector2(-1566, 203)
+scale = Vector2(0.50531, 0.50531)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("3_uj7nj")
+
+[node name="Ground-main" type="Sprite2D" parent="Bubble5"]
+position = Vector2(0, 200)
+texture = ExtResource("4_1spml")
+
+[node name="Ground_Collider" type="StaticBody2D" parent="Bubble5"]
+position = Vector2(-3.5, 213)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble5/Ground_Collider"]
+polygon = PackedVector2Array(-400.5, -213, -355.5, -209, -313.5, -194, -289.5, -171, -273.5, -144, -242.5, -123, -190.5, -120, -112.5, -136, -31.5, -153, 32.5, -157, 116.5, -140, 204.5, -122, 251.5, -129, 299.5, -159, 359.5, -212, 370.5, -214, 407.5, -214, 402.5, -147, 383.5, -82, 365.5, -38, -350.5, -23, -373.5, -72, -392.5, -133)
+
+[node name="Wall" type="CollisionShape2D" parent="Bubble5/Ground_Collider"]
+position = Vector2(-395.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Wall2" type="CollisionShape2D" parent="Bubble5/Ground_Collider"]
+position = Vector2(411.5, -252)
+shape = SubResource("SegmentShape2D_rgrqg")
+
+[node name="Transport_Bubble" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-579, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("4_4vov7")
+
+[node name="Transport_Bubble2" type="Sprite2D" parent="."]
+position = Vector2(575, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("4_4vov7")
+
+[connection signal="body_shape_entered" from="Bubble/GPUParticles2D/Area2D" to="Bubble/GPUParticles2D/Area2D" method="_on_body_shape_entered"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct7ieihxni57a"]
+
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_jke4s"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1war4"]
+
+[node name="bubble" type="Node2D"]
+script = ExtResource("1_jke4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_1war4")

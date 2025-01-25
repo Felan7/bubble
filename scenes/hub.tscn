@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://dn4rdev8my8v5"]
+[gd_scene load_steps=2 format=3 uid="uid://bqgrg88xmbq5i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qr7u"]
+radius = 74.0
+height = 314.0
 
 [node name="Hub" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_7qr7u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/CollisionShape2D"]
