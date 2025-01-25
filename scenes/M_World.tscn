@@ -1,7 +1,8 @@
-[gd_scene load_steps=74 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=76 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
+[ext_resource type="Script" path="res://scenes/m_world.gd" id="1_rcm25"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_myxg5"]
 [ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="3_sj4rk"]
@@ -59,10 +60,13 @@
 [ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="50_aen07"]
 [ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="51_4qv0i"]
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="53_s12c6"]
+[ext_resource type="Script" path="res://scripts/player_sprite_animation.gd" id="53_vsmp5"]
 [ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="53_wrhd3"]
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="54_mh7l5"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_2ut6l"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_2uj5k"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q3iyt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
 radius = 70.0
@@ -287,6 +291,12 @@ glow_intensity = 2.0
 glow_bloom = 0.2
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_rcm25")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamSynchronized_q3iyt")
+volume_db = 6.0
+attenuation = 2.82843
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
@@ -335,6 +345,7 @@ sprite_frames = SubResource("SpriteFrames_c3bme")
 animation = &"walking"
 autoplay = "idle"
 frame_progress = 0.141537
+script = ExtResource("53_vsmp5")
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="player"]
 stream = SubResource("AudioStreamRandomizer_cyspg")

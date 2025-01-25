@@ -12,11 +12,12 @@ func _physics_process(delta: float) -> void:
 	if player:
 		var player_pos = player.global_position
 		var target_pos = (player_pos - self.global_position).normalized()
-#		# position.direction_to(player_pos) * follow_speed
 		velocity = target_pos * follow_speed
 		move_and_slide()
+		look_at(player_pos)
 
 
 func _on_overlap_collider_body_entered(body) -> void:
 	if body.name == "player":
+		player.change_player_state(player.PLAYER_STATE.DEAD)
 		print("Kollision mit dem Player erkannt!")

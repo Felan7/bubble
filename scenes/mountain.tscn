@@ -1,4 +1,5 @@
-[gd_scene load_steps=69 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=74 format=3 uid="uid://cqfamqvpxfrb7"]
+
 
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
 [ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_xbt5j"]
@@ -74,6 +75,15 @@ colors = PackedColorArray(0.294118, 0.513726, 0.556863, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_dgfmw"]
 gradient = SubResource("Gradient_qp3jc")
+
+[ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="57_vhr5y"]
+[ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="58_bhhga"]
+[ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="59_dbcno"]
+[ext_resource type="AudioStream" uid="uid://7f5i7dxrdo52" path="res://art/music/Bubbles of Thoughts - Berg.wav" id="59_io68g"]
+[ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="60_0iloc"]
+[ext_resource type="AudioStream" uid="uid://3d7bwsvu7ghe" path="res://art/sounds/mountain.ogg" id="60_xcghb"]
+[ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="61_qykmn"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4r8c"]
 radius = 79.0
@@ -248,7 +258,27 @@ _data = {
 }
 point_count = 63
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bpofw"]
+random_volume_offset_db = 0.4
+streams_count = 3
+stream_0/stream = ExtResource("57_vhr5y")
+stream_1/stream = ExtResource("58_bhhga")
+stream_2/stream = ExtResource("59_dbcno")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0voi1"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("60_0iloc")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m7jm3"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_r0oma"]
+stream_count = 2
+stream_0/stream = ExtResource("59_io68g")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("60_xcghb")
+stream_1/volume = 0.0
 
 [node name="mountain" type="Node2D"]
 
@@ -282,6 +312,10 @@ region_rect = Rect2(0, 0, 200, 43200)
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -2
 scroll_scale = Vector2(0.5, 1)
+
+
+[node name="BackgroundMountain" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-640, -357)
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 z_index = -2
@@ -346,6 +380,18 @@ position = Vector2(9.60148, 24.2448)
 rotation = 2.67559
 texture = ExtResource("57_yfuel")
 
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = SubResource("AudioStreamRandomizer_bpofw")
+volume_db = -6.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = SubResource("AudioStreamRandomizer_0voi1")
+volume_db = -3.0
+
+[node name="BubbleTransportSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("61_qykmn")
+volume_db = -12.0
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 148)
 
@@ -362,6 +408,12 @@ texture = ExtResource("54_dmh3y")
 position = Vector2(-156, 134)
 texture = ExtResource("56_rvmqm")
 
+
 [node name="Baum" type="Sprite2D" parent="World_foreground"]
 position = Vector2(2709, 362)
 texture = ExtResource("53_xruf1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_r0oma")
+autoplay = true
+
