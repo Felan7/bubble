@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=67 format=3 uid="uid://cnghvw4y57fxy"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
