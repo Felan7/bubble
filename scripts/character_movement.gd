@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -200.0
 var in_transportation_mode = false
+@onready var sprite = $Sprite
 
 
 func _physics_process(delta: float) -> void:
@@ -30,8 +31,20 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
-
+	
 	move_and_slide()
+	if not in_transportation_mode and direction_x != 0 :
+		#is moving
+		sprite.animation = "walking"
+	else:
+		sprite.animation = "idle"
+		
+	if direction_x > 0:
+		sprite.flip_h = true
+	elif direction_x < 0:
+		sprite.flip_h = false
+	
+	
 	if Input.is_action_just_pressed("action") and UI_node.visible:
 		# change scene
 		get_tree().change_scene_to_file(scene_instance)

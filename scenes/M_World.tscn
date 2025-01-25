@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=64 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
@@ -40,6 +40,23 @@
 [ext_resource type="Texture2D" uid="uid://cbuf0cudanqxc" path="res://art/animations/character_idle_animation/CharIdle0030.png" id="32_63fby"]
 [ext_resource type="Texture2D" uid="uid://c4thh8t32egyi" path="res://art/animations/character_idle_animation/CharIdle0031.png" id="33_xid7m"]
 [ext_resource type="Texture2D" uid="uid://1abdq6ivd1lh" path="res://art/animations/character_idle_animation/CharIdle0032.png" id="34_pv7a2"]
+[ext_resource type="Texture2D" uid="uid://3wv5otwr21cm" path="res://art/animations/CharacterWalkingAnimation/CharWalking0055.png" id="35_sxpm0"]
+[ext_resource type="Texture2D" uid="uid://d3q04b4pedk7v" path="res://art/animations/CharacterWalkingAnimation/CharWalking0056.png" id="36_je0xq"]
+[ext_resource type="Texture2D" uid="uid://c2n7gpuukafk3" path="res://art/animations/CharacterWalkingAnimation/CharWalking0057.png" id="37_ypel3"]
+[ext_resource type="Texture2D" uid="uid://cgbac3egojs23" path="res://art/animations/CharacterWalkingAnimation/CharWalking0058.png" id="38_u1uhi"]
+[ext_resource type="Texture2D" uid="uid://da70mo0k57i0i" path="res://art/animations/CharacterWalkingAnimation/CharWalking0059.png" id="39_b47yu"]
+[ext_resource type="Texture2D" uid="uid://4nakyf3ye0oc" path="res://art/animations/CharacterWalkingAnimation/CharWalking0060.png" id="40_ouxbr"]
+[ext_resource type="Texture2D" uid="uid://b6y7vcny4glkh" path="res://art/animations/CharacterWalkingAnimation/CharWalking0061.png" id="41_tpph8"]
+[ext_resource type="Texture2D" uid="uid://cgva88unjvbdj" path="res://art/animations/CharacterWalkingAnimation/CharWalking0062.png" id="42_ca6x8"]
+[ext_resource type="Texture2D" uid="uid://s7y75y83rgcr" path="res://art/animations/CharacterWalkingAnimation/CharWalking0063.png" id="43_iomca"]
+[ext_resource type="Texture2D" uid="uid://mfautc8rrjie" path="res://art/animations/CharacterWalkingAnimation/CharWalking0064.png" id="44_sem6w"]
+[ext_resource type="Texture2D" uid="uid://cmdx7mw6apvlm" path="res://art/animations/CharacterWalkingAnimation/CharWalking0065.png" id="45_c81nn"]
+[ext_resource type="Texture2D" uid="uid://bsp7i67yx66e6" path="res://art/animations/CharacterWalkingAnimation/CharWalking0066.png" id="46_4ltct"]
+[ext_resource type="Texture2D" uid="uid://dqgtswib2ufso" path="res://art/animations/CharacterWalkingAnimation/CharWalking0067.png" id="47_g3k6x"]
+[ext_resource type="Texture2D" uid="uid://ciq8qej4b2yqm" path="res://art/animations/CharacterWalkingAnimation/CharWalking0068.png" id="48_eeehp"]
+[ext_resource type="Texture2D" uid="uid://rydmvd0ulxa0" path="res://art/animations/CharacterWalkingAnimation/CharWalking0069.png" id="49_y0e8f"]
+[ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="50_aen07"]
+[ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="51_4qv0i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ern3x"]
 radius = 70.0
@@ -160,13 +177,64 @@ animations = [{
 "texture": ExtResource("34_pv7a2")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 24.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_sxpm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_je0xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ypel3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_u1uhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_b47yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ouxbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_tpph8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ca6x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_iomca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_sem6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_c81nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_4ltct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_g3k6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_eeehp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_y0e8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_aen07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_4qv0i")
+}],
 "loop": true,
-"name": &"idle_right",
-"speed": 5.0
+"name": &"walking",
+"speed": 24.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yiq7"]
@@ -230,9 +298,11 @@ grow_vertical = 2
 text = "Press \"E\" to enter"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+[node name="Sprite" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_c3bme")
-autoplay = "default"
+animation = &"walking"
+autoplay = "idle"
+frame_progress = 0.958917
 
 [node name="Transportion2" type="Area2D" parent="."]
 script = ExtResource("6_gq65e")
