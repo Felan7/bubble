@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="1_gcvri"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_fsx45"]
-[ext_resource type="Shader" path="res://Shader/glow.gdshader" id="2_m6is8"]
+[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_m6is8"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_6lvm6"]
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="4_lx83g"]
 [ext_resource type="Texture2D" uid="uid://bo1j4oxa42jse" path="res://art/animations/character_idle_animation/CharIdle0003.png" id="5_fuqr6"]
