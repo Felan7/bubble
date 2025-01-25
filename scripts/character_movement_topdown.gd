@@ -10,6 +10,7 @@ var movement_variant = MOVEMENT_VARIANT.WALKING
 @onready var jump_sound = $JumpSound
 @onready var bubble_transport_sound = $BubbleTransportSound
 @onready var death_sound = $DeathSound
+@onready var music = $Music
 
 enum PLAYER_STATE {
 	ALIVE,
@@ -71,6 +72,7 @@ func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
 func change_player_state(new_state: PLAYER_STATE) -> void:
 	if new_state == PLAYER_STATE.DEAD:
 		death_sound.play()
+		music.stop()
 
 func _physics_process(delta: float) -> void:
 

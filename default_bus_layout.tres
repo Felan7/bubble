@@ -1,0 +1,17 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://vw6vy1i8ykhd"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_fla8v"]
+resource_name = "Reverb"
+room_size = 1.0
+damping = 0.79
+wet = 0.07
+
+[resource]
+bus/1/name = &"Delay"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_fla8v")
+bus/1/effect/0/enabled = true
