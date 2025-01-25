@@ -7,11 +7,14 @@ var in_transportation_mode = false
 var movement_state = MOVEMENT_STATE.IDLE
 var movement_variant = MOVEMENT_VARIANT.WALKING
 
-const SUMMIT_X = 17000
 @onready var sprite = $Sprite
 @onready var walking_sound = $WalkingSound
 @onready var jump_sound = $JumpSound
 @onready var bubble_transport_sound = $BubbleTransportSound
+
+var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
+
+var summit_x = 0
 
 enum MOVEMENT_STATE {
 	IDLE,
@@ -108,5 +111,10 @@ func _physics_process(delta: float) -> void:
 @onready var follower = $Path2D/PathFollow2D
 
 func _process(delta: float) -> void:
-	follower.progress_ratio = position.x / SUMMIT_X
+	follower.progress_ratio = position.x / summit_x
+	if position.x > summit_x:
+		#todo should be carried down by parent
+		print("End of mountain scene")
+		Global.scene_completion_state["mountain"] = true
+		get_tree().change_scene_to_packed(hub_scene)
 	

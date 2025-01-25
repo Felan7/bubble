@@ -109,7 +109,7 @@ func _physics_process(delta: float) -> void:
 const packed_bubble_scene = preload("res://scenes/bubble.tscn")
 const BUBBLES = [
 	{
-		"name" : "bubble_childhood_mountains",
+		"name" : "Mountains",
 		"target" : "mountain",
 		"x" : -1000,
 		"y" : 1000
@@ -150,7 +150,7 @@ func _ready() -> void:
 		new_bubble.set_position(Vector2(BUBBLES[i]["x"],BUBBLES[i]["y"]))
 		new_bubble.bubble_enter.connect(_on_bubble_enter)
 		new_bubble.bubble_leave.connect(_on_bubble_leave)
-		get_tree().root.add_child.call_deferred(new_bubble)
+		get_tree().root.get_node("Node2D").add_child.call_deferred(new_bubble)
 	
 
 var scene_instance

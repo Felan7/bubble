@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmia8m8jp4qj7"
-path="res://.godot/imported/Gipfelkreuz_ohne_Gipfelkreuzbox_schade_aber_felix_meinte_passt_schon.png-1127879c9d2c80a8d5f2622f13e87a88.ctex"
+uid="uid://bl7fm7icirkjl"
+path="res://.godot/imported/wolke1.png-fb72abac4e58c1e1d2a91e34164fbb39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/Gipfelkreuz_ohne_Gipfelkreuzbox_schade_aber_felix_meinte_passt_schon.png"
-dest_files=["res://.godot/imported/Gipfelkreuz_ohne_Gipfelkreuzbox_schade_aber_felix_meinte_passt_schon.png-1127879c9d2c80a8d5f2622f13e87a88.ctex"]
+source_file="res://art/sprites/wolke1.png"
+dest_files=["res://.godot/imported/wolke1.png-fb72abac4e58c1e1d2a91e34164fbb39.ctex"]
 
 [params]
 

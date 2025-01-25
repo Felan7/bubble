@@ -38,6 +38,10 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[global_group]
+
+cloud=""
+
 [input]
 
 left={
