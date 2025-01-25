@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=74 format=3 uid="uid://cqfamqvpxfrb7"]
 
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_d7p4g"]
@@ -58,7 +58,13 @@
 [ext_resource type="Texture2D" uid="uid://de4elqj346fwj" path="res://art/sprites/BG_1.png" id="56_ns3fu"]
 [ext_resource type="Texture2D" uid="uid://iqhxotib50f7" path="res://art/sprites/Felsen_2.png" id="56_rvmqm"]
 [ext_resource type="Texture2D" uid="uid://ca0vk4ts77gnc" path="res://art/sprites/GGJ_Baum_2.png" id="57_1uytw"]
-[ext_resource type="Texture2D" uid="uid://qb5a6jxl0vsn" path="res://art/sprites/background_mountain.png" id="57_d3chd"]
+[ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="57_vhr5y"]
+[ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="58_bhhga"]
+[ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="59_dbcno"]
+[ext_resource type="AudioStream" uid="uid://7f5i7dxrdo52" path="res://art/music/Bubbles of Thoughts - Berg.wav" id="59_io68g"]
+[ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="60_0iloc"]
+[ext_resource type="AudioStream" uid="uid://3d7bwsvu7ghe" path="res://art/sounds/mountain.ogg" id="60_xcghb"]
+[ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="61_qykmn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4r8c"]
 radius = 79.0
@@ -244,7 +250,27 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bpofw"]
+random_volume_offset_db = 0.4
+streams_count = 3
+stream_0/stream = ExtResource("57_vhr5y")
+stream_1/stream = ExtResource("58_bhhga")
+stream_2/stream = ExtResource("59_dbcno")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0voi1"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("60_0iloc")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m7jm3"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_r0oma"]
+stream_count = 2
+stream_0/stream = ExtResource("59_io68g")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("60_xcghb")
+stream_1/volume = 0.0
 
 [node name="mountain" type="Node2D"]
 
@@ -253,7 +279,6 @@ scroll_scale = Vector2(0.5, 1)
 
 [node name="BackgroundMountain" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(-640, -357)
-texture = ExtResource("57_d3chd")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 1)
@@ -320,6 +345,18 @@ grow_vertical = 2
 text = "Press \"E\" to enter"
 horizontal_alignment = 1
 
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = SubResource("AudioStreamRandomizer_bpofw")
+volume_db = -6.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = SubResource("AudioStreamRandomizer_0voi1")
+volume_db = -3.0
+
+[node name="BubbleTransportSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("61_qykmn")
+volume_db = -12.0
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -334,3 +371,7 @@ texture = ExtResource("54_dmh3y")
 [node name="Felsen2" type="Sprite2D" parent="World_background"]
 position = Vector2(-327, -88)
 texture = ExtResource("56_rvmqm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_r0oma")
+autoplay = true

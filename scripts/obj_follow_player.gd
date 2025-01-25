@@ -19,4 +19,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_overlap_collider_body_entered(body) -> void:
 	if body.name == "player":
+		player.change_player_state(player.PLAYER_STATE.DEAD)
 		print("Kollision mit dem Player erkannt!")
