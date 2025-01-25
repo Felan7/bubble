@@ -19,6 +19,7 @@ script = ExtResource("1_wwc5c")
 rotation = 1.5708
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_p5lhj")
+follow_speed = 150.0
 
 [node name="OverlapCollider" type="Area2D" parent="eye"]
 

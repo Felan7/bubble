@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=77 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
@@ -266,7 +266,7 @@ streams_count = 1
 stream_0/stream = ExtResource("53_s12c6")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yiq7"]
-radius = 61.0082
+radius = 88.741
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bvuql"]
 particle_flag_disable_z = true
@@ -424,6 +424,23 @@ shape = SubResource("SegmentShape2D_rgrqg")
 position = Vector2(0, -157)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ue00l")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Bubble"]
+position = Vector2(0, -409)
+color = Color(0.921726, 0.91423, 0, 1)
+energy = 0.3
+blend_mode = 2
+shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 0.713726)
+shadow_filter = 1
+shadow_filter_smooth = 13.3
+
+[node name="BubbleCollisionWall" type="StaticBody2D" parent="Bubble"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble/BubbleCollisionWall"]
+position = Vector2(-0.0314941, 0.251831)
+scale = Vector2(1.06295, 1.06295)
+build_mode = 1
+polygon = PackedVector2Array(-392.276, -147.94, -324.54, -268.36, -215.409, -366.201, -72.4106, -415.122, 76.233, -417.003, 201.357, -374.668, 292.613, -305.05, 364.112, -215.676, 411.151, -99.019, 420.559, 33.6312, 389.513, 165.341, 322.718, 271.649, 229.58, 351.616, 109.16, 404.299, -70, 417, -209, 364, -324, 270, -399.803, 121.124, -419.559, -6.8224)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rhyln")
