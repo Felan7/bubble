@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://copib7gnfp3pk"]
 
 [ext_resource type="Script" path="res://scripts/stargazing.gd" id="1_m3lr1"]
-[ext_resource type="Texture2D" uid="uid://x8fwfqinompo" path="res://art/sprites/Sternhimmel.png" id="2_3k8ka"]
+[ext_resource type="Texture2D" uid="uid://qsy1e778gawp" path="res://art/sprites/SternhimmelMitMond.png" id="2_qp0uh"]
 [ext_resource type="PackedScene" uid="uid://d31px7xwr52dp" path="res://dialogues/balloon.tscn" id="4_rlo2f"]
 [ext_resource type="AudioStream" uid="uid://duh4urhytkg3p" path="res://art/sounds/crickets.ogg" id="5_elna4"]
 
@@ -15,7 +15,7 @@ glow_bloom = 0.2
 script = ExtResource("1_m3lr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3k8ka")
+texture = ExtResource("2_qp0uh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
