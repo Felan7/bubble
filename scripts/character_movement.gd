@@ -7,6 +7,9 @@ var in_transportation_mode = false
 var movement_state = MOVEMENT_STATE.IDLE
 var movement_variant = MOVEMENT_VARIANT.WALKING
 @onready var sprite = $Sprite
+@onready var walking_sound = $WalkingSound
+@onready var jump_sound = $JumpSound
+@onready var bubble_transport_sound = $BubbleTransportSound
 
 enum MOVEMENT_STATE {
 	IDLE,
@@ -18,6 +21,26 @@ enum MOVEMENT_VARIANT {
 	BUBBLE
 }
 
+func play_movement_sound():
+	if movement_state == MOVEMENT_STATE.MOVING:
+		if movement_variant == MOVEMENT_VARIANT.WALKING:
+			if not walking_sound.playing:
+				walking_sound.play()
+		else:
+			walking_sound.stop()
+
+		if movement_variant == MOVEMENT_VARIANT.BUBBLE:
+			print("play sound")
+			if not bubble_transport_sound.playing:
+				bubble_transport_sound.play()
+		else:
+			bubble_transport_sound.stop()
+
+func stop_movement_sound():
+	walking_sound.stop()
+	bubble_transport_sound.stop()
+
+
 func change_movement_state(new_state: MOVEMENT_STATE) -> void:
 	if new_state != movement_state:
 		movement_state = new_state
@@ -25,8 +48,13 @@ func change_movement_state(new_state: MOVEMENT_STATE) -> void:
 			sprite.animation = "idle"
 		elif new_state == MOVEMENT_STATE.MOVING:
 			sprite.animation = "walking"
+	if movement_state == MOVEMENT_STATE.IDLE:
+		stop_movement_sound()
+	else:
+		play_movement_sound()
 
 func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
+	print("change movement variant to: ", new_variant)
 	if new_variant != movement_variant:
 		in_transportation_mode = new_variant == MOVEMENT_VARIANT.BUBBLE
 		movement_variant = new_variant
@@ -43,6 +71,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -59,9 +88,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
-	
 	move_and_slide()
-	if not in_transportation_mode and direction_x != 0 :
+	
+	if direction_x != 0 :
 		#is moving
 		change_movement_state(MOVEMENT_STATE.MOVING)
 	else:
