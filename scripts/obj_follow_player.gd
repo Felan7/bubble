@@ -12,6 +12,5 @@ func _physics_process(delta: float) -> void:
 		target_pos = (player_pos - self.position).normalized()
 
 		if self.position.distance_to(player_pos) > min_player_distance:
-			velocity = target_pos * follow_speed
-			move_and_slide()
+			velocity = target_pos.direction_to(player_pos) * follow_speed
 			look_at(player_pos)
