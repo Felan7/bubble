@@ -1,4 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-art/music/Bubbles of Thoughts - Gesamt.wav.import
+*.import
