@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=75 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="50_aen07"]
 [ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="51_4qv0i"]
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="53_s12c6"]
+[ext_resource type="Script" path="res://scripts/player_sprite_animation.gd" id="53_vsmp5"]
 [ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="53_wrhd3"]
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="54_mh7l5"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_2ut6l"]
@@ -335,6 +336,7 @@ sprite_frames = SubResource("SpriteFrames_c3bme")
 animation = &"walking"
 autoplay = "idle"
 frame_progress = 0.141537
+script = ExtResource("53_vsmp5")
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="player"]
 stream = SubResource("AudioStreamRandomizer_cyspg")

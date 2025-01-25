@@ -123,8 +123,8 @@ const BUBBLES = [
 		"y" : 1000
 	},
 	{
-		"name" : "Drawing",
-		"target" : "eyes",
+		"name" : "Eyes",
+		"target" : "follow_eyes",
 		"x" : 1000,
 		"y" : 0
 	},
