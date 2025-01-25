@@ -1,7 +1,7 @@
-[gd_scene load_steps=74 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=80 format=3 uid="uid://cqfamqvpxfrb7"]
 
+[ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_63m1h"]
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
-[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_d7p4g"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="3_s4pcn"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="4_bj6pa"]
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="5_kfy5w"]
@@ -65,15 +65,28 @@
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="60_0iloc"]
 [ext_resource type="AudioStream" uid="uid://3d7bwsvu7ghe" path="res://art/sounds/mountain.ogg" id="60_xcghb"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="61_qykmn"]
+[ext_resource type="Texture2D" uid="uid://clol4nw111jbu" path="res://art/sprites/Berg_Gesamt.png" id="62_snga6"]
+[ext_resource type="Texture2D" uid="uid://crlbj2rdske7v" path="res://art/sprites/location_marker.png" id="63_r6ou1"]
+[ext_resource type="Texture2D" uid="uid://c2x4iv2mh6v80" path="res://art/sprites/star.png" id="67_581fd"]
+
+[sub_resource type="Gradient" id="Gradient_l57y3"]
+offsets = PackedFloat32Array(0.00277008, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ihe2q"]
+gradient = SubResource("Gradient_l57y3")
+width = 1080
+
+[sub_resource type="Gradient" id="Gradient_pokqx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.294118, 0.513726, 0.556863, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dgqeq"]
+gradient = SubResource("Gradient_pokqx")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4r8c"]
 radius = 79.0
 height = 290.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbi31"]
-shader = ExtResource("2_d7p4g")
-shader_parameter/intensity = 0.4
-shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fw15v"]
 animations = [{
@@ -238,18 +251,6 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ybg7"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bpofw"]
 random_volume_offset_db = 0.4
 streams_count = 3
@@ -263,6 +264,12 @@ random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("60_0iloc")
 
+[sub_resource type="Curve2D" id="Curve2D_eqjig"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 834, -394, 0, 0, 0, 0, 798, -409, 0, 0, 0, 0, 738, -416, 0, 0, 0, 0, 728, -441, 0, 0, 0, 0, 713, -471, 0, 0, 0, 0, 669, -473, 0, 0, 0, 0, 581, -463, 0, 0, 0, 0, 531, -485, 0, 0, 0, 0, 489, -510, 0, 0, 0, 0, 499, -564, 0, 0, 0, 0, 549, -593, 0, 0, 0, 0, 657, -611, 0, 0, 0, 0, 780, -584, 0, 0, 0, 0, 921, -579, 0, 0, 0, 0, 963, -624, 0, 0, 0, 0, 909, -682, 0, 0, 0, 0, 817, -707, 0, 0, 0, 0, 797, -734, 0, 0, 0, 0, 817, -772, 0, 0, 0, 0, 832, -804)
+}
+point_count = 20
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m7jm3"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_r0oma"]
@@ -274,15 +281,35 @@ stream_1/volume = 0.0
 
 [node name="mountain" type="Node2D"]
 
+[node name="Sprite_Sky" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(8614, -630)
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_ihe2q")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 20000)
+
+[node name="Sprite_foreground_grass" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(8411, 489)
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_dgqeq")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 20000)
+
 [node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -1
 scroll_scale = Vector2(0.5, 1)
 
 [node name="BackgroundMountain" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(-640, -357)
+position = Vector2(1837, -842)
+scale = Vector2(2, 2)
+texture = ExtResource("1_63m1h")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
+z_index = -1
 scroll_scale = Vector2(0.7, 1)
-scroll_offset = Vector2(-6, -533)
+scroll_offset = Vector2(-6, -277)
 repeat_size = Vector2(1920, 0)
 repeat_times = 3
 
@@ -304,6 +331,7 @@ position = Vector2(1602, -387)
 texture = ExtResource("57_1uytw")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 1
 position = Vector2(0, -192)
 script = ExtResource("1_tnl51")
 
@@ -311,7 +339,6 @@ script = ExtResource("1_tnl51")
 shape = SubResource("CapsuleShape2D_r4r8c")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
-material = SubResource("ShaderMaterial_pbi31")
 sprite_frames = SubResource("SpriteFrames_fw15v")
 animation = &"walking"
 autoplay = "idle"
@@ -319,31 +346,6 @@ autoplay = "idle"
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 offset = Vector2(0, -200)
 zoom = Vector2(0.75, 0.75)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D/Camera2D"]
-visible = false
-
-[node name="Panel" type="Panel" parent="CharacterBody2D/Camera2D/CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -100.0
-offset_bottom = -100.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6ybg7")
-
-[node name="Label" type="Label" parent="CharacterBody2D/Camera2D/CanvasLayer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Press \"E\" to enter"
-horizontal_alignment = 1
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 stream = SubResource("AudioStreamRandomizer_bpofw")
@@ -357,20 +359,46 @@ volume_db = -3.0
 stream = ExtResource("61_qykmn")
 volume_db = -12.0
 
+[node name="Sprite_Map" type="Sprite2D" parent="CharacterBody2D"]
+z_index = -1
+position = Vector2(781, -638)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("62_snga6")
+
+[node name="Path2D" type="Path2D" parent="CharacterBody2D"]
+curve = SubResource("Curve2D_eqjig")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CharacterBody2D/Path2D"]
+position = Vector2(834, -394)
+rotation = -2.7468
+rotates = false
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Path2D/PathFollow2D"]
+position = Vector2(16, 41)
+rotation = -3.54651
+texture = ExtResource("63_r6ou1")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 126)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_m7jm3")
 
-[node name="World_background" type="Node2D" parent="."]
+[node name="World_foreground" type="Node2D" parent="."]
+z_index = 1
 
-[node name="Busch1" type="Sprite2D" parent="World_background"]
-position = Vector2(799, -82)
+[node name="Busch1" type="Sprite2D" parent="World_foreground"]
+position = Vector2(328, 39)
 texture = ExtResource("54_dmh3y")
 
-[node name="Felsen2" type="Sprite2D" parent="World_background"]
+[node name="Felsen2" type="Sprite2D" parent="World_foreground"]
 position = Vector2(-327, -88)
 texture = ExtResource("56_rvmqm")
+
+[node name="Star" type="Sprite2D" parent="World_foreground"]
+position = Vector2(17000, 0)
+texture = ExtResource("67_581fd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_r0oma")
