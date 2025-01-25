@@ -20,12 +20,12 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 	if body.is_in_group("player"):  # Überprüfen, ob es der Spieler ist
 		var player = body
 		if not player.in_transportation_mode:
-			player.in_transportation_mode = true
+			player.change_movement_variant(player.MOVEMENT_VARIANT.BUBBLE)
 			self.is_player_inside = true
 			var target := get_node("Transport_Bubble")
 			if target:
 				player.position = target.global_position
 		else:
-			player.in_transportation_mode = false
+			player.change_movement_variant(player.MOVEMENT_VARIANT.WALKING)
 			self.is_player_inside = false
 			player.position = self.global_position

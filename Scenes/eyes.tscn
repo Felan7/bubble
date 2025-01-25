@@ -1,6 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://lijfyh6cycrq"]
+[gd_scene load_steps=43 format=3 uid="uid://dojyrsuiv173r"]
 
 [ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="1_gcvri"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_nw4wk"]
+[ext_resource type="PackedScene" uid="uid://clsytesf6iobh" path="res://scenes/eye_object.tscn" id="2_a6bus"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_fsx45"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_m6is8"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_6lvm6"]
@@ -160,6 +162,9 @@ glow_intensity = 2.0
 glow_bloom = 0.2
 
 [node name="Eyes" type="Node2D"]
+script = ExtResource("1_nw4wk")
+object_scene = ExtResource("2_a6bus")
+spawn_area_size = Vector2(2000, 2000)
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true

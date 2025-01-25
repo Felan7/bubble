@@ -4,8 +4,36 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -200.0
 var in_transportation_mode = false
+var movement_state = MOVEMENT_STATE.IDLE
+var movement_variant = MOVEMENT_VARIANT.WALKING
 @onready var sprite = $Sprite
 
+enum MOVEMENT_STATE {
+	IDLE,
+	MOVING
+}
+
+enum MOVEMENT_VARIANT {
+	WALKING,
+	BUBBLE
+}
+
+func change_movement_state(new_state: MOVEMENT_STATE) -> void:
+	if new_state != movement_state:
+		movement_state = new_state
+		if new_state == MOVEMENT_STATE.IDLE:
+			sprite.animation = "idle"
+		elif new_state == MOVEMENT_STATE.MOVING:
+			sprite.animation = "walking"
+
+func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
+	if new_variant != movement_variant:
+		in_transportation_mode = new_variant == MOVEMENT_VARIANT.BUBBLE
+		movement_variant = new_variant
+		if new_variant == MOVEMENT_VARIANT.WALKING:
+			sprite.animation = "walking"
+		elif new_variant == MOVEMENT_VARIANT.BUBBLE:
+			sprite.animation = "idle"
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -35,9 +63,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not in_transportation_mode and direction_x != 0 :
 		#is moving
-		sprite.animation = "walking"
+		change_movement_state(MOVEMENT_STATE.MOVING)
 	else:
-		sprite.animation = "idle"
+		change_movement_state(MOVEMENT_STATE.IDLE)
 		
 	if direction_x > 0:
 		sprite.flip_h = true
