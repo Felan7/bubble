@@ -1,10 +1,9 @@
-[gd_scene load_steps=64 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=67 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="2_bwx28"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="3_myxg5"]
-[ext_resource type="Script" path="res://scripts/player_sprite_animation.gd" id="3_phc48"]
 [ext_resource type="Texture2D" uid="uid://oetx2u4x7u1j" path="res://art/sprites/bubble.svg" id="3_sj4rk"]
 [ext_resource type="Script" path="res://scripts/basic_bubble.gd" id="3_uj7nj"]
 [ext_resource type="Texture2D" uid="uid://da034r04nbxas" path="res://art/sprites/ground-main.svg" id="4_1spml"]
