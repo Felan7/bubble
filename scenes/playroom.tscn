@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://rydmvd0ulxa0" path="res://art/animations/CharacterWalkingAnimation/CharWalking0069.png" id="50_cp6dx"]
 [ext_resource type="Texture2D" uid="uid://bgw7yiwady518" path="res://art/animations/CharacterWalkingAnimation/CharWalking0070.png" id="51_rib7m"]
 [ext_resource type="Texture2D" uid="uid://bg3t4o67ru4vv" path="res://art/animations/CharacterWalkingAnimation/CharWalking0071.png" id="52_f3jbs"]
+
 [ext_resource type="AudioStream" uid="uid://ck3b2d8g34urf" path="res://art/sounds/step1.ogg" id="54_4x7ei"]
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="55_su011"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="56_vjfj7"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bug7tr4rmk"
+path="res://.godot/imported/Bubbles of Thoughts 3 - Berg.wav-6edd3e9a1b8a7ad625662f0e67b0bf60.sample"
+
+[deps]
+
+source_file="res://art/music/Bubbles of Thoughts 3 - Berg.wav"
+dest_files=["res://.godot/imported/Bubbles of Thoughts 3 - Berg.wav-6edd3e9a1b8a7ad625662f0e67b0bf60.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

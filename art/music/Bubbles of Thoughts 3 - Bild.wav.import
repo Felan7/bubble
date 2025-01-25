@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr61l8vtnkvdt"
+path="res://.godot/imported/Bubbles of Thoughts 3 - Bild.wav-1af9eb0b3c6e1b207630bc20c6cdceb4.sample"
+
+[deps]
+
+source_file="res://art/music/Bubbles of Thoughts 3 - Bild.wav"
+dest_files=["res://.godot/imported/Bubbles of Thoughts 3 - Bild.wav-1af9eb0b3c6e1b207630bc20c6cdceb4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
