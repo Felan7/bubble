@@ -12,8 +12,7 @@ func _ready() -> void:
 		"eyes" : "Bild",
 		"thank_you" : "Danke",
 		"concert" : "Konzert",
-		# "tower" : "Turm",
-		"main" : "Spiel",
+		"tower" : "Spiel",
 	}
 
 	synchronized_stream.stream_count = Global.scene_ids.size()
