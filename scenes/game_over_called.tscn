@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://2y2cl782bmnn"]
+[gd_scene load_steps=3 format=3 uid="uid://2y2cl782bmnn"]
 
+[ext_resource type="Script" path="res://scenes/game_over_called.gd" id="1_cwy7b"]
 [ext_resource type="AudioStream" uid="uid://bsx2viid08nj2" path="res://art/sounds/phone_dial.ogg" id="1_xvre6"]
 
-[node name="game_over" type="Node2D"]
+[node name="game_over_called" type="Node2D"]
+script = ExtResource("1_cwy7b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -24,13 +26,19 @@ text = "You've called your parents.
 This game is now over."
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
-text = "Thank you for playing.
+bbcode_enabled = true
+text = "[center]Thank you for playing.
+
+Felix
 
 "
 fit_content = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
