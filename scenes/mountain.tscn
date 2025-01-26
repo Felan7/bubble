@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://cva17lw6q36by"]
+[gd_scene load_steps=139 format=3 uid="uid://cva17lw6q36by"]
 
 [ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_63m1h"]
 [ext_resource type="Script" path="res://scenes/mountain.gd" id="1_hwwgo"]
@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bo1j4oxa42jse" path="res://art/animations/character_idle_animation/CharIdle0003.png" id="6_v184k"]
 [ext_resource type="Texture2D" uid="uid://wtl0hukbop5p" path="res://art/animations/character_idle_animation/CharIdle0004.png" id="7_e3gi8"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="7_kwoih"]
-[ext_resource type="PackedScene" path="res://wolke.tscn" id="8_dlxec"]
+[ext_resource type="PackedScene" uid="uid://dw4ce7gmxag0n" path="res://wolke.tscn" id="8_dlxec"]
 [ext_resource type="Texture2D" uid="uid://dhknkhwgw8vwn" path="res://art/animations/character_idle_animation/CharIdle0005.png" id="8_uqwx6"]
-[ext_resource type="PackedScene" path="res://wolke_2.tscn" id="9_6ask8"]
+[ext_resource type="PackedScene" uid="uid://dhq84q4k2kh0k" path="res://wolke_2.tscn" id="9_6ask8"]
 [ext_resource type="Texture2D" uid="uid://c8idm0otcwad3" path="res://art/animations/character_idle_animation/CharIdle0006.png" id="9_oigx0"]
 [ext_resource type="Texture2D" uid="uid://cq82tds2frdoo" path="res://art/animations/character_idle_animation/CharIdle0007.png" id="10_qe2rh"]
 [ext_resource type="Texture2D" uid="uid://dhcgelnorhfbe" path="res://art/animations/character_idle_animation/CharIdle0008.png" id="11_rmhcv"]
@@ -98,10 +98,10 @@
 [ext_resource type="Texture2D" uid="uid://cmia8m8jp4qj7" path="res://art/sprites/Gipfelkreuz_ohne_Gipfelkreuzbox_schade_aber_felix_meinte_passt_schon.png" id="72_1and6"]
 [ext_resource type="Texture2D" uid="uid://dhkjpxdc5bplo" path="res://art/animations/parent_arm_up_animation/parent_arms_up_anim0051.png" id="73_2dca0"]
 [ext_resource type="Texture2D" uid="uid://c3r4f2ybp15io" path="res://art/animations/character_sitting_animation/character_sitting_anim0111.png" id="73_jqbbp"]
-[ext_resource type="PackedScene" path="res://wolke_3.tscn" id="73_qfys3"]
+[ext_resource type="PackedScene" uid="uid://tna6ujoqwk6a" path="res://wolke_3.tscn" id="73_qfys3"]
 [ext_resource type="Texture2D" uid="uid://d25fp0xtokrg0" path="res://art/animations/character_sitting_animation/character_sitting_anim0112.png" id="74_rrwpa"]
 [ext_resource type="Texture2D" uid="uid://ddpdx1hsyi7fe" path="res://art/animations/parent_carrying_animation/parent_carrying_anim0055.png" id="74_vkhe4"]
-[ext_resource type="PackedScene" path="res://wolke_4.tscn" id="74_xlock"]
+[ext_resource type="PackedScene" uid="uid://cmei3fudlpeds" path="res://wolke_4.tscn" id="74_xlock"]
 [ext_resource type="Texture2D" uid="uid://bg6npx8si4dgi" path="res://art/animations/character_sitting_animation/character_sitting_anim0113.png" id="75_4ynvq"]
 [ext_resource type="Texture2D" uid="uid://c5sgvbehwen8s" path="res://art/animations/parent_carrying_animation/parent_carrying_anim0056.png" id="75_uotkg"]
 [ext_resource type="Texture2D" uid="uid://dsoiqm7wkmv4i" path="res://art/animations/character_sitting_animation/character_sitting_anim0114.png" id="76_g4wwy"]
@@ -499,6 +499,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_snal5"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("57_vhr5y")
+stream_1/stream = ExtResource("58_bhhga")
+stream_2/stream = ExtResource("59_dbcno")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m7jm3"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_r0oma"]
@@ -523,7 +531,7 @@ position = Vector2(8614, -630)
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_ihe2q")
 region_enabled = true
-region_rect = Rect2(0, 0, 1500, 22000)
+region_rect = Rect2(0, 0, 1500, 20000)
 metadata/_edit_lock_ = true
 
 [node name="Sprite_foreground_grass" type="Sprite2D" parent="."]
@@ -532,7 +540,7 @@ position = Vector2(8411, 489)
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_dgqeq")
 region_enabled = true
-region_rect = Rect2(0, 0, 1080, 22000)
+region_rect = Rect2(0, 0, 1080, 20000)
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -881,7 +889,7 @@ texture = ExtResource("72_1and6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_index = 1
-position = Vector2(275, -138)
+position = Vector2(0, -192)
 script = ExtResource("1_tnl51")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -934,7 +942,7 @@ texture = ExtResource("63_r6ou1")
 
 [node name="Sprite_Parent" type="AnimatedSprite2D" parent="."]
 process_mode = 4
-position = Vector2(17311, -72)
+position = Vector2(17624, -72)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3ygly")
 animation = &"idle"
@@ -944,6 +952,9 @@ script = ExtResource("92_85wpe")
 
 [node name="carry_anchor" type="Node2D" parent="Sprite_Parent"]
 position = Vector2(4, -161)
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="Sprite_Parent"]
+stream = SubResource("AudioStreamRandomizer_snal5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 126)
