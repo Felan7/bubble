@@ -73,6 +73,9 @@ func change_player_state(new_state: PLAYER_STATE) -> void:
 	if new_state == PLAYER_STATE.DEAD:
 		death_sound.play()
 		music.stop()
+		
+		var parent = get_parent() as Spawner
+		parent.on_player_death()
 
 func _physics_process(delta: float) -> void:
 
