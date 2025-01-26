@@ -7,7 +7,6 @@ var dialouge_summmit = load("res://dialogues/mountain_peak.dialogue")
 var dialouge_start = load("res://dialogues/mountain_start.dialogue")
 var dialouge_end = load("res://dialogues/mountain_end.dialogue")
 
-@onready var dialogue = $ExampleBalloon
 var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 var summit_reached : bool = false
 
@@ -53,6 +52,11 @@ func _on_dialouge_ended(resource):
 		# end of scene
 		print("End of " + scene_id + " scene")
 		Global.scene_completion_state[scene_id] = true
+
+		var bubble_in_out = $BubbleInOut as BubbleInOut
+		bubble_in_out.bubble_out()
+		await bubble_in_out.bubble_out_sound.finished
+		
 		get_tree().change_scene_to_packed(hub_scene)
 	
 
