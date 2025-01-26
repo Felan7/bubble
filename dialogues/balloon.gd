@@ -24,6 +24,8 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+@onready var new_line_sound: AudioStreamPlayer = $NewLineSound
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -110,6 +112,8 @@ func apply_dialogue_line(next_dialogue_line: DialogueLine) -> void:
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
+
+		new_line_sound.play()
 
 	# Wait for input
 	if dialogue_line.responses.size() > 0:
