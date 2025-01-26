@@ -111,14 +111,14 @@ const BUBBLES = [
 	{
 		"name" : "Mountains",
 		"target" : "mountain",
-		"x" : -1000,
+		"x" : -2000,
 		"y" : 1000
 	},
 	{
 		"name" : "Eyes",
 		"target" : "eyes_dialouge",
-		"x" : 1000,
-		"y" : 0
+		"x" : 1800,
+		"y" : 400
 	},
 	{
 		"name" : "bubble_youth_concert",
@@ -129,8 +129,8 @@ const BUBBLES = [
 	{
 		"name" : "Stargazing",
 		"target" : "stargazing",
-		"x" : -1000,
-		"y" : 0
+		"x" : -1700,
+		"y" : -400
 	},
 	{
 		"name" : "Playroom",
@@ -151,6 +151,7 @@ func _ready() -> void:
 		new_bubble.bubble_enter.connect(_on_bubble_enter)
 		new_bubble.bubble_leave.connect(_on_bubble_leave)
 		get_tree().root.get_node("Node2D").add_child.call_deferred(new_bubble)
+		UI_node.visible = false
 	
 
 var scene_instance
