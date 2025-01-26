@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy0fegp007lbc"]
+[gd_scene load_steps=5 format=3 uid="uid://cvbwck7ih83d2"]
 
 [ext_resource type="Script" path="res://concert.gd" id="1_nabcv"]
 [ext_resource type="Texture2D" uid="uid://1y272y1abr5o" path="res://art/sprites/Konzert_Gesamt.png" id="2_dccrc"]
 [ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="3_isw5h"]
+[ext_resource type="AudioStream" uid="uid://c63w3jxinab02" path="res://art/music/Bubbles of Thoughts 3 - Danke.wav" id="4_hoyxw"]
 
 [node name="thank_you" type="Node2D"]
 script = ExtResource("1_nabcv")
@@ -14,3 +15,7 @@ texture = ExtResource("2_dccrc")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="BubbleInOut" parent="." instance=ExtResource("3_isw5h")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hoyxw")
+autoplay = true
