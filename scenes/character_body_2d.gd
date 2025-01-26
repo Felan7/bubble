@@ -110,6 +110,8 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = false
 @onready var follower = $Path2D/PathFollow2D
 
+	
+
 func _process(delta: float) -> void:
 	follower.progress_ratio = position.x / summit_x
 	
