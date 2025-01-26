@@ -6,6 +6,7 @@ var scene_id = "mountain"
 var dialouge_summmit = load("res://dialogues/mountain_peak.dialogue")
 var dialouge_start = load("res://dialogues/mountain_start.dialogue")
 var dialouge_end = load("res://dialogues/mountain_end.dialogue")
+var dialouge_wrong_way = load("res://dialogues/mountain_wrong_way.dialogue")
 
 var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 var summit_reached : bool = false
@@ -68,3 +69,9 @@ func _process(_delta: float) -> void:
 		player.process_mode = Node.PROCESS_MODE_DISABLED
 		DialogueManager.show_dialogue_balloon(dialouge_summmit, "start")
 		#todo should be carried down by parent
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == player:
+		DialogueManager.show_dialogue_balloon(dialouge_wrong_way, "start")
+		player.get_node("Sprite").flip_h = false

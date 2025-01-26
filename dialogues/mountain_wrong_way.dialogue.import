@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bw0kalcghufcq"
+path="res://.godot/imported/mountain_wrong_way.dialogue-897e5ed8024ec60fec1a94605b1fdbd9.tres"
+
+[deps]
+
+source_file="res://dialogues/mountain_wrong_way.dialogue"
+dest_files=["res://.godot/imported/mountain_wrong_way.dialogue-897e5ed8024ec60fec1a94605b1fdbd9.tres"]
+
+[params]
+
+defaults=true
