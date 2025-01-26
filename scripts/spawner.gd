@@ -62,5 +62,6 @@ func _play_bubble_out_sound() -> void:
 	await bubble_in_out.bubble_out_sound.finished
 
 func on_player_death():
+	$player.process_mode = Node.PROCESS_MODE_DISABLED
 	await _play_bubble_out_sound()
 	get_tree().change_scene_to_packed(hub_scene)
