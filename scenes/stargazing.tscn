@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://copib7gnfp3pk"]
+[gd_scene load_steps=7 format=3 uid="uid://copib7gnfp3pk"]
 
 [ext_resource type="Script" path="res://scripts/stargazing.gd" id="1_m3lr1"]
+[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="2_7oync"]
 [ext_resource type="Texture2D" uid="uid://qsy1e778gawp" path="res://art/sprites/SternhimmelMitMond.png" id="2_qp0uh"]
 [ext_resource type="PackedScene" uid="uid://d31px7xwr52dp" path="res://dialogues/balloon.tscn" id="4_rlo2f"]
 [ext_resource type="AudioStream" uid="uid://duh4urhytkg3p" path="res://art/sounds/crickets.ogg" id="5_elna4"]
@@ -14,6 +15,8 @@ glow_bloom = 0.2
 [node name="stargazing" type="Node2D"]
 script = ExtResource("1_m3lr1")
 
+[node name="BubbleInOut" parent="." instance=ExtResource("2_7oync")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qp0uh")
 
@@ -24,6 +27,6 @@ environment = SubResource("Environment_uf382")
 
 [node name="ExampleBalloon" parent="." instance=ExtResource("4_rlo2f")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_elna4")
 autoplay = true
