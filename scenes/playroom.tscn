@@ -487,7 +487,6 @@ shape = SubResource("CircleShape2D_2lxfv")
 
 [node name="DropSound" parent="Block_Little" instance=ExtResource("5_gur02")]
 rotation = -0.200713
-script = ExtResource("66_p5qmg")
 
 [node name="Block_Little2" type="RigidBody2D" parent="." groups=["block"]]
 position = Vector2(244.808, 414.692)
