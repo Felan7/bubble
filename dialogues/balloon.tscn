@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d31px7xwr52dp"]
+[gd_scene load_steps=10 format=3 uid="uid://d31px7xwr52dp"]
 
 [ext_resource type="Script" path="res://dialogues/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="AudioStream" uid="uid://ddjco0c6oknoc" path="res://art/sounds/ui_plopp.ogg" id="4_5o8mh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -148,6 +149,9 @@ response_template = NodePath("ResponseExample")
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
 text = "Response example"
+
+[node name="NewLineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5o8mh")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
