@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/crickets.ogg-690912ff521bf890bc824606592ae93d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
