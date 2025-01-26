@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://2y2cl782bmnn"]
+[gd_scene load_steps=2 format=3 uid="uid://bis7j87qpekoo"]
+
+[ext_resource type="AudioStream" uid="uid://bsx2viid08nj2" path="res://art/sounds/phone_dial.ogg" id="1_xvre6"]
 
 [node name="game_over" type="Node2D"]
 
@@ -21,3 +23,7 @@ This game is now over."
 horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DialSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_xvre6")
+autoplay = true
