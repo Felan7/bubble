@@ -72,6 +72,7 @@ func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
 func change_player_state(new_state: PLAYER_STATE) -> void:
 	if new_state == PLAYER_STATE.DEAD:
 		death_sound.play()
+		await death_sound.finished
 		music.stop()
 
 		var parent = get_parent() as Spawner

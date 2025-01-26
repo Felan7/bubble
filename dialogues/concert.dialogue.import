@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://dy5eshbgq2jgo"
+path="res://.godot/imported/concert.dialogue-62fca0874c7720a3e84fdbd2d0903b6f.tres"
+
+[deps]
+
+source_file="res://dialogues/concert.dialogue"
+dest_files=["res://.godot/imported/concert.dialogue-62fca0874c7720a3e84fdbd2d0903b6f.tres"]
+
+[params]
+
+defaults=true
