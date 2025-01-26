@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d31px7xwr52dp"]
+[gd_scene load_steps=12 format=3 uid="uid://d31px7xwr52dp"]
 
 [ext_resource type="Script" path="res://dialogues/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="AudioStream" uid="uid://ddjco0c6oknoc" path="res://art/sounds/ui_plopp.ogg" id="4_5o8mh"]
+[ext_resource type="AudioStream" uid="uid://cp883he55i4p7" path="res://art/sounds/ui_click.ogg" id="5_cnlwh"]
+[ext_resource type="AudioStream" uid="uid://dvxx7xidmft7j" path="res://art/sounds/ui_select.ogg" id="6_76gdp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -52,8 +55,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
-default_font_size = 32
-Button/font_sizes/font_size = 32
+default_font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
@@ -74,8 +76,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
-offset_right = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
@@ -83,15 +83,14 @@ theme = SubResource("Theme_qq3yp")
 [node name="Panel" type="Panel" parent="Balloon"]
 clip_children = 2
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.198
-anchor_top = 0.886
-anchor_right = 0.8
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -89.4
-offset_top = -59.8801
-offset_right = -1245.24
-offset_bottom = -183.0
+offset_left = 21.0
+offset_top = -183.0
+offset_right = -19.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -149,5 +148,15 @@ response_template = NodePath("ResponseExample")
 layout_mode = 2
 text = "Response example"
 
+[node name="NewLineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5o8mh")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cnlwh")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_76gdp")
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="mouse_entered" from="Balloon/Responses/ResponsesMenu/ResponseExample" to="." method="_on_response_mouse_entered"]

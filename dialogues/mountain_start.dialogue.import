@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://ccwms2vkkebd6"
+path="res://.godot/imported/mountain_start.dialogue-e6b8f9f7c80c696b3a5ca87d5a24c7e1.tres"
+
+[deps]
+
+source_file="res://dialogues/mountain_start.dialogue"
+dest_files=["res://.godot/imported/mountain_start.dialogue-e6b8f9f7c80c696b3a5ca87d5a24c7e1.tres"]
+
+[params]
+
+defaults=true

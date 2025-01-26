@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="3_6uc2l"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="4_ju7vv"]
 [ext_resource type="Texture2D" uid="uid://chr6oftk6jk1y" path="res://art/sprites/Block_2.png" id="4_rf4ha"]
+[ext_resource type="PackedScene" uid="uid://df1rk80vi0jwf" path="res://scenes/drop_sound.tscn" id="5_gur02"]
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="5_npy1f"]
 [ext_resource type="Texture2D" uid="uid://bssrrhio47ckw" path="res://art/sprites/Block_3.png" id="5_tv8oq"]
 [ext_resource type="Texture2D" uid="uid://c7mtltaiwvnwa" path="res://art/sprites/Block_4.png" id="6_a6oi4"]
@@ -372,6 +373,7 @@ position = Vector2(-0.373664, -11.0144)
 shape = SubResource("CapsuleShape2D_ofvwd")
 
 [node name="Block2" type="Sprite2D" parent="." groups=["block"]]
+[node name="DropSound" parent="BlockPyramid" instance=ExtResource("5_gur02")]
 position = Vector2(555.699, 903.069)
 texture = ExtResource("4_rf4ha")
 
@@ -485,6 +487,8 @@ shape = SubResource("CircleShape2D_2lxfv")
 
 [node name="Block_Little2" type="RigidBody2D" parent="." groups=["block"]]
 position = Vector2(244.808, 414.692)
+[node name="DropSound" parent="Block_Little" instance=ExtResource("5_gur02")]
+
 rotation = -0.200713
 mass = 0.3
 physics_material_override = SubResource("PhysicsMaterial_gv1wp")
@@ -501,6 +505,8 @@ shape = SubResource("RectangleShape2D_pvxyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block_Little2/Area2D"]
 shape = SubResource("CircleShape2D_2lxfv")
+
+[node name="DropSound" parent="Block_Little2" instance=ExtResource("5_gur02")]
 
 [connection signal="body_entered" from="BlockPyramid/Area2D" to="BlockPyramid" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="EndRoomTrigger" to="EndRoomTrigger" method="_on_body_entered"]
