@@ -1,9 +1,9 @@
 ~ start
-You pick up that the phone. What will you do?
+You picked up the phone. What will you do?
 - Call parents.
-	I don't think i can do it. After all this time. The distance between us. All that happend.
+	I don't think I can do it. After all this time… The distance between us… All that’s happened…
 	- Call parents.
 		do Global.end_game()
-	- Put the phone back.
-- Put the phone back.
+	- Hang up the phone again.
+- Hang up the phone again.
 => END
