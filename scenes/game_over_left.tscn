@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://co4fn3y2ts1xc"]
 
 [ext_resource type="Script" path="res://game_over_left.gd" id="1_b7id6"]
-[ext_resource type="AudioStream" uid="uid://dgoak7l2n0d" path="res://art/music/Bubbles of Thoughts 3 - GESAMT.wav" id="2_ogp53"]
+[ext_resource type="AudioStream" uid="uid://krutx30uub4b" path="res://art/music/Bubbles of Thoughts 3 - GESAMT.wav" id="2_ogp53"]
 
 [node name="game_over_left" type="Node2D"]
 script = ExtResource("1_b7id6")
@@ -29,7 +29,16 @@ size_flags_vertical = 3
 bbcode_enabled = true
 text = "[center]Thank you for playing.
 
-Felix
+[center]Thank you for playing.
+
+Andre Jonas
+Felix Kriegsmann
+Julian Schmikale
+Katarina Gaspert
+Rufus Roisch
+Thora Fenske
+
+Made with godot 4.3 for the GlobalGameJam 2025
 
 "
 fit_content = true
@@ -41,5 +50,10 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ogp53")
 autoplay = true
+
+[node name="Timer_game_over" type="Timer" parent="."]
+wait_time = 123.0
+one_shot = true
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

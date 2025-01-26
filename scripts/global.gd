@@ -4,7 +4,7 @@ var scene_completion_state = {}
 
 
 func end_game():
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	get_tree().change_scene_to_file("res://scenes/game_over_called.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
