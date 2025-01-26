@@ -1,45 +1,45 @@
 ~ start
-I: Aren't the stars beautiful?
-- Look,that one is Ursa Major.
+Me: Aren’t the stars beautiful?
+- Look, that’s Ursa Major up there.
 	Them: Really?
-	I: Really.
-	Them: Didn't think you would know anything about constellations.
-	I: What, why?
-	Them: Didn't take you for the type.
-	- I'm offended!
-		Them: Woah, im sorry.
-		I: Im kidding.
+	Me: Really.
+	Them: Didn’t think you would know anything about constellations.
+	Me: What, why that?
+	Them: Didn’t take you for the type.
+	- I’m hurt!
+		Them: Whoa, I’m sorry.
+		Me: Just kidding.
 	- Your mistake.
-	Them: Do you know any other constellations?
+	Them: Do you know any more constellations?
 	- No.
 		Them: Okay
 	- Yes.
-		Them: Okay, which other one do you know?
+		Them: What other constellations do you know?
 		- Ursula Minor.
 			Them: Wow.
 		- Cassiopeia
 			% Them: Cool!
 			% Them: Interesting.
 		- Okay, you got me
-			I: I just knew that one. Wanted to sound smart.
+			Me: I just knew that one. Wanted to sound smart.
 			Them: I knew it!
 - Do you know anything about star constellations?
 	Them: No
-We fall silent for a moment.
-I: But what should I do?
+We both fall silent for a moment.
+Me: But what should I do?
 Them: About tomorrow?
-I: Not just tomorrow.
-I: Like, in life.
-Them: Well i guess you should start with tomorrow, and then take it from there?
+Me: Not just tomorrow.
+Me: Like… in life.
+Them: Well, I guess you should start with tomorrow, and then take it from there?
 - Should I stay?
 - Should I go?
-Them: I really can't tell you.
-I: What if don't get another shot like this?
-Them: Then you will find something else. Im sure?
+Them: I really can’t tell you.
+Me: What if don’t get another shot like this?
+Them: Then you’ll find something else. I’m sure!
 - Are you really sure?
-- But what if I don't?
-Them: Chances are like the stars, you know?
-I: Like the stars?
+- But what if I don’t?
+Them: Chances in life are as plenty as the stars, you know?
+Me: As plenty as the stars?
 Them: Yeah, I guarantee you.
-Them: [wave amp=10.0 freq=5.0 connected=1][color=#4d8ef7]You have as many options as there are stars in the universe.[/color][/wave] 
+Them: [wave amp=10.0 freq=5.0 connected=1][color=#4d8ef7]You’ve got as many options as there are stars in the universe.[/color][/wave] 
 => END
