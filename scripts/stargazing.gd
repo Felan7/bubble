@@ -6,7 +6,7 @@ var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DialogueManager.show_example_dialogue_balloon(resource, "start")
+	DialogueManager.show_dialogue_balloon(resource, "start")
 	DialogueManager.connect("dialogue_ended", _on_dialouge_ended)
 
 

@@ -25,6 +25,9 @@ var locals: Dictionary = {}
 var _locale: String = TranslationServer.get_locale()
 
 @onready var new_line_sound: AudioStreamPlayer = $NewLineSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var select_sound: AudioStreamPlayer = $SelectSound
+
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -87,6 +90,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line(next_dialogue_line: DialogueLine) -> void:
+	new_line_sound.play()
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
@@ -112,8 +116,6 @@ func apply_dialogue_line(next_dialogue_line: DialogueLine) -> void:
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
-
-		new_line_sound.play()
 
 	# Wait for input
 	if dialogue_line.responses.size() > 0:
@@ -170,7 +172,10 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	click_sound.play()
 	next(response.next_id)
 
+func _on_response_mouse_entered() -> void:
+	select_sound.play()
 
 #endregion
