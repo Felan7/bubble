@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://cva17lw6q36by"]
+[gd_scene load_steps=139 format=3 uid="uid://cva17lw6q36by"]
 
 [ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_63m1h"]
 [ext_resource type="Script" path="res://scenes/mountain.gd" id="1_hwwgo"]
@@ -498,6 +498,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_snal5"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("57_vhr5y")
+stream_1/stream = ExtResource("58_bhhga")
+stream_2/stream = ExtResource("59_dbcno")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m7jm3"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_r0oma"]
@@ -926,7 +934,7 @@ texture = ExtResource("63_r6ou1")
 
 [node name="Sprite_Parent" type="AnimatedSprite2D" parent="."]
 process_mode = 4
-position = Vector2(17311, -72)
+position = Vector2(17624, -72)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3ygly")
 animation = &"idle"
@@ -936,6 +944,9 @@ script = ExtResource("92_85wpe")
 
 [node name="carry_anchor" type="Node2D" parent="Sprite_Parent"]
 position = Vector2(4, -161)
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="Sprite_Parent"]
+stream = SubResource("AudioStreamRandomizer_snal5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 126)
