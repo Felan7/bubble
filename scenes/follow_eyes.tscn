@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://502rlnoqluae"]
+[gd_scene load_steps=74 format=3 uid="uid://502rlnoqluae"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_2ntde"]
 [ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="1_m706a"]
@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://bkqi26vadl3y6" path="res://art/sprites/busch_1.png" id="63_x1wvw"]
 [ext_resource type="Texture2D" uid="uid://616ehfaskacy" path="res://art/sprites/Felsen_1.png" id="64_1efd3"]
 [ext_resource type="Texture2D" uid="uid://iqhxotib50f7" path="res://art/sprites/Felsen_2.png" id="65_rsnsy"]
+[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="66_mavog"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhvk0"]
 radius = 70.0
@@ -450,3 +451,5 @@ texture = ExtResource("63_x1wvw")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.0313726, 0.188235, 0.32549, 1)
 energy = 0.3
+
+[node name="BubbleInOut" parent="." instance=ExtResource("66_mavog")]

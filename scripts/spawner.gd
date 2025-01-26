@@ -1,6 +1,9 @@
 extends Node2D
 class_name Spawner
 
+var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
+
+
 @export var object_scene: PackedScene  # Die Scene, die gespawnt wird
 @export var spawn_interval := 1.0  # Zeit zwischen Spawns in Sekunden
 @export var spawn_area_size: Vector2 = Vector2(200, 200)  # Bereich für zufällige Spawns
@@ -52,3 +55,12 @@ func spawn_object():
 
 			# Speichere die Position
 			spawned_positions.append(new_position)
+
+func _play_bubble_out_sound() -> void:
+	var bubble_in_out = $BubbleInOut as BubbleInOut
+	bubble_in_out.bubble_out()
+	await bubble_in_out.bubble_out_sound.finished
+
+func on_player_death():
+	await _play_bubble_out_sound()
+	get_tree().change_scene_to_packed(hub_scene)
