@@ -1,4 +1,5 @@
 extends Node2D
+class_name Spawner
 
 @export var object_scene: PackedScene  # Die Scene, die gespawnt wird
 @export var spawn_interval := 1.0  # Zeit zwischen Spawns in Sekunden
