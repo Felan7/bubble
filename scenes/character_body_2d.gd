@@ -16,6 +16,8 @@ var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 
 var summit_x = 0
 
+var is_sitting : bool = false
+
 enum MOVEMENT_STATE {
 	IDLE,
 	MOVING
@@ -73,41 +75,43 @@ func _draw() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor() && not in_transportation_mode:
-		velocity += get_gravity() * delta
+	if not is_sitting:
+		# Add the gravity.
+		if not is_on_floor() && not in_transportation_mode:
+			velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
+		# Handle jump.
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			jump_sound.play()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction_x := Input.get_axis("left", "right")
-	var direction_y := Input.get_axis("up", "down")
-	if direction_x:
-		velocity.x = direction_x * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	if in_transportation_mode:
-		if direction_y:
-			velocity.y = direction_y * SPEED
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction_x := Input.get_axis("left", "right")
+		var direction_y := Input.get_axis("up", "down")
+		if direction_x:
+			velocity.x = direction_x * SPEED
 		else:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
-		
-	move_and_slide()
-	if not in_transportation_mode and direction_x != 0 :
-		#is moving
-		change_movement_state(MOVEMENT_STATE.MOVING)
-	else:
-		change_movement_state(MOVEMENT_STATE.IDLE)
-		
-	if direction_x > 0:
-		sprite.flip_h = true
-	elif direction_x < 0:
-		sprite.flip_h = false
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+		if in_transportation_mode:
+			if direction_y:
+				velocity.y = direction_y * SPEED
+			else:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
+			
+		move_and_slide()
+		if not in_transportation_mode and direction_x != 0 :
+			#is moving
+			change_movement_state(MOVEMENT_STATE.MOVING)
+		else:
+			change_movement_state(MOVEMENT_STATE.IDLE)
+			
+		if direction_x > 0:
+			sprite.flip_h = true
+		elif direction_x < 0:
+			sprite.flip_h = false
+			
 @onready var follower = $Path2D/PathFollow2D
 
 	

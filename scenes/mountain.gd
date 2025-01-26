@@ -1,11 +1,12 @@
 extends Node2D
 
-const SUMMIT_X = 1700
+const SUMMIT_X = 170
 var scene_id = "mountain"
 @onready var player : CharacterBody2D = $CharacterBody2D
 var dialouge_summmit = load("res://dialogues/mountain_peak.dialogue")
 var dialouge_start = load("res://dialogues/mountain_start.dialogue")
-var dialouge_end
+var dialouge_end = load("res://dialogues/mountain_end.dialogue")
+
 @onready var dialogue = $ExampleBalloon
 var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 var summit_reached : bool = false
@@ -16,7 +17,10 @@ var summit_reached : bool = false
 func _ready() -> void:
 	player.summit_x = SUMMIT_X
 	
+	parent.position = Vector2(SUMMIT_X + 32, parent.position.y)
+	
 	parent.position_change.connect(_on_parent_position_change)
+	parent.end_reached.connect(_on_end_reached)
 
 	for node in get_tree().get_nodes_in_group("cloud"):
 		if node is Cloud:
@@ -28,6 +32,9 @@ func _ready() -> void:
 func _on_parent_position_change(new_position):
 	player.position = new_position
 
+func _on_end_reached():
+	DialogueManager.show_dialogue_balloon(dialouge_end, "start")
+
 func _on_dialouge_ended(resource):
 	if resource == dialouge_summmit:
 		#player hops on parent
@@ -35,9 +42,14 @@ func _on_dialouge_ended(resource):
 		#todo play jump sound
 		var tween = get_tree().create_tween()
 		tween.tween_property(player, "position", parent.get_node("carry_anchor").global_position, 1)
+		await tween.finished
+		player.get_node("Sprite").animation = "sitting"
+		player.get_node("Sprite").flip_h = false
+		player.is_sitting = true
+		player.process_mode = Node.PROCESS_MODE_ALWAYS
 		parent.process_mode = Node.PROCESS_MODE_ALWAYS
+		parent.animation = "carry"
 	elif resource == dialouge_end:
-				
 		# end of scene
 		print("End of " + scene_id + " scene")
 		Global.scene_completion_state[scene_id] = true

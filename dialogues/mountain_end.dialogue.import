@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://5mkulgvqhutm"
+path="res://.godot/imported/mountain_end.dialogue-eef5978b7d541a7b8b381bfdcde7bbde.tres"
+
+[deps]
+
+source_file="res://dialogues/mountain_end.dialogue"
+dest_files=["res://.godot/imported/mountain_end.dialogue-eef5978b7d541a7b8b381bfdcde7bbde.tres"]
+
+[params]
+
+defaults=true
