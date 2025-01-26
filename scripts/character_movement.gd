@@ -118,6 +118,7 @@ func _physics_process(delta: float) -> void:
 func on_dialogue_ended(_resource):
 	var hangup_sound = %Telephone/HangupSound
 	hangup_sound.play()
+	DialogueManager.disconnect("dialogue_ended", on_dialogue_ended)
 
 const packed_bubble_scene = preload("res://scenes/bubble.tscn")
 const BUBBLES = [
