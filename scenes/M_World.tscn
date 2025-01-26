@@ -306,7 +306,7 @@ attenuation = 2.82843
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
-position = Vector2(341, 71)
+position = Vector2(71.0001, 82)
 scale = Vector2(0.4, 0.4)
 floor_stop_on_slope = false
 floor_max_angle = 1.5708
@@ -321,6 +321,7 @@ offset = Vector2(0, 100)
 zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
+visible = false
 
 [node name="Panel" type="Panel" parent="player/Camera2D/CanvasLayer"]
 anchors_preset = 8
