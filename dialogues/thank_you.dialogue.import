@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cytt2bnmhskn8"
+path="res://.godot/imported/thank_you.dialogue-508192bd126e4aa31faa95d7e0b5693f.tres"
+
+[deps]
+
+source_file="res://dialogues/thank_you.dialogue"
+dest_files=["res://.godot/imported/thank_you.dialogue-508192bd126e4aa31faa95d7e0b5693f.tres"]
+
+[params]
+
+defaults=true

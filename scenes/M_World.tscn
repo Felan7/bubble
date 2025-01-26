@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://scripts/transport_bubble.gd" id="4_4vov7"]
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="4_i5v7a"]
 [ext_resource type="Texture2D" uid="uid://bo1j4oxa42jse" path="res://art/animations/character_idle_animation/CharIdle0003.png" id="5_rqiqt"]
-[ext_resource type="Texture2D" uid="uid://cg65a476wfpxa" path="res://art/sprites/telephone.png" id="5_ue00l"]
 [ext_resource type="Script" path="res://scripts/transport_trigger.gd" id="6_gq65e"]
 [ext_resource type="Texture2D" uid="uid://wtl0hukbop5p" path="res://art/animations/character_idle_animation/CharIdle0004.png" id="6_y5jus"]
 [ext_resource type="Texture2D" uid="uid://dhknkhwgw8vwn" path="res://art/animations/character_idle_animation/CharIdle0005.png" id="7_xj3ct"]
@@ -65,6 +64,7 @@
 [ext_resource type="AudioStream" uid="uid://budfychjwbrsx" path="res://art/sounds/step2.ogg" id="54_mh7l5"]
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_2ut6l"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_2uj5k"]
+[ext_resource type="Texture2D" uid="uid://cnae8j3u2flee" path="res://art/sprites/Telefon.png" id="65_yrdpm"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q3iyt"]
 
@@ -300,7 +300,7 @@ attenuation = 2.82843
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
-position = Vector2(0, -225)
+position = Vector2(341, 71)
 scale = Vector2(0.4, 0.4)
 floor_stop_on_slope = false
 floor_max_angle = 1.5708
@@ -404,6 +404,7 @@ texture = ExtResource("3_sj4rk")
 script = ExtResource("3_uj7nj")
 
 [node name="Ground-main" type="Sprite2D" parent="Bubble"]
+z_index = -1
 position = Vector2(0, 200)
 texture = ExtResource("4_1spml")
 
@@ -422,9 +423,10 @@ position = Vector2(411.5, -252)
 shape = SubResource("SegmentShape2D_rgrqg")
 
 [node name="Telephone" type="Sprite2D" parent="Bubble"]
-position = Vector2(0, -82)
+z_index = -1
+position = Vector2(4, 42.5)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_ue00l")
+texture = ExtResource("65_yrdpm")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Bubble"]
 position = Vector2(0, -409)

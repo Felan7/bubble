@@ -137,7 +137,13 @@ const BUBBLES = [
 		"target" : "playroom",
 		"x" : 2200,
 		"y" : -1600
-	}
+	},
+	{
+		"name" : "Thank you",
+		"target" : "thank_you",
+		"x" : 3000,
+		"y" : 0
+	},
 	
 ]
 

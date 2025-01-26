@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0b5cek2nd3su"]
+[gd_scene load_steps=4 format=3 uid="uid://d0b5cek2nd3su"]
 
 [ext_resource type="Script" path="res://concert.gd" id="1_8uj7t"]
+[ext_resource type="Texture2D" uid="uid://1y272y1abr5o" path="res://art/sprites/Konzert_Gesamt.png" id="2_2y2xm"]
+[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="3_bxaut"]
 
 [node name="concert" type="Node2D"]
 script = ExtResource("1_8uj7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2y2xm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BubbleInOut" parent="." instance=ExtResource("3_bxaut")]

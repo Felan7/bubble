@@ -1,5 +1,5 @@
 extends Node2D
-var scene_id = "concert"
+var scene_id = "thank_you"
 var resource = load("res://dialogues/" + scene_id + ".dialogue")
 var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 @onready var dialogue = $ExampleBalloon
