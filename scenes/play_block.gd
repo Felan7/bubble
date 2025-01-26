@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Node2D
 
 @onready var drop_sound = $DropSound
 
@@ -16,9 +16,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	var velocity_scaled_volume = linear_velocity.length() / 1000
-	drop_sound.volume_db = -10 + 20 * velocity_scaled_volume
-	drop_sound.play()
 	if body.name == "player":
-		set_position(Vector2(540, 300))
-
+		global_position = Vector2(540, 300)
+	else:
+		#var velocity_scaled_volume = linear_velocity.length() / 1000
+		# drop_sound.volume_db = -10 + 20 * velocity_scaled_volume
+		drop_sound.volume_db = -10 + 20
+		drop_sound.play()
+		print("block fall on ground sound placeholder")

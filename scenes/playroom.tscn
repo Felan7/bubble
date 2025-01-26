@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://coky8oqh4n4y0"]
+[gd_scene load_steps=86 format=3 uid="uid://coky8oqh4n4y0"]
 
 [ext_resource type="Texture2D" uid="uid://p70asht8w8bi" path="res://art/sprites/Zimmer_1_BG.png" id="1_qqrk7"]
 [ext_resource type="Texture2D" uid="uid://cn8aneu7mpqrn" path="res://art/sprites/Baer.png" id="2_0igpn"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xtsqjxqycemx" path="res://art/sprites/Block_1.png" id="3_3vai5"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="3_6uc2l"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="4_ju7vv"]
-[ext_resource type="Texture2D" uid="uid://chr6oftk6jk1y" path="res://art/sprites/Block_2.png" id="4_rf4ha"]
-[ext_resource type="PackedScene" uid="uid://df1rk80vi0jwf" path="res://scenes/drop_sound.tscn" id="5_gur02"]
+[ext_resource type="PackedScene" path="res://scenes/drop_sound.tscn" id="5_gur02"]
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="5_npy1f"]
 [ext_resource type="Texture2D" uid="uid://bssrrhio47ckw" path="res://art/sprites/Block_3.png" id="5_tv8oq"]
 [ext_resource type="Texture2D" uid="uid://c7mtltaiwvnwa" path="res://art/sprites/Block_4.png" id="6_a6oi4"]
@@ -67,9 +66,19 @@
 [ext_resource type="AudioStream" uid="uid://dqvv5x6o8sxwt" path="res://art/sounds/jump.ogg" id="57_usblm"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="58_32bvf"]
 [ext_resource type="Script" path="res://scenes/play_block.gd" id="66_p5qmg"]
+[ext_resource type="Script" path="res://scenes/end_playroom.gd" id="67_t6ryt"]
+[ext_resource type="Texture2D" uid="uid://bismv0stdwdhg" path="res://art/sprites/Bausteine.png" id="68_si2dr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4wne"]
 size = Vector2(3399.88, 174.24)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjxsk"]
+friction = 0.9
+bounce = 0.62
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gokiu"]
+a = Vector2(-1.98517, -66.9171)
+b = Vector2(1.92004, 24.1928)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ofvwd"]
 radius = 35.9471
@@ -77,6 +86,9 @@ height = 122.51
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ss8i"]
 size = Vector2(81.893, 89.7342)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdvn"]
+size = Vector2(87.1201, 475.676)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hglmc"]
 radius = 79.0
@@ -282,16 +294,14 @@ glow_intensity = 0.4
 glow_bloom = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i6p4k"]
-bounce = 0.3
+friction = 0.9
+bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afpwl"]
 size = Vector2(52.7891, 49.7153)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2lxfv"]
 radius = 45.5864
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gv1wp"]
-bounce = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvxyb"]
 size = Vector2(45.3026, 45.871)
@@ -333,22 +343,23 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_p4wne")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-74.052, 520.979)
+position = Vector2(-40.9465, 520.979)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_p4wne")
 
-[node name="BlockPyramid" type="RigidBody2D" parent="."]
-position = Vector2(1313.77, 432.987)
-rotation = -3.42957
-mass = 0.2
+[node name="BlockPyramid" type="RigidBody2D" parent="." groups=["block"]]
+position = Vector2(773.627, 352.837)
+rotation = -3.20345
+mass = 0.3
+physics_material_override = SubResource("PhysicsMaterial_sjxsk")
 script = ExtResource("66_p5qmg")
 
 [node name="Block1" type="Sprite2D" parent="BlockPyramid"]
 texture = ExtResource("3_3vai5")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlockPyramid"]
-position = Vector2(-0.910889, 12.6055)
-polygon = PackedVector2Array(-25.4769, 30.4606, -2.3429, -59.909, 23.5895, 30.4568)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPyramid"]
+position = Vector2(-0.338535, 22.6151)
+shape = SubResource("SegmentShape2D_gokiu")
 
 [node name="Area2D" type="Area2D" parent="BlockPyramid"]
 position = Vector2(-1.01965, 18.7791)
@@ -358,16 +369,15 @@ position = Vector2(-0.373664, -11.0144)
 shape = SubResource("CapsuleShape2D_ofvwd")
 
 [node name="DropSound" parent="BlockPyramid" instance=ExtResource("5_gur02")]
-
-[node name="Block2" type="Sprite2D" parent="."]
 position = Vector2(555.699, 903.069)
-texture = ExtResource("4_rf4ha")
 
-[node name="Block3" type="Sprite2D" parent="."]
+[node name="Block2" type="Sprite2D" parent="." groups=["block"]]
+
+[node name="Block3" type="Sprite2D" parent="." groups=["block"]]
 position = Vector2(526.199, 838.296)
 texture = ExtResource("5_tv8oq")
 
-[node name="Block4" type="Sprite2D" parent="."]
+[node name="Block4" type="Sprite2D" parent="." groups=["block"]]
 position = Vector2(518.365, 604)
 texture = ExtResource("6_a6oi4")
 
@@ -377,9 +387,22 @@ texture = ExtResource("6_a6oi4")
 position = Vector2(0, 0.178528)
 shape = SubResource("RectangleShape2D_4ss8i")
 
-[node name="Block5" type="Sprite2D" parent="."]
+[node name="Block5" type="Sprite2D" parent="." groups=["block"]]
 position = Vector2(538.699, 733.811)
 texture = ExtResource("7_6hgqd")
+
+[node name="EndRoomTrigger" type="Area2D" parent="."]
+script = ExtResource("67_t6ryt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndRoomTrigger"]
+position = Vector2(515.751, 324.958)
+shape = SubResource("RectangleShape2D_6jdvn")
+
+[node name="finalBlocks" type="Sprite2D" parent="EndRoomTrigger"]
+visible = false
+position = Vector2(577.607, 882.527)
+rotation = -0.0233188
+texture = ExtResource("68_si2dr")
 
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(954.837, 664.727)
@@ -439,10 +462,10 @@ volume_db = -12.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8ki3j")
 
-[node name="Block_Little" type="RigidBody2D" parent="."]
-position = Vector2(1021.92, 256.133)
+[node name="Block_Little" type="RigidBody2D" parent="." groups=["block"]]
+position = Vector2(1298.96, 345.867)
 rotation = 0.200713
-mass = 0.2
+mass = 0.3
 physics_material_override = SubResource("PhysicsMaterial_i6p4k")
 script = ExtResource("66_p5qmg")
 
@@ -459,13 +482,11 @@ shape = SubResource("RectangleShape2D_afpwl")
 shape = SubResource("CircleShape2D_2lxfv")
 
 [node name="DropSound" parent="Block_Little" instance=ExtResource("5_gur02")]
-
-[node name="Block_Little2" type="RigidBody2D" parent="."]
-position = Vector2(276.171, 423.404)
 rotation = -0.200713
-mass = 0.2
-physics_material_override = SubResource("PhysicsMaterial_gv1wp")
 script = ExtResource("66_p5qmg")
+
+[node name="Block_Little2" type="RigidBody2D" parent="." groups=["block"]]
+position = Vector2(244.808, 414.692)
 
 [node name="Block" type="Sprite2D" parent="Block_Little2"]
 texture = ExtResource("8_ixixk")
@@ -482,5 +503,7 @@ shape = SubResource("CircleShape2D_2lxfv")
 [node name="DropSound" parent="Block_Little2" instance=ExtResource("5_gur02")]
 
 [connection signal="body_entered" from="BlockPyramid/Area2D" to="BlockPyramid" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="EndRoomTrigger" to="EndRoomTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="EndRoomTrigger" to="EndRoomTrigger" method="_on_body_exited"]
 [connection signal="body_entered" from="Block_Little/Area2D" to="Block_Little" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Block_Little2/Area2D" to="Block_Little2" method="_on_area_2d_body_entered"]

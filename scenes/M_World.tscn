@@ -86,7 +86,7 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u4rn6"]
 shader = ExtResource("1_ie0cb")
-shader_parameter/intensity = 0.4
+shader_parameter/intensity = 0.3
 shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3bme"]
@@ -266,7 +266,7 @@ streams_count = 1
 stream_0/stream = ExtResource("53_s12c6")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yiq7"]
-radius = 88.741
+radius = 146.014
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bvuql"]
 particle_flag_disable_z = true
@@ -363,7 +363,7 @@ volume_db = -12.0
 script = ExtResource("6_gq65e")
 
 [node name="Transport_Trigger" type="CollisionShape2D" parent="Transportion2"]
-position = Vector2(382.4, 0)
+position = Vector2(771, 0)
 shape = SubResource("CircleShape2D_1yiq7")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Transportion2/Transport_Trigger"]
@@ -373,7 +373,7 @@ process_material = SubResource("ParticleProcessMaterial_bvuql")
 script = ExtResource("3_uj7nj")
 
 [node name="Transport_Bubble" type="Sprite2D" parent="Transportion2"]
-position = Vector2(566, 0)
+position = Vector2(954.6, 0)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_sj4rk")
 script = ExtResource("4_4vov7")
@@ -382,23 +382,24 @@ script = ExtResource("4_4vov7")
 script = ExtResource("6_gq65e")
 
 [node name="Transport_Trigger" type="CollisionShape2D" parent="Transportion"]
-position = Vector2(-378, 0)
+position = Vector2(-766, 0)
 shape = SubResource("CircleShape2D_1yiq7")
 
-[node name="Transport_Bubble" type="Sprite2D" parent="Transportion"]
-position = Vector2(-579, 0)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_sj4rk")
-script = ExtResource("4_4vov7")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Transportion"]
-position = Vector2(-378, -4)
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Transportion/Transport_Trigger"]
+position = Vector2(0, -4)
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_bvuql")
 script = ExtResource("3_uj7nj")
 
+[node name="Transport_Bubble" type="Sprite2D" parent="Transportion"]
+position = Vector2(-956.5, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_sj4rk")
+script = ExtResource("4_4vov7")
+
 [node name="Bubble" type="Sprite2D" parent="."]
 position = Vector2(0, 48)
+scale = Vector2(2, 2)
 texture = ExtResource("3_sj4rk")
 script = ExtResource("3_uj7nj")
 
@@ -421,14 +422,14 @@ position = Vector2(411.5, -252)
 shape = SubResource("SegmentShape2D_rgrqg")
 
 [node name="Telephone" type="Sprite2D" parent="Bubble"]
-position = Vector2(0, -157)
-scale = Vector2(0.3, 0.3)
+position = Vector2(0, -82)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_ue00l")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Bubble"]
 position = Vector2(0, -409)
 color = Color(0.921726, 0.91423, 0, 1)
-energy = 0.3
+energy = 0.25
 blend_mode = 2
 shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 0.713726)
 shadow_filter = 1

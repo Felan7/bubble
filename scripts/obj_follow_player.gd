@@ -22,4 +22,5 @@ func _on_overlap_collider_body_entered(body) -> void:
 	if body.name == "player":
 		player.change_player_state(player.PLAYER_STATE.DEAD)
 		print("Kollision mit dem Player erkannt!")
+		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://scenes/M_World.tscn")
