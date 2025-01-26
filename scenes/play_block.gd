@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body.name)
 	if body.name == "player":
 		global_position = Vector2(540, 300)
 	else:
