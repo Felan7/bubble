@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://if6hpx2oo4xh"]
+
+[ext_resource type="AudioStream" uid="uid://dba05nas77ne7" path="res://art/sounds/bubble_in.ogg" id="1_ccxfi"]
+[ext_resource type="Script" path="res://bubble_in_out.gd" id="1_iqcdy"]
+[ext_resource type="AudioStream" uid="uid://bm4384asln4lc" path="res://art/sounds/bubble_out.ogg" id="2_e2ya6"]
+
+[node name="bubble_in_out" type="Node"]
+script = ExtResource("1_iqcdy")
+
+[node name="BubbleInSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ccxfi")
+volume_db = -12.0
+
+[node name="BubbleOutSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e2ya6")
+volume_db = -12.0
