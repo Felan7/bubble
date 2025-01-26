@@ -12,6 +12,9 @@ var movement_variant = MOVEMENT_VARIANT.WALKING
 @onready var bubble_transport_sound = $BubbleTransportSound
 var resource = preload("res://dialogues/phone.dialogue")
 
+var game_over_left_scene : PackedScene = preload("res://scenes/game_over_left.tscn")
+
+
 enum MOVEMENT_STATE {
 	IDLE,
 	MOVING
@@ -111,6 +114,12 @@ func _physics_process(delta: float) -> void:
 			#picking up the phone
 			DialogueManager.connect("dialogue_ended", on_dialogue_ended)
 			DialogueManager.show_dialogue_balloon(resource, "start")
+		elif on_door:
+			var open_sound = %Door/OpenSound
+			open_sound.play()
+			await open_sound.finished
+
+			get_tree().change_scene_to_packed(game_over_left_scene)
 		else:
 			# change scene
 			get_tree().change_scene_to_file(scene_instance)
@@ -186,12 +195,26 @@ func _on_bubble_enter(bubble_name, target):
 	scene_instance = target
 
 var on_phone = false
+var on_door = false
+
 func _on_telephone_area_2d_body_entered(body: Node2D) -> void:
 	label.text = "Press \"E\" to pick up the phone"
 	on_phone = true
 	UI_node.visible = true
 
-
 func _on_telephone_area_2d_body_exited(body: Node2D) -> void:
 	on_phone = false
 	UI_node.visible = false
+
+func _on_door_area_2d_body_entered(body: Node2D) -> void:
+	label.text = "Press \"E\" to open the door"
+	on_door = true
+	UI_node.visible = true
+
+func _on_door_area_2d_body_exited(body: Node2D) -> void:
+	on_door = false
+	UI_node.visible = false
+
+
+func _on_area_2d_body_exited(body:Node2D) -> void:
+	pass # Replace with function body.

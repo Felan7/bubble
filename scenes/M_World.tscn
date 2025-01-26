@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=84 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
@@ -69,6 +69,7 @@
 [ext_resource type="AudioStream" uid="uid://ci8jlh7u0ca2x" path="res://art/sounds/phone_pickup.ogg" id="67_op1g8"]
 [ext_resource type="AudioStream" uid="uid://bv22q46prghuv" path="res://art/sounds/phone_hangup.ogg" id="68_0u3o1"]
 [ext_resource type="Texture2D" uid="uid://d02gr5bhmeylx" path="res://art/sprites/tuer.png" id="69_ivo0s"]
+[ext_resource type="AudioStream" uid="uid://b1xn17ihkb26i" path="res://art/sounds/door.ogg" id="70_i5kvr"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q3iyt"]
 
@@ -291,14 +292,14 @@ b = Vector2(0, 220)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gsbg1"]
 radius = 300.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2krmw"]
+size = Vector2(172.185, 316.556)
+
 [sub_resource type="Environment" id="Environment_rhyln"]
 background_mode = 3
 glow_enabled = true
 glow_intensity = 2.0
 glow_bloom = 0.2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2krmw"]
-size = Vector2(172.185, 316.556)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rcm25")
@@ -462,6 +463,24 @@ shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 0.713726)
 shadow_filter = 1
 shadow_filter_smooth = 13.3
 
+[node name="Door" type="Sprite2D" parent="Bubble"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(-217, 31)
+scale = Vector2(0.3775, 0.3775)
+texture = ExtResource("69_ivo0s")
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="Bubble/Door"]
+position = Vector2(585.43, 30.4636)
+scale = Vector2(0.529801, 0.529801)
+stream = ExtResource("70_i5kvr")
+
+[node name="Area2D" type="Area2D" parent="Bubble/Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/Door/Area2D"]
+position = Vector2(-1.32458, 8.60927)
+shape = SubResource("RectangleShape2D_2krmw")
+
 [node name="BubbleCollisionWall" type="StaticBody2D" parent="Bubble"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bubble/BubbleCollisionWall"]
@@ -473,20 +492,9 @@ polygon = PackedVector2Array(-392.276, -147.94, -324.54, -268.36, -215.409, -366
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rhyln")
 
-[node name="Tuer" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-434, 110)
-scale = Vector2(0.755, 0.755)
-texture = ExtResource("69_ivo0s")
-
-[node name="Area2D" type="Area2D" parent="Tuer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tuer/Area2D"]
-position = Vector2(-1.32458, 8.60927)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_2krmw")
-
 [connection signal="body_shape_entered" from="Transportion2" to="Transportion2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Transportion" to="Transportion" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Bubble/Telephone/Area2D" to="player" method="_on_telephone_area_2d_body_entered"]
 [connection signal="body_exited" from="Bubble/Telephone/Area2D" to="player" method="_on_telephone_area_2d_body_exited"]
+[connection signal="body_entered" from="Bubble/Door/Area2D" to="player" method="_on_door_area_2d_body_entered"]
+[connection signal="body_exited" from="Bubble/Door/Area2D" to="player" method="_on_area_2d_body_exited"]
