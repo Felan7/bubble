@@ -16,8 +16,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# print(body.name)
-	# print(linear_velocity)
 	var velocity_scaled_volume = linear_velocity.length() / 1000
 	drop_sound.volume_db = -10 + 20 * velocity_scaled_volume
 	drop_sound.play()
