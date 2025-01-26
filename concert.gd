@@ -14,7 +14,7 @@ func _play_bubble_out_sound() -> void:
 	bubble_in_out.bubble_out()
 	await bubble_in_out.bubble_out_sound.finished
 
-func _on_dialouge_ended(resource):
+func _on_dialouge_ended(_resource):
 	# end of scene
 	print("End of " + scene_id + " scene")
 	Global.scene_completion_state[scene_id] = true
