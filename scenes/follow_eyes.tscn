@@ -265,6 +265,7 @@ adjustment_saturation = 0.5
 size = Vector2(14504, 75)
 
 [node name="FollowEyes" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_2ntde")
 object_scene = ExtResource("2_yskwu")
 spawn_interval = 2.0
@@ -272,6 +273,7 @@ spawn_area_size = Vector2(3000, 3000)
 
 [node name="GrassSeamlessTexture" type="Sprite2D" parent="."]
 modulate = Color(0.568973, 0.568973, 0.568973, 0.541176)
+z_index = -1
 texture_repeat = 2
 position = Vector2(3, -230)
 texture = ExtResource("1_o8j0d")
@@ -280,6 +282,7 @@ region_rect = Rect2(-7313.95, -5393.23, 15117.5, 11528.1)
 
 [node name="player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
+y_sort_enabled = true
 position = Vector2(0, -225)
 scale = Vector2(0.4, 0.4)
 floor_stop_on_slope = false
@@ -287,7 +290,7 @@ floor_max_angle = 1.5708
 script = ExtResource("1_m706a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0, -7.5)
+position = Vector2(0, -132)
 shape = SubResource("CapsuleShape2D_vhvk0")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -299,6 +302,7 @@ material = SubResource("ShaderMaterial_fcpod")
 sprite_frames = SubResource("SpriteFrames_0mpwh")
 animation = &"walking"
 autoplay = "idle"
+offset = Vector2(0, -115)
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="player"]
 stream = SubResource("AudioStreamRandomizer_j1plb")
@@ -344,109 +348,150 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_lyiog")
 
 [node name="Busch1" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-591, 116)
 scale = Vector2(0.525714, 0.525714)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -50)
 
 [node name="Busch2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(646, -517)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -50)
 
 [node name="Busch3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(530, 398)
 scale = Vector2(0.582857, 0.582857)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -50)
 
 [node name="Busch4" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-1112, -1267)
 scale = Vector2(0.582857, 0.582857)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -50)
 
 [node name="Busch5" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(2238, -956)
 scale = Vector2(0.525714, 0.525714)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -50)
 
 [node name="Busch6" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-1712, 1276)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -50)
 
 [node name="Felsen1" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(2449.33, 2639.75)
 scale = Vector2(0.837912, 0.837912)
 texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
 
 [node name="Felsen2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-712, -348)
 scale = Vector2(0.64011, 0.64011)
 texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
 
 [node name="Felsen3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1431.14, -1996)
 scale = Vector2(0.872253, 0.872253)
 texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
 
 [node name="Felsen4" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-1986.32, 430.25)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Felsen5" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-2414, -1123)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Felsen6" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-1023, -2355)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Felsen7" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1891.06, -2164.25)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Felsen8" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-2570, 2549)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Felsen9" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-496, 2190)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Busch7" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1106, 1831)
 scale = Vector2(0.525714, 0.525714)
 texture = ExtResource("63_x1wvw")
 
 [node name="Felsen10" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(2590, 1003)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Felsen11" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(2622.33, 2412.75)
 scale = Vector2(0.667582, 0.667582)
 texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
 
 [node name="Busch8" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(2696.43, -2721.5)
 scale = Vector2(0.748572, 0.748572)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -40)
 
 [node name="Busch9" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-2701, -2749)
 scale = Vector2(0.748572, 0.748572)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -40)
 
 [node name="Busch10" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-2258, 2693)
 scale = Vector2(0.748572, 0.748572)
 texture = ExtResource("63_x1wvw")
+offset = Vector2(0, -40)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.0313726, 0.188235, 0.32549, 1)

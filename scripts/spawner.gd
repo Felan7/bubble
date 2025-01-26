@@ -61,7 +61,12 @@ func _play_bubble_out_sound() -> void:
 	bubble_in_out.bubble_out()
 	await bubble_in_out.bubble_out_sound.finished
 
+func disable_all_objects():
+	for obj in get_tree().current_scene.get_children():
+		if obj is Object:
+			obj.process_mode = Node.PROCESS_MODE_DISABLED
+
 func on_player_death():
-	$player.process_mode = Node.PROCESS_MODE_DISABLED
+	disable_all_objects()
 	await _play_bubble_out_sound()
 	get_tree().change_scene_to_packed(hub_scene)

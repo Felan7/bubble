@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -200.0
 var in_transportation_mode = false
 var movement_state = MOVEMENT_STATE.IDLE
 var movement_variant = MOVEMENT_VARIANT.WALKING
+var player_state = PLAYER_STATE.ALIVE
 @onready var sprite = $Sprite
 @onready var walking_sound = $WalkingSound
 @onready var jump_sound = $JumpSound
@@ -71,14 +72,18 @@ func change_movement_variant(new_variant: MOVEMENT_VARIANT) -> void:
 
 func change_player_state(new_state: PLAYER_STATE) -> void:
 	if new_state == PLAYER_STATE.DEAD:
+		player_state = new_state
 		death_sound.play()
-		await death_sound.finished
 		music.stop()
+		sprite.pause()
+		await death_sound.finished
 
 		var parent = get_parent() as Spawner
 		parent.on_player_death()
 
 func _physics_process(delta: float) -> void:
+	if player_state == PLAYER_STATE.DEAD:
+		return
 
 	# Handle jump.
 	# if Input.is_action_just_pressed("ui_accept") and is_on_floor():	
