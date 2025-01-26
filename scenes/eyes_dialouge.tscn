@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dha6x36uwgpc4"]
+
+[ext_resource type="Script" path="res://eyes_dialouge.gd" id="1_ksqwx"]
+
+[node name="eyes_dialouge" type="Node2D"]
+script = ExtResource("1_ksqwx")
