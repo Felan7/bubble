@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://dcptn3g4j0tl1"
+path="res://.godot/imported/playroom.dialogue-e66fb23c8a17aaf5e4fd2a9e92cdbea5.tres"
+
+[deps]
+
+source_file="res://dialogues/playroom.dialogue"
+dest_files=["res://.godot/imported/playroom.dialogue-e66fb23c8a17aaf5e4fd2a9e92cdbea5.tres"]
+
+[params]
+
+defaults=true

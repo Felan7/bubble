@@ -4,14 +4,24 @@ var placedBlock1 := false
 var placedBlock2 := false
 var placedBlockPyramid := false
 var oneWay := false
+var parent_present : bool = false
+
+var resource = load("res://dialogues/playroom.dialogue")
+var parent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	parent = get_tree().root.get_node("/root/Playroom/Parent2")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if (placedBlock1 && placedBlock2 && not parent_present):
+		#placed two blocks
+		parent_present = true
+		DialogueManager.show_dialogue_balloon(resource, "start")
+		parent.visible = true
+	
 	if (placedBlock1 && placedBlock2 && placedBlockPyramid):
 		if not oneWay:
 			oneWay = true
