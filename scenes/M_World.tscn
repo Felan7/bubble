@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=85 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
@@ -70,6 +70,7 @@
 [ext_resource type="AudioStream" uid="uid://bv22q46prghuv" path="res://art/sounds/phone_hangup.ogg" id="68_0u3o1"]
 [ext_resource type="Texture2D" uid="uid://d02gr5bhmeylx" path="res://art/sprites/tuer.png" id="69_ivo0s"]
 [ext_resource type="AudioStream" uid="uid://b1xn17ihkb26i" path="res://art/sounds/door.ogg" id="70_i5kvr"]
+[ext_resource type="Texture2D" uid="uid://cywwc46gb3721" path="res://art/sprites/importantDONOTDELETE.png" id="71_rt16g"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q3iyt"]
 
@@ -495,6 +496,10 @@ polygon = PackedVector2Array(-392.276, -147.94, -324.54, -268.36, -215.409, -366
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rhyln")
+
+[node name="bubbleorso" type="Sprite2D" parent="."]
+position = Vector2(15000, -96)
+texture = ExtResource("71_rt16g")
 
 [connection signal="body_shape_entered" from="Transportion2" to="Transportion2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Transportion" to="Transportion" method="_on_body_shape_entered"]
