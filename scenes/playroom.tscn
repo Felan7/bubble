@@ -1,9 +1,8 @@
-[gd_scene load_steps=89 format=3 uid="uid://coky8oqh4n4y0"]
+[gd_scene load_steps=87 format=3 uid="uid://coky8oqh4n4y0"]
 
 [ext_resource type="Script" path="res://scenes/playroom.gd" id="1_807il"]
 [ext_resource type="Texture2D" uid="uid://p70asht8w8bi" path="res://art/sprites/Zimmer_1_BG.png" id="1_qqrk7"]
 [ext_resource type="Texture2D" uid="uid://cn8aneu7mpqrn" path="res://art/sprites/Baer.png" id="2_0igpn"]
-[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="2_likk2"]
 [ext_resource type="Texture2D" uid="uid://xtsqjxqycemx" path="res://art/sprites/Block_1.png" id="3_3vai5"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="3_6uc2l"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="4_ju7vv"]
@@ -93,11 +92,6 @@ size = Vector2(87.1201, 475.676)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hglmc"]
 radius = 79.0
 height = 290.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_67227"]
-shader = ExtResource("2_likk2")
-shader_parameter/intensity = 0.3
-shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnoaa"]
 animations = [{
@@ -412,7 +406,6 @@ script = ExtResource("7_b2jmw")
 shape = SubResource("CapsuleShape2D_hglmc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="player"]
-material = SubResource("ShaderMaterial_67227")
 sprite_frames = SubResource("SpriteFrames_nnoaa")
 animation = &"walking"
 autoplay = "idle"
