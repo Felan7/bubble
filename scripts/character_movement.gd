@@ -208,13 +208,10 @@ func _on_telephone_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_door_area_2d_body_entered(body: Node2D) -> void:
 	label.text = "Press \"E\" to open the door"
+	print(body.name)
 	on_door = true
 	UI_node.visible = true
 
 func _on_door_area_2d_body_exited(body: Node2D) -> void:
 	on_door = false
 	UI_node.visible = false
-
-
-func _on_area_2d_body_exited(body:Node2D) -> void:
-	pass # Replace with function body.
