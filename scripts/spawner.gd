@@ -8,12 +8,29 @@ extends Node2D
 var _timer = 0.0
 var spawned_positions: Array = [] # all spawned objects
 
+var distortion_effect
+
+func _ready():
+	var audio_bus = AudioServer.get_bus_index("Delay + FX")
+
+	#Get distortion effect from bus
+	distortion_effect = AudioServer.get_bus_effect(audio_bus, 1) as AudioEffectDistortion
+	distortion_effect.drive = 0.0
+
+func _exit_tree() -> void:
+	# Reset distortion effect
+	distortion_effect.drive = 0.0
+
 func _process(delta):
 	# Timer erhöhen
 	_timer += delta
 	if _timer >= spawn_interval:
 		_timer = 0.0
 		spawn_object()
+	
+	if distortion_effect.drive < 0.7:
+		# Increase distortion effect
+		distortion_effect.drive += 0.0002
 
 func is_position_valid(new_position: Vector2) -> bool:
 	for existing_position in spawned_positions:

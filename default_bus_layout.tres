@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://lqxtfkxdy4j0"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://lqxtfkxdy4j0"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_fla8v"]
 resource_name = "Reverb"
@@ -10,6 +10,11 @@ wet = 0.07
 resource_name = "Phaser"
 rate_hz = 0.039
 depth = 0.5
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_6icpd"]
+resource_name = "Distortion"
+mode = 2
+keep_hf_hz = 19705.0
 
 [resource]
 bus/1/name = &"Delay"
@@ -26,7 +31,9 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
-bus/2/effect/0/effect = SubResource("AudioEffectReverb_fla8v")
+bus/2/effect/0/effect = SubResource("AudioEffectPhaser_qd4t6")
 bus/2/effect/0/enabled = true
-bus/2/effect/1/effect = SubResource("AudioEffectPhaser_qd4t6")
+bus/2/effect/1/effect = SubResource("AudioEffectDistortion_6icpd")
 bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectReverb_fla8v")
+bus/2/effect/2/enabled = true

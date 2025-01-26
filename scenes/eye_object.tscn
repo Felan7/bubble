@@ -47,5 +47,6 @@ stream = SubResource("AudioStreamRandomizer_liui5")
 volume_db = 3.0
 autoplay = true
 panning_strength = 1.99
+bus = &"Delay + FX"
 
 [connection signal="body_entered" from="eye/OverlapCollider" to="eye" method="_on_overlap_collider_body_entered"]
