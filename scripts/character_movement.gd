@@ -116,7 +116,7 @@ const BUBBLES = [
 	},
 	{
 		"name" : "Eyes",
-		"target" : "follow_eyes",
+		"target" : "eyes_dialouge",
 		"x" : 1000,
 		"y" : 0
 	},

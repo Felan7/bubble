@@ -2,7 +2,6 @@ extends Node
 var scene_ids = ["mountain", "eyes", "thank_you", "concert", "stargazing", "main"]
 var scene_completion_state = {}
 
-var qoute_thank_you = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

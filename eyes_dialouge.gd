@@ -9,5 +9,4 @@ func _ready() -> void:
 
 
 func _on_dialouge_ended(resource):
-	# end of scene
 	get_tree().change_scene_to_packed(hub_scene)
