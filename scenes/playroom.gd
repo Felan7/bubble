@@ -3,7 +3,7 @@ class_name Playroom
 
 var hub_scene : PackedScene = preload("res://scenes/M_World.tscn")
 
-var scene_id = "playroom"
+var scene_id = "tower"
 
 func _play_bubble_out_sound() -> void:
 	var bubble_in_out = $BubbleInOut as BubbleInOut
