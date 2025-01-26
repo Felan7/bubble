@@ -10,6 +10,7 @@ var movement_variant = MOVEMENT_VARIANT.WALKING
 @onready var walking_sound = $WalkingSound
 @onready var jump_sound = $JumpSound
 @onready var bubble_transport_sound = $BubbleTransportSound
+var resource = preload("res://dialogues/phone.dialogue")
 
 enum MOVEMENT_STATE {
 	IDLE,
@@ -103,8 +104,12 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("action") and UI_node.visible:
-		# change scene
-		get_tree().change_scene_to_file(scene_instance)
+		if on_phone:
+			#picking up the phone
+			DialogueManager.show_dialogue_balloon(resource, "start")
+		else:
+			# change scene
+			get_tree().change_scene_to_file(scene_instance)
 
 const packed_bubble_scene = preload("res://scenes/bubble.tscn")
 const BUBBLES = [
@@ -170,3 +175,14 @@ func _on_bubble_enter(bubble_name, target):
 	UI_node.visible = true
 	label.text = "Press \"E\" to enter " + bubble_name
 	scene_instance = target
+
+var on_phone = false
+func _on_telephone_area_2d_body_entered(body: Node2D) -> void:
+	label.text = "Press \"E\" to pick up the phone"
+	on_phone = true
+	UI_node.visible = true
+
+
+func _on_telephone_area_2d_body_exited(body: Node2D) -> void:
+	on_phone = false
+	UI_node.visible = false

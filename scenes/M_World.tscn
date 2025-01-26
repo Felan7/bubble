@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=78 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
@@ -284,6 +284,9 @@ turbulence_influence_max = 0.03
 a = Vector2(-12, -224)
 b = Vector2(0, 220)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gsbg1"]
+radius = 300.0
+
 [sub_resource type="Environment" id="Environment_rhyln"]
 background_mode = 3
 glow_enabled = true
@@ -315,7 +318,6 @@ offset = Vector2(0, 100)
 zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
-visible = false
 
 [node name="Panel" type="Panel" parent="player/Camera2D/CanvasLayer"]
 anchors_preset = 8
@@ -323,8 +325,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -100.0
-offset_bottom = -100.0
+offset_top = -132.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gmjwx")
@@ -428,6 +430,11 @@ position = Vector2(4, 42.5)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("65_yrdpm")
 
+[node name="Area2D" type="Area2D" parent="Bubble/Telephone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/Telephone/Area2D"]
+shape = SubResource("CircleShape2D_gsbg1")
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Bubble"]
 position = Vector2(0, -409)
 color = Color(0.921726, 0.91423, 0, 1)
@@ -450,3 +457,5 @@ environment = SubResource("Environment_rhyln")
 
 [connection signal="body_shape_entered" from="Transportion2" to="Transportion2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Transportion" to="Transportion" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="Bubble/Telephone/Area2D" to="player" method="_on_telephone_area_2d_body_entered"]
+[connection signal="body_exited" from="Bubble/Telephone/Area2D" to="player" method="_on_telephone_area_2d_body_exited"]
