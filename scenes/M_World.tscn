@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cgjnst4kokuk3"]
+[gd_scene load_steps=81 format=3 uid="uid://cgjnst4kokuk3"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_aki4v"]
 [ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_ie0cb"]
@@ -65,6 +65,9 @@
 [ext_resource type="AudioStream" uid="uid://cr52smw83vh32" path="res://art/sounds/step3.ogg" id="55_2ut6l"]
 [ext_resource type="AudioStream" uid="uid://cfontb0ihnyj4" path="res://art/sounds/transport_loop.ogg" id="57_2uj5k"]
 [ext_resource type="Texture2D" uid="uid://cnae8j3u2flee" path="res://art/sprites/Telefon.png" id="65_yrdpm"]
+[ext_resource type="AudioStream" uid="uid://bsx2viid08nj2" path="res://art/sounds/phone_dial.ogg" id="66_rfyek"]
+[ext_resource type="AudioStream" uid="uid://ci8jlh7u0ca2x" path="res://art/sounds/phone_pickup.ogg" id="67_op1g8"]
+[ext_resource type="AudioStream" uid="uid://bv22q46prghuv" path="res://art/sounds/phone_hangup.ogg" id="68_0u3o1"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q3iyt"]
 
@@ -425,6 +428,7 @@ position = Vector2(411.5, -252)
 shape = SubResource("SegmentShape2D_rgrqg")
 
 [node name="Telephone" type="Sprite2D" parent="Bubble"]
+unique_name_in_owner = true
 z_index = -1
 position = Vector2(4, 42.5)
 scale = Vector2(0.2, 0.2)
@@ -434,6 +438,15 @@ texture = ExtResource("65_yrdpm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/Telephone/Area2D"]
 shape = SubResource("CircleShape2D_gsbg1")
+
+[node name="DialSound" type="AudioStreamPlayer2D" parent="Bubble/Telephone"]
+stream = ExtResource("66_rfyek")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="Bubble/Telephone"]
+stream = ExtResource("67_op1g8")
+
+[node name="HangupSound" type="AudioStreamPlayer2D" parent="Bubble/Telephone"]
+stream = ExtResource("68_0u3o1")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Bubble"]
 position = Vector2(0, -409)

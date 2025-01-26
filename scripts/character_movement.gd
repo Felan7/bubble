@@ -105,11 +105,19 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("action") and UI_node.visible:
 		if on_phone:
+			var pickup_sound = %Telephone/PickupSound
+			pickup_sound.play()
+
 			#picking up the phone
+			DialogueManager.connect("dialogue_ended", on_dialogue_ended)
 			DialogueManager.show_dialogue_balloon(resource, "start")
 		else:
 			# change scene
 			get_tree().change_scene_to_file(scene_instance)
+
+func on_dialogue_ended(_resource):
+	var hangup_sound = %Telephone/HangupSound
+	hangup_sound.play()
 
 const packed_bubble_scene = preload("res://scenes/bubble.tscn")
 const BUBBLES = [
