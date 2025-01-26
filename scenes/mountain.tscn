@@ -936,6 +936,7 @@ rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Path2D/PathFollow2D"]
+modulate = Color(0.235294, 0.392157, 0.309804, 1)
 position = Vector2(16, 41)
 rotation = -3.54651
 texture = ExtResource("63_r6ou1")
