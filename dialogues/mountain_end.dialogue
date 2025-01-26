@@ -1,6 +1,3 @@
 ~ start
 Mom: [color=#4d8ef7]I will always carry you.[/color]
-- [if Global.scene_completion_state{"thank_you"} ]
-	Me: [color=orange]Thank you[/color]
-- [i]End scene[/i]
 => END
