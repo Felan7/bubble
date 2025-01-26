@@ -17,7 +17,7 @@ var summit_reached : bool = false
 func _ready() -> void:
 	player.summit_x = SUMMIT_X
 	
-	parent.position = Vector2(SUMMIT_X + 32, parent.position.y)
+	# parent.position = Vector2(SUMMIT_X + 32, parent.position.y)
 	
 	parent.position_change.connect(_on_parent_position_change)
 	parent.end_reached.connect(_on_end_reached)
