@@ -1,6 +1,6 @@
 extends Node2D
 
-const SUMMIT_X = 170
+const SUMMIT_X = 17000
 var scene_id = "mountain"
 @onready var player : CharacterBody2D = $CharacterBody2D
 var dialouge_summmit = load("res://dialogues/mountain_peak.dialogue")
