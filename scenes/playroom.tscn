@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://coky8oqh4n4y0"]
+[gd_scene load_steps=89 format=3 uid="uid://coky8oqh4n4y0"]
 
 [ext_resource type="Script" path="res://scenes/playroom.gd" id="1_807il"]
 [ext_resource type="Texture2D" uid="uid://p70asht8w8bi" path="res://art/sprites/Zimmer_1_BG.png" id="1_qqrk7"]
@@ -70,6 +70,7 @@
 [ext_resource type="Script" path="res://scenes/end_playroom.gd" id="67_t6ryt"]
 [ext_resource type="Texture2D" uid="uid://bismv0stdwdhg" path="res://art/sprites/Bausteine.png" id="68_si2dr"]
 [ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="69_mqn26"]
+[ext_resource type="AudioStream" uid="uid://djddenf5r33xe" path="res://art/music/Bubbles of Thoughts 3 - Spiel.wav" id="71_xcl7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4wne"]
 size = Vector2(3399.88, 174.24)
@@ -507,6 +508,10 @@ shape = SubResource("CircleShape2D_2lxfv")
 [node name="DropSound" parent="Block_Little2" instance=ExtResource("5_gur02")]
 
 [node name="BubbleInOut" parent="." instance=ExtResource("69_mqn26")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("71_xcl7g")
+autoplay = true
 
 [connection signal="body_entered" from="BlockPyramid/Area2D" to="BlockPyramid" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="EndRoomTrigger" to="EndRoomTrigger" method="_on_body_entered"]
