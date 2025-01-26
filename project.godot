@@ -83,9 +83,6 @@ action={
 
 locale/translations_pot_files=PackedStringArray("res://dialogues/stargazing.dialogue", "res://dialogues/mountain_peak.dialogue", "res://dialogues/mountain_start.dialogue", "res://dialogues/mountain_end.dialogue", "res://dialogues/eyes.dialogue", "res://dialogues/concert.dialogue", "res://dialogues/thank_you.dialogue", "res://dialogues/phone.dialogue")
 
-[layer_names]
-
-2d_physics/layer_5="Actionables"
 
 [rendering]
 

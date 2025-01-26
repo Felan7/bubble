@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://coky8oqh4n4y0"]
+[gd_scene load_steps=88 format=3 uid="uid://coky8oqh4n4y0"]
 
 [ext_resource type="Script" path="res://scenes/playroom.gd" id="1_807il"]
 [ext_resource type="Texture2D" uid="uid://p70asht8w8bi" path="res://art/sprites/Zimmer_1_BG.png" id="1_qqrk7"]
@@ -78,10 +78,6 @@ size = Vector2(3399.88, 174.24)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjxsk"]
 friction = 0.9
 bounce = 0.62
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_gokiu"]
-a = Vector2(-1.98517, -66.9171)
-b = Vector2(1.92004, 24.1928)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ofvwd"]
 radius = 35.9471
@@ -361,9 +357,8 @@ script = ExtResource("66_p5qmg")
 [node name="Block1" type="Sprite2D" parent="BlockPyramid"]
 texture = ExtResource("3_3vai5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPyramid"]
-position = Vector2(-0.338535, 22.6151)
-shape = SubResource("SegmentShape2D_gokiu")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlockPyramid"]
+polygon = PackedVector2Array(34.4818, 49.2711, -33.6113, 49.418, -3.01697, -49.9401)
 
 [node name="Area2D" type="Area2D" parent="BlockPyramid"]
 position = Vector2(-1.01965, 18.7791)
@@ -487,7 +482,6 @@ shape = SubResource("CircleShape2D_2lxfv")
 
 [node name="DropSound" parent="Block_Little" instance=ExtResource("5_gur02")]
 rotation = -0.200713
-script = ExtResource("66_p5qmg")
 
 [node name="Block_Little2" type="RigidBody2D" parent="." groups=["block"]]
 position = Vector2(244.808, 414.692)
