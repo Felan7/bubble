@@ -17,6 +17,6 @@ func _play_bubble_out_sound() -> void:
 func _on_dialouge_ended(resource):
 	# end of scene
 	print("End of " + scene_id + " scene")
-	Global.scene_completion_state["scene_id"] = true
+	Global.scene_completion_state[scene_id] = true
 	await _play_bubble_out_sound()
 	get_tree().change_scene_to_packed(hub_scene)
