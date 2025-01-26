@@ -11,6 +11,6 @@ func _play_bubble_out_sound() -> void:
 	await bubble_in_out.bubble_out_sound.finished
 
 func _on_scene_end() -> void:
-	Global.scene_completion_state["scene_id"] = true
+	Global.scene_completion_state[scene_id] = true
 	await _play_bubble_out_sound()
 	get_tree().change_scene_to_packed(hub_scene)
