@@ -8,6 +8,8 @@ func change_position(new_position: Vector2) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body.name)
 	if body.name == "player":
+		linear_velocity = Vector2.ZERO
+		angular_velocity = 0
 		call_deferred("change_position", Vector2(540, 300))
 	else:
 		var velocity_scaled_volume = linear_velocity.length() / 1000
