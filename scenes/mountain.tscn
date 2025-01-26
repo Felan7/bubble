@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://cva17lw6q36by"]
+[gd_scene load_steps=141 format=3 uid="uid://cva17lw6q36by"]
 
 [ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_63m1h"]
 [ext_resource type="Script" path="res://scenes/mountain.gd" id="1_hwwgo"]
@@ -124,6 +124,7 @@
 [ext_resource type="Texture2D" uid="uid://bwlicyecev3ky" path="res://art/sprites/parent1.png" id="91_0nkp7"]
 [ext_resource type="Script" path="res://scenes/sprite_parent.gd" id="92_85wpe"]
 [ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="124_mtqsq"]
+[ext_resource type="Texture2D" uid="uid://bfyt8s58yovc2" path="res://art/sprites/wegweiser.png" id="125_2pkpp"]
 
 [sub_resource type="Gradient" id="Gradient_l57y3"]
 offsets = PackedFloat32Array(0.00277008, 1)
@@ -1054,5 +1055,9 @@ shape = SubResource("RectangleShape2D_2frlf")
 position = Vector2(-342, -68)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_nsphm")
+
+[node name="Wegweiser" type="Sprite2D" parent="."]
+position = Vector2(518, -224)
+texture = ExtResource("125_2pkpp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,29 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://bis7j87qpekoo"]
+[gd_scene load_steps=2 format=3 uid="uid://2y2cl782bmnn"]
 
 [ext_resource type="AudioStream" uid="uid://bsx2viid08nj2" path="res://art/sounds/phone_dial.ogg" id="1_xvre6"]
 
 [node name="game_over" type="Node2D"]
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -11.5
-offset_right = 41.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 120
-text = "You called your parents.
-
-This game is now over."
-horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="DialSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_xvre6")
 autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "You've called your parents.
+This game is now over."
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Thank you for playing.
+
+"
+fit_content = true
