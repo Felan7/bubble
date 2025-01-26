@@ -1,5 +1,5 @@
 extends Node
-var scene_ids = ["mountain", "eyes", "thank_you", "concert", "stargazing", "main"]
+var scene_ids = ["mountain", "eyes", "thank_you", "concert", "stargazing", "tower"]
 var scene_completion_state = {}
 
 
