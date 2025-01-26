@@ -531,7 +531,7 @@ position = Vector2(8614, -630)
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_ihe2q")
 region_enabled = true
-region_rect = Rect2(0, 0, 1500, 20000)
+region_rect = Rect2(0, 0, 1500, 22000)
 metadata/_edit_lock_ = true
 
 [node name="Sprite_foreground_grass" type="Sprite2D" parent="."]
@@ -540,7 +540,7 @@ position = Vector2(8411, 489)
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_dgqeq")
 region_enabled = true
-region_rect = Rect2(0, 0, 1080, 20000)
+region_rect = Rect2(0, 0, 1080, 22000)
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -936,6 +936,7 @@ rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Path2D/PathFollow2D"]
+modulate = Color(0.235294, 0.392157, 0.309804, 1)
 position = Vector2(16, 41)
 rotation = -3.54651
 texture = ExtResource("63_r6ou1")
