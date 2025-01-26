@@ -316,6 +316,8 @@ zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D"]
 visible = false
+offset = Vector2(0, 50)
+transform = Transform2D(1, 0, 0, 1, 0, 50)
 
 [node name="Panel" type="Panel" parent="player/Camera2D/CanvasLayer"]
 anchors_preset = 8

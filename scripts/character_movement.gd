@@ -121,7 +121,7 @@ const BUBBLES = [
 		"y" : 1600
 	},
 	{
-		"name" : "bubble_youth_concert",
+		"name" : "Concert",
 		"target" : "concert",
 		"x" : -500,
 		"y" : -1900
