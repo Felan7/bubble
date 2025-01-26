@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcc0ji7ui01rv"
+path="res://.godot/imported/Bubbles of Thoughts 3 - Bild gesamt.ogg-8ef78f7149591eb0ec62a1b80eb7aac7.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/Bubbles of Thoughts 3 - Bild gesamt.ogg"
+dest_files=["res://.godot/imported/Bubbles of Thoughts 3 - Bild gesamt.ogg-8ef78f7149591eb0ec62a1b80eb7aac7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

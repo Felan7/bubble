@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dgvj6b8lnolyl"
+path="res://.godot/imported/Bubbles of Thoughts 3 - Spiel gesamt.ogg-c7e37336968473fe835c9b0fc449e3b4.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/Bubbles of Thoughts 3 - Spiel gesamt.ogg"
+dest_files=["res://.godot/imported/Bubbles of Thoughts 3 - Spiel gesamt.ogg-c7e37336968473fe835c9b0fc449e3b4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

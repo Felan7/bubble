@@ -20,7 +20,7 @@ func _ready() -> void:
 	var index = 0
 	for scene_id in Global.scene_ids:
 		if _music_mapping.has(scene_id) and Global.scene_completion_state[scene_id]:
-			var filename = _music_prefix + _music_mapping[scene_id] + " gesamt.wav"
+			var filename = _music_prefix + _music_mapping[scene_id] + " gesamt.ogg	"
 			print("loading music resource: ", filename)
 			synchronized_stream.set_sync_stream(index, load(filename) as AudioStream)
 		index += 1

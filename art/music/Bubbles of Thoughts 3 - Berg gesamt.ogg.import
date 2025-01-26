@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://1uvx20mtsn8x"
+path="res://.godot/imported/Bubbles of Thoughts 3 - Berg gesamt.ogg-694fd901ae11c1d49df230236c60f171.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/Bubbles of Thoughts 3 - Berg gesamt.ogg"
+dest_files=["res://.godot/imported/Bubbles of Thoughts 3 - Berg gesamt.ogg-694fd901ae11c1d49df230236c60f171.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

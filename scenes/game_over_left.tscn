@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://co4fn3y2ts1xc"]
 
 [ext_resource type="Script" path="res://game_over_left.gd" id="1_b7id6"]
-[ext_resource type="AudioStream" uid="uid://krutx30uub4b" path="res://art/music/Bubbles of Thoughts 3 - GESAMT.wav" id="2_ogp53"]
+[ext_resource type="AudioStream" uid="uid://vr28c3m861le" path="res://art/music/Bubbles of Thoughts 3 - GESAMT.ogg" id="2_ogp53"]
 
 [node name="game_over_left" type="Node2D"]
 script = ExtResource("1_b7id6")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://vr28c3m861le"
+path="res://.godot/imported/Bubbles of Thoughts 3 - GESAMT.ogg-3f956990505a0fdd8300615b8a8ca37e.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/Bubbles of Thoughts 3 - GESAMT.ogg"
+dest_files=["res://.godot/imported/Bubbles of Thoughts 3 - GESAMT.ogg-3f956990505a0fdd8300615b8a8ca37e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
