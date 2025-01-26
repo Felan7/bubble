@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://bubble_in_out.gd" id="1_iqcdy"]
 [ext_resource type="AudioStream" uid="uid://bm4384asln4lc" path="res://art/sounds/bubble_out.ogg" id="2_e2ya6"]
 
-[node name="bubble_in_out" type="Node"]
+[node name="BubbleInOut" type="Node"]
 script = ExtResource("1_iqcdy")
 
 [node name="BubbleInSound" type="AudioStreamPlayer" parent="."]

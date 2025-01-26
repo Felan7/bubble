@@ -25,8 +25,9 @@ func _process(delta: float) -> void:
 			var target_node = get_node("finalBlocks")
 			if target_node:
 				target_node.visible = true
-			await get_tree().create_timer(3).timeout
-			get_tree().change_scene_to_file("res://scenes/M_World.tscn")
+
+			var parent = get_parent() as Playroom
+			parent._on_scene_end()
 
 
 func _on_body_entered(body: Node2D) -> void:

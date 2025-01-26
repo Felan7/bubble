@@ -74,6 +74,9 @@ func change_player_state(new_state: PLAYER_STATE) -> void:
 		death_sound.play()
 		music.stop()
 
+		var parent = get_parent() as Spawner
+		parent.on_player_death()
+
 func _physics_process(delta: float) -> void:
 
 	# Handle jump.
