@@ -1,8 +1,9 @@
-[gd_scene load_steps=87 format=3 uid="uid://cqfamqvpxfrb7"]
+[gd_scene load_steps=88 format=3 uid="uid://cva17lw6q36by"]
 
 [ext_resource type="Texture2D" uid="uid://ckge3qiqlouw8" path="res://art/sprites/Berg_1.png" id="1_63m1h"]
 [ext_resource type="Script" path="res://scenes/mountain.gd" id="1_hwwgo"]
 [ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_tnl51"]
+[ext_resource type="Gradient" uid="uid://cgbhvvxe0po56" path="res://scenes/mountain_sky_gradient.tres" id="2_hcsql"]
 [ext_resource type="Texture2D" uid="uid://chbj0csrie28f" path="res://art/animations/character_idle_animation/CharIdle0000.png" id="3_s4pcn"]
 [ext_resource type="Texture2D" uid="uid://bfbtivivx6dy2" path="res://art/animations/character_idle_animation/CharIdle0001.png" id="4_bj6pa"]
 [ext_resource type="Texture2D" uid="uid://ed1tw5j7x4vf" path="res://art/animations/character_idle_animation/CharIdle0002.png" id="5_kfy5w"]
@@ -75,12 +76,8 @@
 [ext_resource type="PackedScene" path="res://wolke_3.tscn" id="73_qfys3"]
 [ext_resource type="PackedScene" path="res://wolke_4.tscn" id="74_xlock"]
 
-[sub_resource type="Gradient" id="Gradient_l57y3"]
-offsets = PackedFloat32Array(0.00277008, 1)
-colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
-
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ihe2q"]
-gradient = SubResource("Gradient_l57y3")
+gradient = ExtResource("2_hcsql")
 width = 1080
 
 [sub_resource type="Gradient" id="Gradient_pokqx"]
@@ -290,6 +287,9 @@ stream_0/volume = 0.0
 stream_1/stream = ExtResource("60_xcghb")
 stream_1/volume = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebj5"]
+size = Vector2(423, 1132)
+
 [node name="mountain" type="Node2D"]
 script = ExtResource("1_hwwgo")
 
@@ -321,6 +321,18 @@ position = Vector2(1693, -810)
 scale = Vector2(2.075, 2.075)
 texture = ExtResource("1_63m1h")
 metadata/_edit_lock_ = true
+
+[node name="BackgroundMountain2" type="Sprite2D" parent="Parallax2D"]
+z_index = -2
+position = Vector2(5966, -810)
+scale = Vector2(2.075, 2.075)
+texture = ExtResource("1_63m1h")
+
+[node name="BackgroundMountain3" type="Sprite2D" parent="Parallax2D"]
+z_index = -2
+position = Vector2(10815, -810)
+scale = Vector2(2.075, 2.075)
+texture = ExtResource("1_63m1h")
 
 [node name="Vordergrund0_7" type="Parallax2D" parent="."]
 z_index = -3
@@ -673,6 +685,7 @@ autoplay = "idle"
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 offset = Vector2(0, -200)
 zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 stream = SubResource("AudioStreamRandomizer_bpofw")
@@ -800,3 +813,9 @@ z_index = 6
 position = Vector2(11619.4, 48.875)
 scale = Vector2(1.17857, 1.17857)
 texture = ExtResource("53_xruf1")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-319, -556)
+shape = SubResource("RectangleShape2D_5ebj5")
