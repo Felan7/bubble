@@ -487,6 +487,7 @@ script = ExtResource("66_p5qmg")
 
 [node name="Block_Little2" type="RigidBody2D" parent="." groups=["block"]]
 position = Vector2(244.808, 414.692)
+script = ExtResource("66_p5qmg")
 
 [node name="Block" type="Sprite2D" parent="Block_Little2"]
 texture = ExtResource("8_ixixk")
