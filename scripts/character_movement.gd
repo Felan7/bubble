@@ -111,32 +111,32 @@ const BUBBLES = [
 	{
 		"name" : "Mountains",
 		"target" : "mountain",
-		"x" : -1000,
-		"y" : 1000
+		"x" : -1800,
+		"y" : 600
 	},
 	{
 		"name" : "Eyes",
 		"target" : "follow_eyes",
-		"x" : 1000,
-		"y" : 0
+		"x" : 2000,
+		"y" : 1600
 	},
 	{
-		"name" : "bubble_youth_concert",
+		"name" : "Concert",
 		"target" : "concert",
-		"x" : 1000,
-		"y" : -1000
+		"x" : -500,
+		"y" : -1900
 	},
 	{
 		"name" : "Stargazing",
 		"target" : "stargazing",
-		"x" : -1000,
-		"y" : 0
+		"x" : -2400,
+		"y" : -1000
 	},
 	{
 		"name" : "Playroom",
 		"target" : "playroom",
-		"x" : 2200,
-		"y" : -1600
+		"x" : 1200,
+		"y" : -1000
 	}
 	
 ]
