@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://pj844pnopdal"
+path="res://.godot/imported/mountain_peak.dialogue-b8005ce986b461e5a048062d2f8c4a6e.tres"
+
+[deps]
+
+source_file="res://dialogues/mountain_peak.dialogue"
+dest_files=["res://.godot/imported/mountain_peak.dialogue-b8005ce986b461e5a048062d2f8c4a6e.tres"]
+
+[params]
+
+defaults=true
