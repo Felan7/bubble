@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhjh0848ilyru"]
 
-[ext_resource type="Script" path="res://concert.gd" id="1_8uj7t"]
+[ext_resource type="Script" path="res://scripts/concert.gd" id="1_8uj7t"]
 [ext_resource type="Texture2D" uid="uid://1y272y1abr5o" path="res://art/sprites/Konzert_Gesamt.png" id="2_2y2xm"]
-[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="3_bxaut"]
+[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://scenes/bubble_in_out.tscn" id="3_bxaut"]
 [ext_resource type="AudioStream" uid="uid://bflkcsufmevp6" path="res://art/music/Bubbles of Thoughts 3 - Konzert.wav" id="4_hea78"]
 
 [sub_resource type="Animation" id="Animation_riube"]

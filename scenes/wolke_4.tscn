@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmei3fudlpeds"]
 
-[ext_resource type="PackedScene" uid="uid://dw4ce7gmxag0n" path="res://wolke.tscn" id="1_u5567"]
+[ext_resource type="PackedScene" uid="uid://dw4ce7gmxag0n" path="res://scenes/wolke.tscn" id="1_u5567"]
 [ext_resource type="Texture2D" uid="uid://exxokeb424a0" path="res://art/sprites/wolke4.png" id="2_luefk"]
 
 [node name="wolke4" instance=ExtResource("1_u5567")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://502rlnoqluae"]
+[gd_scene load_steps=77 format=3 uid="uid://502rlnoqluae"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_2ntde"]
 [ext_resource type="Script" path="res://scripts/character_movement_topdown.gd" id="1_m706a"]
@@ -65,7 +65,8 @@
 [ext_resource type="Texture2D" uid="uid://bkqi26vadl3y6" path="res://art/sprites/busch_1.png" id="63_x1wvw"]
 [ext_resource type="Texture2D" uid="uid://616ehfaskacy" path="res://art/sprites/Felsen_1.png" id="64_1efd3"]
 [ext_resource type="Texture2D" uid="uid://iqhxotib50f7" path="res://art/sprites/Felsen_2.png" id="65_rsnsy"]
-[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://bubble_in_out.tscn" id="66_mavog"]
+[ext_resource type="PackedScene" uid="uid://if6hpx2oo4xh" path="res://scenes/bubble_in_out.tscn" id="66_mavog"]
+[ext_resource type="Texture2D" uid="uid://dfi5pfcml6ov0" path="res://art/sprites/beam_light.png" id="67_cwtu7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhvk0"]
 radius = 70.0
@@ -73,7 +74,7 @@ height = 265.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fcpod"]
 shader = ExtResource("2_6yl0l")
-shader_parameter/intensity = 0.32
+shader_parameter/intensity = 0.12
 shader_parameter/edge_fade = 0.6
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mpwh"]
@@ -252,17 +253,29 @@ random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("56_o2p6w")
 
-[sub_resource type="Environment" id="Environment_v2562"]
-background_mode = 3
-glow_enabled = true
-glow_intensity = 2.0
-glow_bloom = 0.2
-glow_hdr_threshold = 1.3
-adjustment_enabled = true
-adjustment_saturation = 0.5
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyiog"]
 size = Vector2(14504, 75)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1umnj"]
+radius = 38.0435
+height = 518.647
+
+[sub_resource type="Environment" id="Environment_7lkb3"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_exposure = 0.6
+tonemap_white = 4.0
+glow_enabled = true
+glow_intensity = 0.4
+glow_bloom = 0.5
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sx5wo"]
+radius = 17.5
+height = 277.718
 
 [node name="FollowEyes" type="Node2D"]
 y_sort_enabled = true
@@ -272,10 +285,12 @@ spawn_interval = 2.0
 spawn_area_size = Vector2(3000, 3000)
 
 [node name="GrassSeamlessTexture" type="Sprite2D" parent="."]
-modulate = Color(0.568973, 0.568973, 0.568973, 0.541176)
+modulate = Color(0.568627, 0.568627, 0.568627, 0.952941)
 z_index = -1
 texture_repeat = 2
 position = Vector2(3, -230)
+rotation = 0.10472
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("1_o8j0d")
 region_enabled = true
 region_rect = Rect2(-7313.95, -5393.23, 15117.5, 11528.1)
@@ -294,8 +309,8 @@ position = Vector2(0, -132)
 shape = SubResource("CapsuleShape2D_vhvk0")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(0, -232.5)
 offset = Vector2(0, 100)
-zoom = Vector2(0.75, 0.75)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="player"]
 material = SubResource("ShaderMaterial_fcpod")
@@ -324,9 +339,6 @@ autoplay = true
 stream = ExtResource("61_f4uob")
 volume_db = -6.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_v2562")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -348,6 +360,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_lyiog")
 
 [node name="Busch1" type="Sprite2D" parent="."]
+modulate = Color(3.27289e-06, 0.511369, 0.72456, 1)
 y_sort_enabled = true
 position = Vector2(-591, 116)
 scale = Vector2(0.525714, 0.525714)
@@ -355,6 +368,7 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -50)
 
 [node name="Busch2" type="Sprite2D" parent="."]
+modulate = Color(3.27289e-06, 0.511369, 0.72456, 1)
 y_sort_enabled = true
 position = Vector2(646, -517)
 scale = Vector2(0.48, 0.48)
@@ -362,6 +376,7 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -50)
 
 [node name="Busch3" type="Sprite2D" parent="."]
+modulate = Color(3.27289e-06, 0.511369, 0.72456, 1)
 y_sort_enabled = true
 position = Vector2(530, 398)
 scale = Vector2(0.582857, 0.582857)
@@ -369,6 +384,7 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -50)
 
 [node name="Busch4" type="Sprite2D" parent="."]
+modulate = Color(3.27289e-06, 0.511369, 0.72456, 1)
 y_sort_enabled = true
 position = Vector2(-1112, -1267)
 scale = Vector2(0.582857, 0.582857)
@@ -376,6 +392,7 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -50)
 
 [node name="Busch5" type="Sprite2D" parent="."]
+modulate = Color(3.27289e-06, 0.511369, 0.72456, 1)
 y_sort_enabled = true
 position = Vector2(2238, -956)
 scale = Vector2(0.525714, 0.525714)
@@ -383,96 +400,39 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -50)
 
 [node name="Busch6" type="Sprite2D" parent="."]
+modulate = Color(3.27289e-06, 0.511369, 0.72456, 1)
 y_sort_enabled = true
 position = Vector2(-1712, 1276)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -50)
 
-[node name="Felsen1" type="Sprite2D" parent="."]
+[node name="Stone_Big" type="StaticBody2D" parent="."]
+position = Vector2(1106, 1831)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen1" type="Sprite2D" parent="Stone_Big"]
+modulate = Color(0.473976, 0.473976, 0.473976, 1)
 y_sort_enabled = true
-position = Vector2(2449.33, 2639.75)
-scale = Vector2(0.837912, 0.837912)
+position = Vector2(2555.25, 1538.38)
+scale = Vector2(1.59386, 1.59386)
 texture = ExtResource("64_1efd3")
 offset = Vector2(0, -140)
 
-[node name="Felsen2" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-712, -348)
-scale = Vector2(0.64011, 0.64011)
-texture = ExtResource("64_1efd3")
-offset = Vector2(0, -140)
-
-[node name="Felsen3" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(1431.14, -1996)
-scale = Vector2(0.872253, 0.872253)
-texture = ExtResource("64_1efd3")
-offset = Vector2(0, -140)
-
-[node name="Felsen4" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-1986.32, 430.25)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
-[node name="Felsen5" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-2414, -1123)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
-[node name="Felsen6" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-1023, -2355)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
-[node name="Felsen7" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(1891.06, -2164.25)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
-[node name="Felsen8" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-2570, 2549)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
-[node name="Felsen9" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-496, 2190)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Big"]
+position = Vector2(2571.74, 1447.56)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1umnj")
 
 [node name="Busch7" type="Sprite2D" parent="."]
+modulate = Color(0.474052, 0.413299, 0.752402, 1)
 y_sort_enabled = true
 position = Vector2(1106, 1831)
 scale = Vector2(0.525714, 0.525714)
 texture = ExtResource("63_x1wvw")
 
-[node name="Felsen10" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(2590, 1003)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
-[node name="Felsen11" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(2622.33, 2412.75)
-scale = Vector2(0.667582, 0.667582)
-texture = ExtResource("65_rsnsy")
-offset = Vector2(0, -140)
-
 [node name="Busch8" type="Sprite2D" parent="."]
+modulate = Color(0.47451, 0.411765, 0.752941, 1)
 y_sort_enabled = true
 position = Vector2(2696.43, -2721.5)
 scale = Vector2(0.748572, 0.748572)
@@ -480,6 +440,7 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -40)
 
 [node name="Busch9" type="Sprite2D" parent="."]
+modulate = Color(0.47451, 0.411765, 0.752941, 1)
 y_sort_enabled = true
 position = Vector2(-2701, -2749)
 scale = Vector2(0.748572, 0.748572)
@@ -487,6 +448,7 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -40)
 
 [node name="Busch10" type="Sprite2D" parent="."]
+modulate = Color(0.47451, 0.411765, 0.752941, 1)
 y_sort_enabled = true
 position = Vector2(-2258, 2693)
 scale = Vector2(0.748572, 0.748572)
@@ -494,7 +456,378 @@ texture = ExtResource("63_x1wvw")
 offset = Vector2(0, -40)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.0313726, 0.188235, 0.32549, 1)
-energy = 0.3
+color = Color(0.0196554, 0.145358, 0.258449, 1)
+energy = 0.6
 
 [node name="BubbleInOut" parent="." instance=ExtResource("66_mavog")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7lkb3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -474)
+scale = Vector2(0.9, 0.9)
+color = Color(0.921569, 0.780392, 0, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("67_cwtu7")
+texture_scale = 1.5
+
+[node name="BeamLight" type="Sprite2D" parent="PointLight2D"]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(0, -112)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("67_cwtu7")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1864, 1335)
+scale = Vector2(0.7, 0.7)
+color = Color(0.921569, 0.780392, 0, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("67_cwtu7")
+texture_scale = 1.5
+
+[node name="BeamLight" type="Sprite2D" parent="PointLight2D2"]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(0, -112)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("67_cwtu7")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(-2150, 1980)
+scale = Vector2(0.7, 0.7)
+color = Color(0.921569, 0.780392, 0, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("67_cwtu7")
+texture_scale = 1.5
+
+[node name="BeamLight" type="Sprite2D" parent="PointLight2D3"]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(0, -112)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("67_cwtu7")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(-1787, -1926)
+scale = Vector2(0.7, 0.7)
+color = Color(0.921569, 0.780392, 0, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("67_cwtu7")
+texture_scale = 1.5
+
+[node name="BeamLight" type="Sprite2D" parent="PointLight2D4"]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(0, -112)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("67_cwtu7")
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(2262, -2297)
+scale = Vector2(0.7, 0.7)
+color = Color(0.921569, 0.780392, 0, 1)
+energy = 1.3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("67_cwtu7")
+texture_scale = 1.5
+
+[node name="BeamLight" type="Sprite2D" parent="PointLight2D5"]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(0, -112)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("67_cwtu7")
+
+[node name="Stone_Big2" type="StaticBody2D" parent="."]
+position = Vector2(-714, -310)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen1" type="Sprite2D" parent="Stone_Big2"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Big2"]
+position = Vector2(4.05009e-13, -108.424)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1umnj")
+
+[node name="Stone_Big3" type="StaticBody2D" parent="."]
+position = Vector2(1432, -1979)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen1" type="Sprite2D" parent="Stone_Big3"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Big3"]
+position = Vector2(3.62377e-13, -97.0109)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1umnj")
+
+[node name="Stone_Big4" type="StaticBody2D" parent="."]
+position = Vector2(1888, -2217)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Big4"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Big4"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small" type="StaticBody2D" parent="."]
+position = Vector2(-1028, -2409)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small2" type="StaticBody2D" parent="."]
+position = Vector2(-2384, -1197)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small2"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small2"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small3" type="StaticBody2D" parent="."]
+position = Vector2(-1976, 388)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small3"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small3"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small4" type="StaticBody2D" parent="."]
+position = Vector2(-2556, 2486)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small4"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small4"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small5" type="StaticBody2D" parent="."]
+position = Vector2(-496, 2139)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small5"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small5"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small6" type="StaticBody2D" parent="."]
+position = Vector2(-224, 890)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small6"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small6"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small8" type="StaticBody2D" parent="."]
+position = Vector2(2621, 2337)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small8"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small8"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small9" type="StaticBody2D" parent="."]
+position = Vector2(2461, 911)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small9"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small9"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small10" type="StaticBody2D" parent="."]
+position = Vector2(2036, -964)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small10"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small10"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Small11" type="StaticBody2D" parent="."]
+position = Vector2(981, -11.0001)
+scale = Vector2(0.525714, 0.525714)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Small11"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 123.642)
+scale = Vector2(1.59386, 1.59386)
+texture = ExtResource("65_rsnsy")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Small11"]
+position = Vector2(6.73997e-14, -38.0434)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Large" type="StaticBody2D" parent="."]
+position = Vector2(2273, -2129)
+scale = Vector2(0.8, 0.8)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Large"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(-6.25, 30)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Large"]
+position = Vector2(-7.10543e-15, -22.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Large2" type="StaticBody2D" parent="."]
+position = Vector2(-1768, -1720)
+scale = Vector2(0.8, 0.8)
+
+[node name="Felsen" type="Sprite2D" parent="Stone_Large2"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(-16.2502, 5.00015)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Large2"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Large3" type="StaticBody2D" parent="."]
+position = Vector2(-2131, 2164)
+scale = Vector2(0.8, 0.8)
+
+[node name="Felsen2" type="Sprite2D" parent="Stone_Large3"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 12.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Large3"]
+position = Vector2(0, -19.9998)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_sx5wo")
+
+[node name="Stone_Large4" type="StaticBody2D" parent="."]
+position = Vector2(1870, 1489)
+scale = Vector2(0.8, 0.8)
+
+[node name="Felsen2" type="Sprite2D" parent="Stone_Large4"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+y_sort_enabled = true
+position = Vector2(0, 30)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("64_1efd3")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone_Large4"]
+position = Vector2(0, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sx5wo")

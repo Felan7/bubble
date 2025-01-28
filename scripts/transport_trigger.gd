@@ -28,4 +28,6 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 		else:
 			player.change_movement_variant(player.MOVEMENT_VARIANT.WALKING)
 			self.is_player_inside = false
-			player.position = self.global_position
+			var target := get_node("Transport_Point_VFX")
+			if target:
+				player.position = target.global_position

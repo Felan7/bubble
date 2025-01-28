@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dha6x36uwgpc4"]
 
-[ext_resource type="Script" path="res://eyes_dialouge.gd" id="1_ksqwx"]
+[ext_resource type="Script" path="res://scripts/eyes_dialouge.gd" id="1_ksqwx"]
 [ext_resource type="Texture2D" uid="uid://bwsyursthv7lr" path="res://art/sprites/KinderZeichnung.png" id="2_lbu6q"]
 
 [node name="eyes_dialouge" type="Node2D"]

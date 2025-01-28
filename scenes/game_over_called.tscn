@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game_over_called.gd" id="1_cwy7b"]
 [ext_resource type="AudioStream" uid="uid://bsx2viid08nj2" path="res://art/sounds/phone_dial.ogg" id="1_xvre6"]
-[ext_resource type="AudioStream" uid="uid://krutx30uub4b" path="res://art/music/Bubbles of Thoughts 3 - GESAMT.wav" id="3_sj0fa"]
+[ext_resource type="AudioStream" uid="uid://vr28c3m861le" path="res://art/music/Bubbles of Thoughts 3 - GESAMT.ogg" id="3_sj0fa"]
 
 [node name="game_over_called" type="Node2D"]
 script = ExtResource("1_cwy7b")
